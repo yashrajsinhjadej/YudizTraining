@@ -93,6 +93,7 @@ function checkedge(row,column)
     console.log('checkedge done')
     return true 
 }
+
 function setregion(row,colums){
     for(i=0;i<5;i++){
         for(j=0;j<5;j++){
@@ -102,12 +103,14 @@ function setregion(row,colums){
         }
     }
 }
+
 function setoccupied(row,column){
     for(i=0;i<5;i++){
         matrix[row][i].isoccupied=true
         matrix[i][column].isoccupied=true
     }
 }
+
 
 function setedge(row,column){
     var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]

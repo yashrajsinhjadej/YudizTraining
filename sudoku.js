@@ -2,6 +2,7 @@ var readlineSync = require('readline-sync');
 
 
 class checkvalue{
+    
     constructor(matrix){
         this.matrix=matrix
     }
@@ -9,7 +10,7 @@ class checkvalue{
 
     printmatrix(){
         console.table(this.matrix.map(row => 
-            row.map(cell => `V:${cell.value} | R:${cell.region} | P:${cell.isoccupied}`)
+            row.map(cell => `V:${cell.value} | R:${cell.region}`)
         ));
         
     }
@@ -27,7 +28,6 @@ class checkvalue{
             continue
         }
         let checkstatus=this.check(row,column)
-        console.log(checkstatus)
         if (checkstatus==true){
             counter+=1
             this.matrix[row][column].value=1
@@ -41,10 +41,9 @@ class checkvalue{
             break
         }
         let flag=this.checkgameover()
-        console.log('flag',flag)
         if(flag){
-                console.log('game over you cant win')
-                this.printmatrix()
+            this.printmatrix()
+            console.log('game over you cant win')
                 break     
             }
         }
@@ -77,7 +76,7 @@ class checkvalue{
             return false
         }
         else{
-            console.log('check colum done ')
+           
             return this.checkRegion(row,column)
 
         }
@@ -112,7 +111,7 @@ class checkvalue{
                     
             }
         }
-        console.log('checkedge done')
+        
         return true 
     }
     setregion(row,colums){
@@ -133,7 +132,6 @@ class checkvalue{
     setedge(row,column){
         var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
         for(let i=0;i<4;i++){
-            console.log(matrix1[i][0])
             let newrow=row-matrix1[i][0]
             let newcolumn=column-matrix1[i][1]
             if (newrow>=0 && newrow<5 && newcolumn>=0 && newcolumn<5){
@@ -144,30 +142,24 @@ class checkvalue{
 
 
 
-console.log('Welcome to the Game')
-const matrix = [
-    [{ value: 0, region: 'pink', isoccupied: false }, { value: 0, region: 'pink', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'blue', isoccupied: false }],
-    [{ value: 0, region: 'pink', isoccupied: false }, { value: 0, region: 'pink', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'blue', isoccupied: false }],
-    [{ value: 0, region: 'pink', isoccupied: false }, { value: 0, region: 'red', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'yellow', isoccupied: false }, { value: 0, region: 'blue', isoccupied: false }],
-    [{ value: 0, region: 'red', isoccupied: false }, { value: 0, region: 'red', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'yellow', isoccupied: false }, { value: 0, region: 'yellow', isoccupied: false }],
-    [{ value: 0, region: 'red', isoccupied: false }, { value: 0, region: 'red', isoccupied: false }, { value: 0, region: 'grey', isoccupied: false }, { value: 0, region: 'yellow', isoccupied: false }, { value: 0, region: 'yellow', isoccupied: false }],
-];
 
 
 class MakeGame {
     constructor(){
         this.matrix = [
-            [{ value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }],
-            [{ value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }],
-            [{ value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }],
-            [{ value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }],
-            [{ value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }, { value: 0, region: '', isoccupied: 0 }],
+            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
+            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
+            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
+            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
+            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
         ];
         this.tempmatrix=this.matrix
+        this.color=['red','yellow','green','blue','orange']
+        this.matrixlist=[]
     }
     printmatrix(){
         console.table(this.matrix.map(row => 
-            row.map(cell => `V:${cell.value} | R:${cell.region} | P:${cell.isoccupied}`)
+            row.map(cell => `V:${cell.value} | R:${cell.region}`)
         ));
         
     }
@@ -187,18 +179,51 @@ class MakeGame {
             }
             }
             if(counter==5){
-                console.log('returned wrong matrix')
-                this.printmatrix()
                 return false
             }
             if(temparr.length<=0){
-                console.log('returned wrong matrix')
-                this.printmatrix()
                 return false}
             this.assignspot(temparr)
         }
+        this.assigncolor()
+
         return true 
     }
+
+    assigncolor(){
+        var temp=0
+        while(this.matrixlist.length>0){
+            var random=Math.floor(Math.random() * this.matrixlist.length);
+            var [row,column]=this.matrixlist[random]
+            var plus=[]
+            var tomakeplus=[[-1,0],[0,1],[1,0],[0,-1]]
+            for(let i=0;i<4;i++)
+            {
+                var [k,p]=tomakeplus[i]
+                var [newRow, newCol] = [row + k, column + p];
+                if(newRow >= 0 && newRow < 5 && newCol >= 0 && newCol < 5){
+                    if(this.matrix[newRow][newCol].region==' '){
+                        
+                    plus.push([newRow,newCol])
+                }
+                }
+                else{
+                    continue
+                }
+            }
+            if(plus.length===0){  
+                this.matrixlist = this.matrixlist.filter(([r, c]) => !(r === row && c === column));
+            }
+            else{
+                var random2=Math.floor(Math.random() * plus.length);
+                var [newrow1,newcolumn1]=plus[random2]
+                this.matrix[newrow1][newcolumn1].region=this.matrix[row][column].region
+                this.matrixlist.push([newrow1, newcolumn1]);
+            }
+            }
+        }
+
+
     findedge(row,column){
         var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
         for(let i=0;i<4;i++){
@@ -218,13 +243,14 @@ class MakeGame {
     assignspot(temparr){
         var max=temparr.length
         var outcomes=Math.floor(Math.random() * max); 
-
         this.setvalue(temparr[outcomes])
         
     }
 
     setvalue([row,column]){
+        this.matrixlist.push([row,column])
         this.matrix[row][column].value=1
+        this.matrix[row][column].region=this.color.pop()
         for(let i=0;i<5;i++){
             this.matrix[row][i].isoccupied+=1
             this.matrix[i][column].isoccupied+=1
@@ -235,16 +261,27 @@ class MakeGame {
     {return this.matrix}
 }
 
- 
 
-
-var start = new checkvalue(matrix)
-// start.startgame()
 while (true){
     var makegame=new MakeGame()
-    console.log('1')
-if(makegame.findspot()){
-    break
+    if(makegame.findspot()){
+        break
+    }
 }
+console.log('solution to the game')
+makegame.printmatrix()
+
+const matrix = makegame.getmatix()
+
+for(let i=0;i<5;i++){
+    for(let j=0;j<5;j++){
+        matrix[i][j].isoccupied=false
+        if(matrix[i][j].value==1){
+            matrix[i][j].value=0
+        }
+    }
 }
-console.log(makegame.printmatrix())
+
+console.log('startgame')
+var start = new checkvalue(matrix)
+start.startgame()

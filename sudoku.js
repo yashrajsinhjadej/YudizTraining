@@ -3,8 +3,9 @@ var readlineSync = require('readline-sync');
 
 class checkvalue{
     
-    constructor(matrix){
+    constructor(matrix,grid){
         this.matrix=matrix
+        this.size=grid
     }
 
 
@@ -23,7 +24,7 @@ class checkvalue{
         if (choice==1){
         let row = readlineSync.question('enter the row number');
         let column = readlineSync.question('enter the column number');
-        if (row<0 || row>5 || column<0 || column>5 ){
+        if (row<0 || row>this.size || column<0 || column>this.size ){
             console.log('invalid try again')
             continue
         }
@@ -35,7 +36,7 @@ class checkvalue{
             this.setoccupied(row,column)
             this.setregion(row,column)
             this.setedge(row,column)
-        if(counter==5){ 
+        if(counter==this.size){ 
             console.log('congratulations you won the game')
             this.printmatrix()
             break
@@ -62,8 +63,8 @@ class checkvalue{
     }}
 
     checkgameover(){
-        for(let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
+        for(let i=0;i<this.size;i++){
+            for (let j=0;j<this.size;j++){
                 if (this.matrix[i][j].isoccupied==false){
                     return false
                 }
@@ -84,16 +85,14 @@ class checkvalue{
     checkRegion(row,column)
     {
         var reg=this.matrix[row][column].region
-        for(let i=0;i<5;i++){
-        for(let j=0;j<5;j++){
+        for(let i=0;i<this.size;i++){
+        for(let j=0;j<this.size;j++){
             if(this.matrix[i][j].region==reg){
                 if(this.matrix[i][j].value==1){
-                
                     return false
                 }
         }
         }
-        
         return this.checkedge(row,column)
         }}
 
@@ -103,7 +102,7 @@ class checkvalue{
         for(let i=0;i<4;i++){
             let  newrow=row-matrix1[i][0]
         let  newcolumn=column-matrix1[i][1]
-            if(newrow>=0 &&newrow<5 &&newcolumn>=0&&newcolumn<5){
+            if(newrow>=0 &&newrow<this.size &&newcolumn>=0&&newcolumn<this.size){
                 if (this.matrix[newrow][newcolumn].value==1)
                     {
                         return false
@@ -115,15 +114,15 @@ class checkvalue{
         return true 
     }
     setregion(row,colums){
-        for(let i=0;i<5;i++){
-            for(let j=0;j<5;j++){
+        for(let i=0;i<this.size;i++){
+            for(let j=0;j<this.size;j++){
                 if(this.matrix[i][j].region==this.matrix[row][colums].region){
                     this.matrix[i][j].isoccupied=true
                 }
             }
         }
     } setoccupied(row,column){
-        for(let i=0;i<5;i++){
+        for(let i=0;i<this.size;i++){
             this.matrix[row][i].isoccupied=true
             this.matrix[i][column].isoccupied=true
         }
@@ -134,7 +133,7 @@ class checkvalue{
         for(let i=0;i<4;i++){
             let newrow=row-matrix1[i][0]
             let newcolumn=column-matrix1[i][1]
-            if (newrow>=0 && newrow<5 && newcolumn>=0 && newcolumn<5){
+            if (newrow>=0 && newrow<this.size && newcolumn>=0 && newcolumn<this.size){
                 this.matrix[newrow][newcolumn].isoccupied=true
             }
     }}
@@ -145,16 +144,13 @@ class checkvalue{
 
 
 class MakeGame {
-    constructor(){
-        this.matrix = [
-            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
-            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
-            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
-            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
-            [{ value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }, { value: 0, region: ' ', isoccupied: 0 }],
-        ];
-        this.tempmatrix=this.matrix
-        this.color=['red','yellow','green','blue','orange']
+    constructor(grid){
+        this.size=grid  //size of the matrix
+        this.matrix = Array.from({ length: this.size }, () =>//creating a matrix of dynamic size  
+            Array.from({ length: this.size }, () => ({ value: 0, region: ' ', isoccupied: false }))
+        );
+        this.tempmatrix=this.matrix //copy of the matrix
+        this.color=['red','yellow','green','blue','orange','pink','brown','black','white'] //colors to be assigned to the regions
         this.matrixlist=[]
     }
     printmatrix(){
@@ -165,10 +161,10 @@ class MakeGame {
     }
 
     findspot(){
-        for(let i=0;i<5;i++){
+        for(let i=0;i<this.size;i++){
             var temparr=[]
             var counter=0
-            for (let j =0;j<5;j++){
+            for (let j =0;j<this.size;j++){
                 if(this.matrix[j][i].isoccupied==0){
                     if (this.findedge(j,i)){
                     temparr.push([j,i])
@@ -201,7 +197,7 @@ class MakeGame {
             {
                 var [k,p]=tomakeplus[i]
                 var [newRow, newCol] = [row + k, column + p];
-                if(newRow >= 0 && newRow < 5 && newCol >= 0 && newCol < 5){
+                if(newRow >= 0 && newRow < this.size && newCol >= 0 && newCol < this.size){
                     if(this.matrix[newRow][newCol].region==' '){
                         
                     plus.push([newRow,newCol])
@@ -229,7 +225,7 @@ class MakeGame {
         for(let i=0;i<4;i++){
             let  newrow=row-matrix1[i][0]
         let  newcolumn=column-matrix1[i][1]
-            if(newrow>=0 &&newrow<5 &&newcolumn>=0&&newcolumn<5){
+            if(newrow>=0 &&newrow<this.size &&newcolumn>=0&&newcolumn<this.size){
                 if (this.matrix[newrow][newcolumn].value==1)
                     {
                         return false
@@ -251,7 +247,7 @@ class MakeGame {
         this.matrixlist.push([row,column])
         this.matrix[row][column].value=1
         this.matrix[row][column].region=this.color.pop()
-        for(let i=0;i<5;i++){
+        for(let i=0;i<this.size;i++){
             this.matrix[row][i].isoccupied+=1
             this.matrix[i][column].isoccupied+=1
         }
@@ -261,9 +257,14 @@ class MakeGame {
     {return this.matrix}
 }
 
+const grid =readlineSync.question('enter the size of the grid [5-9]')
+if (grid<5 || grid>9){
+    console.log('invalid')
+    return
+}
 
 while (true){
-    var makegame=new MakeGame()
+    var makegame=new MakeGame(grid)
     if(makegame.findspot()){
         break
     }
@@ -272,9 +273,8 @@ console.log('solution to the game')
 makegame.printmatrix()
 
 const matrix = makegame.getmatix()
-
-for(let i=0;i<5;i++){
-    for(let j=0;j<5;j++){
+for(let i=0;i<grid;i++){
+    for(let j=0;j<grid;j++){
         matrix[i][j].isoccupied=false
         if(matrix[i][j].value==1){
             matrix[i][j].value=0

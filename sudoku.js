@@ -91,7 +91,7 @@
                 Array.from({ length: this.size }, () => ({ value: 0,region: ' '}))
             );
             this.tempmatrix=this.matrix //copy of the matrix
-            this.color=this.color=['red','yellow','green','blue','orange','purple','aqua','lavender'] //colors to be assigned to the regions
+            this.color=this.color=['indigo','yellow','green','blue','orange','purple','aqua','lavender'] //colors to be assigned to the regions
             this.matrixlist=[]
         }
         printmatrix(){
@@ -270,7 +270,7 @@
 
 
         function handleClick (event) {
-            let text=document.createTextNode('✨')
+            let text=document.createTextNode('♛')
             let message=document.getElementById('message')
             message.innerHTML=' '
             let box=event.target 
@@ -304,10 +304,12 @@
                         // startobj.printmatrix()
                 }
                 else{
-                    message.innerHTML=' '
-                    text="NOT POSSIBLE"
-                    textcontent=document.createTextNode(text)
-                    message.appendChild(textcontent)
+                    let originalColor = box.style.backgroundColor;
+                    box.style.backgroundColor = "red";
+                    setTimeout(() => {
+                        box.style.backgroundColor = originalColor;
+                        
+                    }, 500);
                 }
 
             }}

@@ -1,156 +1,88 @@
-var readlineSync = require('readline-sync');
+let sizeofmatrix = 0
+let counter=0
+let form1=document.getElementById('myform')
+form1.addEventListener('submit',function(){
+        event.preventDefault()//stops form from refreshing the page'
+        let size=document.getElementById('size').value
+        sizeofmatrix=size
+        if(size>4 && size<10){
+            let matrix1=game(size)  //creating the game with random color and random solution 
+            
+            
+            // displaying this matrix in frontend 
+            let container=document.getElementById('container1')
+            container.innerHTML='  '
+            container.style.border='1px solid black'
+            container.style.height=size*50
+            container.style.width=size*50
+            for(let i=0;i<size;i++){
+                divinsidecontainer=document.createElement('div')
+                divinsidecontainer.setAttribute('id',`${i}`)
+                for(let j=0;j<size;j++){
+                    box=document.createElement('div')
+                    box.setAttribute("id",`${j} ${i}`)
+                    box.setAttribute('class','box')
+                    box.style.backgroundColor=matrix1[j][i].region
+                    box.style.border="1px solid black"
+                    box.style.height="50px"
+                    box.style.width='50px'
+                    divinsidecontainer.appendChild(box)
+                }
+                container.appendChild(divinsidecontainer)
+            }
 
 
-class checkvalue{
-    
-    constructor(matrix,grid){
-        this.matrix=matrix
-        this.size=grid
-    }
+            //removing the queen position from the solution
+            let matrix=removequeen(matrix1,size)
 
-
-    printmatrix(){
-        console.table(this.matrix.map(row => 
-            row.map(cell => `V:${cell.value} | R:${cell.region}`)
-        ));
+            //starting the game 
+            start(matrix,size)
+            let queen=document.getElementById('container1')
+            counter=0
+            queen.addEventListener('click',handleClick)
         
-    }
+        }
+})
 
-    startgame(){
-        var counter =0
-        while (true){
-        this.printmatrix()
-        let choice = readlineSync.question('choose 1 to add the star , choose 2 to delete , choose 3 to exit')
-        if (choice==1){
-        let row = readlineSync.question('enter the row number');
-        let column = readlineSync.question('enter the column number');
-        if (row<0 || row>this.size || column<0 || column>this.size ){
-            console.log('invalid try again')
-            continue
-        }
-        let checkstatus=this.check(row,column)
-        if (checkstatus==true){
-            counter+=1
-            this.matrix[row][column].value=1
-            this.matrix[row][column].isoccupied=true
-            this.setoccupied(row,column)
-            this.setregion(row,column)
-            this.setedge(row,column)
-        if(counter==this.size){ 
-            console.log('congratulations you won the game')
-            this.printmatrix()
-            break
-        }
-        let flag=this.checkgameover()
-        if(flag){
-            this.printmatrix()
-            console.log('game over you cant win')
-                break     
-            }
-        }
-        else
-        {
-            console.log('invalid')
-        }
-        }
-        else if(choice==3){
-        break
-        }
-        else{
-        continue
-        }
-
-    }}
-
-    checkgameover(){
-        for(let i=0;i<this.size;i++){
-            for (let j=0;j<this.size;j++){
-                if (this.matrix[i][j].isoccupied==false){
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    check(row,column){
-        if (this.matrix[row][column].isoccupied==true){
-            return false
-        }
-        else{
-           
-            return this.checkRegion(row,column)
-
-        }
-    }
-    checkRegion(row,column)
-    {
-        var reg=this.matrix[row][column].region
-        for(let i=0;i<this.size;i++){
-        for(let j=0;j<this.size;j++){
-            if(this.matrix[i][j].region==reg){
-                if(this.matrix[i][j].value==1){
-                    return false
-                }
-        }
-        }
-        return this.checkedge(row,column)
-        }}
-
-    checkedge(row,column)
-    {
-        var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
-        for(let i=0;i<4;i++){
-            let  newrow=row-matrix1[i][0]
-        let  newcolumn=column-matrix1[i][1]
-            if(newrow>=0 &&newrow<this.size &&newcolumn>=0&&newcolumn<this.size){
-                if (this.matrix[newrow][newcolumn].value==1)
-                    {
-                        return false
-                    }
-                    
-            }
-        }
-        
-        return true 
-    }
-    setregion(row,colums){
-        for(let i=0;i<this.size;i++){
-            for(let j=0;j<this.size;j++){
-                if(this.matrix[i][j].region==this.matrix[row][colums].region){
-                    this.matrix[i][j].isoccupied=true
-                }
-            }
-        }
-    } setoccupied(row,column){
-        for(let i=0;i<this.size;i++){
-            this.matrix[row][i].isoccupied=true
-            this.matrix[i][column].isoccupied=true
-        }
-    }
-
-    setedge(row,column){
-        var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
-        for(let i=0;i<4;i++){
-            let newrow=row-matrix1[i][0]
-            let newcolumn=column-matrix1[i][1]
-            if (newrow>=0 && newrow<this.size && newcolumn>=0 && newcolumn<this.size){
-                this.matrix[newrow][newcolumn].isoccupied=true
-            }
-    }}
+function start(matrix,size){
+    startobj=new checkvalue(matrix,size)
 }
 
 
+function game(size){
+while (true){
+    var makegame=new MakeGame(size)
+    if(makegame.findspot()){
+        break
+    }
+}
+console.log('solution to the game')
+makegame.printmatrix()
+let matrix=makegame.getmatix()
 
-
+return matrix
+}
+function removequeen(matrix,grid){
+    for(let i=0;i<grid;i++){
+        for(let j=0;j<grid;j++){
+            matrix[i][j].isoccupied=false
+            if(matrix[i][j].value==1){
+                matrix[i][j].value=0
+            }
+        }
+    }
+    return matrix
+}
 
 class MakeGame {
     constructor(grid){
+        console.log(grid)
         this.size=grid  //size of the matrix
         this.matrix = Array.from({ length: this.size }, () =>//creating a matrix of dynamic size  
             Array.from({ length: this.size }, () => ({ value: 0, region: ' ', isoccupied: false }))
         );
         this.tempmatrix=this.matrix //copy of the matrix
-        this.color=['red','yellow','green','blue','orange','pink','brown','black','white'] //colors to be assigned to the regions
+        this.color=this.color=['red','yellow','green','blue','orange','purple','aqua','lavender'] //colors to be assigned to the regions
         this.matrixlist=[]
     }
     printmatrix(){
@@ -257,31 +189,145 @@ class MakeGame {
     {return this.matrix}
 }
 
-const grid =readlineSync.question('enter the size of the grid [5-9]')
-if (grid<5 || grid>9){
-    console.log('invalid')
-    return
-}
 
-while (true){
-    var makegame=new MakeGame(grid)
-    if(makegame.findspot()){
-        break
+
+
+class checkvalue{
+    
+    constructor(matrix,grid){
+        this.matrix=matrix
+        this.size=grid
     }
-}
-console.log('solution to the game')
-makegame.printmatrix()
 
-const matrix = makegame.getmatix()
-for(let i=0;i<grid;i++){
-    for(let j=0;j<grid;j++){
-        matrix[i][j].isoccupied=false
-        if(matrix[i][j].value==1){
-            matrix[i][j].value=0
+
+    printmatrix(){
+        console.table(this.matrix.map(row => 
+            row.map(cell => `V:${cell.value} | R:${cell.region}`)
+        ));
+        
+    }
+
+    
+
+    checkgameover(){
+        for(let i=0;i<this.size;i++){
+            for (let j=0;j<this.size;j++){
+                if (this.matrix[i][j].isoccupied==false){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    check(row,column){
+        if (this.matrix[row][column].isoccupied==true){
+            return false
+        }
+        else{
+           
+            return this.checkRegion(row,column)
+
         }
     }
-}
+    checkRegion(row,column)
+    {
+        var reg=this.matrix[row][column].region
+        for(let i=0;i<this.size;i++){
+        for(let j=0;j<this.size;j++){
+            if(this.matrix[i][j].region==reg){
+                if(this.matrix[i][j].value==1){
+                    return false
+                }
+        }
+        }
+        return this.checkedge(row,column)
+        }}
 
-console.log('startgame')
-var start = new checkvalue(matrix)
-start.startgame()
+    checkedge(row,column)
+    {
+        var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
+        for(let i=0;i<4;i++){
+            let  newrow=row-matrix1[i][0]
+        let  newcolumn=column-matrix1[i][1]
+            if(newrow>=0 &&newrow<this.size &&newcolumn>=0&&newcolumn<this.size){
+                if (this.matrix[newrow][newcolumn].value==1)
+                    {
+                        return false
+                    }
+                    
+            }
+        }
+        
+        return true 
+    }
+    setregion(row,colums){
+        for(let i=0;i<this.size;i++){
+            for(let j=0;j<this.size;j++){
+                if(this.matrix[i][j].region==this.matrix[row][colums].region){
+                    this.matrix[i][j].isoccupied=true
+                }
+            }
+        }
+    } setoccupied(row,column){
+        for(let i=0;i<this.size;i++){
+            this.matrix[row][i].isoccupied=true
+            this.matrix[i][column].isoccupied=true
+        }
+    }
+
+    setedge(row,column){
+        var matrix1=[[-1,-1],[-1,1],[1,-1],[1,1]]
+        for(let i=0;i<4;i++){
+            let newrow=row-matrix1[i][0]
+            let newcolumn=column-matrix1[i][1]
+            if (newrow>=0 && newrow<this.size && newcolumn>=0 && newcolumn<this.size){
+                this.matrix[newrow][newcolumn].isoccupied=true
+            }
+    }}
+
+    }
+
+
+
+    function handleClick (event) {
+        let text=document.createTextNode('👑')
+        //  console.log(event.target)
+         let box=event.target 
+         if(box.className=='box'){
+            let rowcolumn=box.id
+            let [row,col]=rowcolumn.split(' ')
+            console.log(row,col)
+         
+            let checkstatus=startobj.check(row,col)
+            if(checkstatus==true)
+                {
+                    counter+=1
+                    console.log(counter)
+                    startobj.matrix[row][col].value=1
+                    startobj.matrix[row][col].isoccupied=true
+                    startobj.setoccupied(row,col)
+                    startobj.setregion(row,col)
+                    startobj.setedge(row,col)
+                    box.appendChild(text)
+                    if(counter==sizeofmatrix){
+                        console.log('congratulation you won the game')
+                    }
+                    startobj.printmatrix()
+            }
+            else{
+                console.log('invalid')
+            }
+            let flag=startobj.checkgameover()
+            if(flag && counter!=5){
+                console.log(counter)
+                console.log('game over')
+                queen=document.getElementById('container1')
+                console.log(queen)
+                queen.removeEventListener('click',handleClick)
+            }
+    
+         }
+    }
+
+
+

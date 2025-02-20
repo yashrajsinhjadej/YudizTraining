@@ -5,10 +5,10 @@ form1.addEventListener('submit',function(){
         event.preventDefault()//stops form from refreshing the page'
         let size=document.getElementById('size').value
         sizeofmatrix=size
+        let message=document.getElementById('message')
         if(size>4 && size<10){
             let matrix1=game(size)  //creating the game with random color and random solution 
-            
-            
+            message.innerHTML=' '
             // displaying this matrix in frontend 
             let container=document.getElementById('container1')
             container.innerHTML='  '
@@ -41,6 +41,12 @@ form1.addEventListener('submit',function(){
             counter=0
             queen.addEventListener('click',handleClick)
         
+        }
+        else{
+           text='Enter Valid Number'
+            message.innerHTML=' '
+            let textcontent = document.createTextNode(text)
+            message.appendChild(textcontent)
         }
 })
 
@@ -76,7 +82,6 @@ function removequeen(matrix,grid){
 
 class MakeGame {
     constructor(grid){
-        console.log(grid)
         this.size=grid  //size of the matrix
         this.matrix = Array.from({ length: this.size }, () =>//creating a matrix of dynamic size  
             Array.from({ length: this.size }, () => ({ value: 0, region: ' ', isoccupied: false }))
@@ -291,38 +296,48 @@ class checkvalue{
 
     function handleClick (event) {
         let text=document.createTextNode('👑')
-        //  console.log(event.target)
+        let message=document.getElementById('message')
+        message.innerHTML=' '
          let box=event.target 
          if(box.className=='box'){
             let rowcolumn=box.id
             let [row,col]=rowcolumn.split(' ')
-            console.log(row,col)
+            
          
             let checkstatus=startobj.check(row,col)
             if(checkstatus==true)
                 {
                     counter+=1
-                    console.log(counter)
+    
                     startobj.matrix[row][col].value=1
                     startobj.matrix[row][col].isoccupied=true
                     startobj.setoccupied(row,col)
                     startobj.setregion(row,col)
                     startobj.setedge(row,col)
                     box.appendChild(text)
+                    
                     if(counter==sizeofmatrix){
-                        console.log('congratulation you won the game')
+                        let queen=document.getElementById('container1')
+                        text='You Won'
+                        textcontent=document.createTextNode(text)
+                        message.appendChild(textcontent)
+                        queen.removeEventListener('click',handleClick)
                     }
-                    startobj.printmatrix()
+                    // startobj.printmatrix()
             }
             else{
-                console.log('invalid')
+                message.innerHTML=' '
+                text='invalid'
+                textcontent=document.createTextNode(text)
+                message.appendChild(textcontent)
             }
             let flag=startobj.checkgameover()
             if(flag && counter!=5){
-                console.log(counter)
-                console.log('game over')
+                message.innerHTML=' '
+                text='Game Over'
+                textcontent=document.createTextNode(text)
+                message.appendChild(textcontent)
                 queen=document.getElementById('container1')
-                console.log(queen)
                 queen.removeEventListener('click',handleClick)
             }
     

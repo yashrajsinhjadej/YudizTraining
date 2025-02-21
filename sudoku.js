@@ -87,12 +87,18 @@
     class MakeGame {
         constructor(grid){
             this.size=grid  //size of the matrix
-            this.matrix = Array.from({ length: this.size }, () =>//creating a matrix of dynamic size  
-                Array.from({ length: this.size }, () => ({ value: 0,region: ' '}))
-            );
+            this.matrix=[]
+            for(let i=0;i<this.size;i++){  //making default matrix of size n 
+                let templist=[]
+                for(let j=0;j<this.size;j++){
+                    templist.push({'value':0,'region':' '})
+                }
+                this.matrix.push(templist)
+            }
+            // this.printmatrix()
             this.tempmatrix=this.matrix //copy of the matrix
             this.color=this.color=['indigo','yellow','green','blue','orange','purple','aqua','lavender'] //colors to be assigned to the regions
-            this.matrixlist=[]
+            this.matrixlist=[]   // to store all the queens coordinate 
         }
         printmatrix(){
             console.table(this.matrix.map(row => 
@@ -125,7 +131,7 @@
                     }
                 }
                 }
-                if(counter==5){
+                if(counter==5){  //exits when no possible value is there 
                     return false
                 }
                 if(temparr.length<=0){
@@ -161,7 +167,15 @@
                     }
                 }
                 if(plus.length===0){  
-                    this.matrixlist = this.matrixlist.filter(([r, c]) => !(r === row && c === column));
+                let newMatrixList = [];
+                for (let i = 0; i < this.matrixlist.length; i++) {
+                    let [r, c] = this.matrixlist[i];
+                    if (!(r === row && c === column)) {
+                        newMatrixList.push([r, c]);
+                }
+        }
+        this.matrixlist = newMatrixList;
+                    
                 }
                 else{
                     var random2=Math.floor(Math.random() * plus.length);

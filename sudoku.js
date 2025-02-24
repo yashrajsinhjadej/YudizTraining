@@ -333,6 +333,8 @@
                         // console.log(counter,'counter of add')
                         if(counter==sizeofmatrix){
                             let queen=document.getElementById('container1')
+                            let hint = document.getElementById('hint')
+                            hint.removeEventListener('click',hint)
                             text='You Won'
                             textcontent=document.createTextNode(text)
                             message.appendChild(textcontent)
@@ -368,7 +370,7 @@
            let message1=document.getElementById('message')
            message1.innerHTML=' '
            tempmatrix1=userinput
-           textrow=''
+
            for(let i=0;i<tempmatrix1.length;i++){ //to iterate over the userinput 
                 let [userrow,usercol]=tempmatrix1[i]
                 userrow=parseInt(userrow)
@@ -387,9 +389,33 @@
                     userinput=tempmatrix2
                     counter-=1
                 }
-        }
+                 }
+        // console.log(userinput)
+        console.log(solutionmatrix)
+        let text=''
+        for(let i=0;i<solutionmatrix.length;i++)
+            {
+                let [row,col]=solutionmatrix[i]
+                if(checkexist1(row,col)){
+                    console.log('hello')
+                    continue
+                }
+                else{
+                    text+=`Try This :(${row},${col})`
+                    break
+                }
+            }
+            let textContent=document.createTextNode(text)
+            message1.appendChild(textContent)
          }  
-
+         function checkexist1(row,col){
+            for(let i=0;i<userinput.length;i++){
+                if(userinput[i][0]==row && userinput[i][1]==col){
+                    return true
+                }
+            }
+            return false
+        }
         let hint1=document.getElementById('hint')
         hint1.addEventListener('click',hint)
 

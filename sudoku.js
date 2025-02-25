@@ -130,7 +130,7 @@
         findspot(){
             for(let i=0;i<this.size;i++){
                 var temparr=[]
-                var counter=0
+                let counter=0
                 for (let j =0;j<this.size;j++){
                     if(this.checkrowcol(j,i)){
                         if (this.findedge(j,i)){    
@@ -347,8 +347,7 @@
                     box.style.backgroundColor = "red";
                     setTimeout(() => {
                         box.style.backgroundColor = originalColor;
-                        
-                    }, 500);
+                    }, 100);
                 }
 
             }}
@@ -397,7 +396,7 @@
             {
                 let [row,col]=solutionmatrix[i]
                 if(checkexist1(row,col)){
-                    console.log('hello')
+                    // console.log('hello')
                     continue
                 }
                 else{
@@ -420,9 +419,40 @@
         hint1.addEventListener('click',hint)
 
 
-                       
-                        
-                        
+        let reset1=document.getElementById('reset')
+        reset1.addEventListener('click',reset)
+        
+        function reset(){
+            counter=0
+            let matrix=startobj.matrix
+            for(let i=0;i<matrix.length;i++){
+                for(let j=0;j<matrix.length;j++){
+                    matrix[j][i].value=0
+                    let box1=document.getElementById(`${j} ${i}`)
+                    if(box1.textContent){
+                        box1.textContent=''
+                    }
+                }}
+            }
+                  
+            
+            function solve()
+            {
+
+                let matrix=startobj.matrix
+                reset()
+                for(let i=0;i<solutionmatrix.length;i++){
+                    let [row,col]=solutionmatrix[i]
+                    matrix[row][col].value=1
+                    counter+=1
+                    let box =document.getElementById(`${row} ${col}`)
+                    let text=document.createTextNode('♛')
+                    box.appendChild(text)
+                }
+            }
+
+            let solve1=document.getElementById('solve')
+            solve1.addEventListener('click',solve)
                        
                         
                     

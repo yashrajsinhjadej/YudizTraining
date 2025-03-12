@@ -1,0 +1,14 @@
+{
+  "name": "practicals",
+  "version": "1.0.0",
+  "description": "Created for learning npm ",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hello.js",
+    "yash": "node hello.js"
+  },
+  "author": "yashrajsinh jadeja",
+  "license": "ISC"
+}

@@ -1,0 +1,1 @@
+npm init : to initialize npm to the folder will create package.json file 

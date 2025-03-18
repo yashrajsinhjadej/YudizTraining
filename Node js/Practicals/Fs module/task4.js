@@ -42,14 +42,14 @@ const fs = require('fs')
 //REading the file which is already opened 
 
 
-fs.open('yash.txt',(err,fd)=>{
+fs.open('demo.txt',(err,fd)=>{
     buffer = Buffer.alloc(1024)//creating new buffer 
     fs.read(fd,buffer,0,buffer.length,0,(err,data)=>{
         if(err){
             console.log(err)
         }
         else{
-            console.log(buffer.toString()) // ask sir about this 
+            console.log(buffer.toString()) 
             console.log(data)
         }
     })

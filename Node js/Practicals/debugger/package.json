@@ -1,4 +1,4 @@
-{
+ {
   "name": "practicals",
   "version": "1.0.0",
   "description": "Created for learning npm ",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node hello.js",
     "yash": "node hello.js",
-    "debug":"node inspect ../demo/file1.js"
+    "debug":"npm inspect file1.js"
   },
   "author": "yashrajsinh jadeja",
   "license": "ISC"

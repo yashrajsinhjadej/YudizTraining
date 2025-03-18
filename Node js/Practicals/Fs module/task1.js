@@ -40,17 +40,21 @@ const fs = require('fs');
 // }})// to check if the given string is file?
 // console.log(yash)
 
-fs.readdir('./',(err,files)=>{
-    if(err){
-        console.log(err)
-    }
-    else{
-       for(let i=0;i<files.length;i++){
-        fs.stat(files[i],(err,stat)=>{if(err){console.log(err)}
-        else{if(stat.isFile()){console.log(files[i])}}
-    })//this will print all the files in the particular folder 
+// fs.readdir('./',(err,files)=>{
+//     if(err){
+//         console.log(err)
+//     }
+//     else{
+//        for(let i=0;i<files.length;i++){
+//         fs.stat(files[i],(err,stat)=>{if(err){console.log(err)}
+//         else{if(stat.isFile()){console.log(files[i])}}
+//     })//this will print all the files in the particular folder 
 
-}
-console.log(files,'hello')//this will print all the things in the particular folder 
-    }
-})
+// }
+// console.log(files,'hello')//this will print all the things in the particular folder 
+//     }
+// })
+
+
+const dir = fs.readdirSync('./')
+console.log(dir)

@@ -21,24 +21,6 @@ const eventEmitter = new EventEmitter()
 // // eventEmitter.emit('hello')
 // console.log('hello1')
 
-// const { EventEmitter, captureRejectionSymbol } = require("node:events");
-
-// const eventEmitter = new EventEmitter();
-
-// eventEmitter.on("event1", (err) => {
-//     // console.log(err);
-//     console.log("func1");
-// }); 
-// eventEmitter.on('error',(err)=>{   // ask sir about this 
-//     if(err){
-//         console.log(err)
-//     }
-//     console.log('error')
-// })
-// eventEmitter.emit("error")
-// console.log(eventEmitter.emit("event1"));
-
-
 // let p = new EventEmitter({captureRejections:true});
 // let e = new EventEmitter({captureRejections: true});
 

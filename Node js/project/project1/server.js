@@ -1,8 +1,10 @@
 const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid')
 const http = require('http');
 const fs = require('fs')
 const eventemitter = require('events');
 const { findPackageJSON } = require('module');
+const path = require('path')
 
 // class to make the item objects 
 class Item{
@@ -49,28 +51,35 @@ function CheckFileExist(req,res,filename){
 
 function readFileById(req,res,nid,filename)
 {
-    // console.log('hello1')
     fs.readFile(filename,(err,data)=>{
         if(err){
             res.writeHead(404,{'Content-Type':'text/html'})  
-            console.log('err')
+            
             res.end('there was an error on getting the data')
             return false
         }
         else{
-            // console.log(JSON.parse(data).length)
             if(JSON.parse(data).length==0){
                 res.writeHead(200,{'Content-Type':'text/html'})
-                console.log('no data ')
+                
                 res.end('fetching succesful but no data in file')
                 return true
             }
             else{
-                const adata = JSON.parse(data)
-                for(let i=0;i<adata.length;i++){
+                let adata;
+                try{
+                 adata = JSON.parse(data)
+                }
+                catch(err){
+                    res.writeHead(404,{'Content-Type':'text/html'})
+                    res.end('there was an error in parsing the data')
+                    return false
+                }
+
+            for(let i=0;i<adata.length;i++){
                     if(adata[i].nid==nid){
                         res.writeHead(200,{'Content-Type':'text/html'})
-                        console.log('data')
+                        
                         res.write(JSON.stringify(adata[i]))
                         res.end()
                         return true
@@ -112,7 +121,14 @@ function writeInFile(req,res,obj,filename)
             return
         }
         else{
-            let adata=JSON.parse(data)  // converting the json into array of objects 
+            let adata;
+            try{
+                adata=JSON.parse(data) }
+                catch(err){
+                    res.writeHead(404,{'Content-Type':'text/html'})
+                    res.end('there was an error in parsing the data')
+                    return
+                } // converting the json into array of objects 
             adata.push(obj) //pushing new object into the array 
             // res.end(JSON.stringify(adata))
             let awritedata = JSON.stringify(adata) //converting the array of objects into json to rewrite in the string 
@@ -146,7 +162,16 @@ function updateFileById(req,res,nid,oUpdatedata,filename)
             return 
         }
         else{
-            let odata = JSON.parse(data)
+            let odata;
+            try{ odata = JSON.parse(data)
+            }
+            catch(err){
+                res.writeHead(404,{'Content-Type':'text/html'})
+                res.end('there was an error in parsing the data')
+                return
+            }
+            
+            
             let bflag=false
             for(let i=0;i<odata.length;i++){
                 if(odata[i].nid==nid){
@@ -170,8 +195,7 @@ function updateFileById(req,res,nid,oUpdatedata,filename)
                 return
             }
             else{
-                console.log(odata)
-                console.log('data found writing the data into the file')
+               
                 let wdata = JSON.stringify(odata)
                 fs.writeFile(filename,wdata,(err)=>{
                     if(err){
@@ -202,18 +226,23 @@ function deletItemById(req,res,nid,filename)
             return
         }
         else{
-            let adata=JSON.parse(data)
-            console.log(adata)
+            let adata;
+            try{
+                adata=JSON.parse(data)}
+                catch(err){
+                    res.writeHead(404,{'Content-Type':'text/html'})
+                    res.end('there was an error in parsing the data')
+                    return
+                }
             let aremovedeletea=adata.filter((obj)=>{
                 return obj.nid!=nid
             })
-            console.log(aremovedeletea,'aremovedelete')
             if(adata.length==aremovedeletea.length){
                 res.writeHead(404,{'Content-Type':'text/html'})
                 res.end('no person with particular id found')
             }
             else{
-                // console.log(aremovedeletea)
+               
                 let owritedata=JSON.stringify(aremovedeletea)
                 fs.writeFile(filename,owritedata,(err)=>{
                     if(err){
@@ -229,6 +258,44 @@ function deletItemById(req,res,nid,filename)
         }        
     })
 }
+function displayStaticFile(req,res,filename){
+    const obj = {'.js':'text/javascript','.html':'text/html','.css':'text/css'}
+
+    let sstaticpath = path.join(__dirname,'/public',filename)
+    fs.stat(sstaticpath,(err,stat)=>{
+        if(err){
+            res.writeHead(404,{'Content-Type':'text/html'})
+            res.end('no file found')
+        }
+        else{
+            if(!stat.isFile()){
+                res.writeHead(404,{'Content-Type':'text/html'})
+                res.end('the given string is directory not file')
+            }
+            else{
+                sExtname=path.extname(sstaticpath) // getting extension name 
+                sContentType=obj[sExtname]
+                if(sContentType=='undefined'){
+                    res.writeHead(404,{'Content-Type':"text/html"})
+                    res.end('file should be html css or js')
+                    return
+                }
+                else{
+                    fs.readFile(sstaticpath,(err,data)=>{
+                        if(err){
+                            res.writeHead(404,{'Content-Type':'text/html'})
+                            res.end('there was an error in reading the file')
+                        }
+                        else{
+                            res.end(data)
+                        }
+                    })
+                }
+            }
+        }
+    })
+    // res.end('done')
+}
 
 //creating the server using http 
 const server = http.createServer((req,res)=>{
@@ -243,15 +310,19 @@ const server = http.createServer((req,res)=>{
     else if(req.url.startsWith('/api/data') && req.method=='GET'){
         if(CheckFileExist(req,res,'data.json'))
             {
-                // console.log('done')
                 const nid = req.url.split('/').pop() //getting the id from the url
+                if(!uuid.validate(nid)){
+                    res.writeHead(404,{'Content-Type':'text/html'})
+                    res.end('invalid id')
+                }
+                else{
                 readFileById(req,res,nid,'data.json') //reading file and printing the data
-            }
+            }}
     }
 
 
     else if(req.url=='/api/data' && req.method=='POST'){
-        // console.log('post method called')
+        
         let sdata = ''
         req.on('data',(chunk)=>{
             sdata+=chunk
@@ -259,24 +330,34 @@ const server = http.createServer((req,res)=>{
     
         req.on('end',()=>{
             if(CheckFileExist(req,res,'data.json')){
-                let odata = JSON.parse(sdata)
-                console.log(odata)
+                let odata;
+                try{
+                 odata = JSON.parse(sdata)}
+                catch(err){
+                    res.writeHead(404,{'Content-Type':'text/html'})
+                    res.end('there was an error in parsing the data')
+                    return
+                }
                 //checks if any value is not defined or any random value is inserted 
                 if((odata.sName==undefined||odata.nQuantity==undefined||odata.nPrice==undefined)||Object.keys(odata).length!=3){
                     res.writeHead(404,{'Content-Type':'text/html'})
                     res.end('data not valid')
                     return
                 }//checks the validation of the data recved
-                if(!(/^[a-zA-Z0-9]+/.test(odata.sName) && /^\d+/.test(odata.nQuantity) && /^\d+/.test(odata.nPrice))){
+                if(!(/^[a-zA-Z0-9]+/.test(odata.sName) && !(/^\d+/.test(odata.sName))&& /^\d+/.test(odata.nQuantity) && /^\d+/.test(odata.nPrice))){
                     res.writeHead(404,{'Content-Type':'text/html'})
                     res.end('validation is wrong')
                 }
                 else{
-                    let obj = new Item(odata.sName,odata.nQuantity,odata.Price)
-                    console.log(obj)
+                    let obj = new Item(odata.sName,odata.nQuantity,odata.nPrice)
                    writeInFile(req,res,obj,'data.json')
                 }
                 }
+        })
+
+        req.on('error',(err)=>{
+            res.writeHead(404,{'Content-Type':'text/html'})
+            res.end('there was an error in reading the data')
         })
     }
 
@@ -287,37 +368,66 @@ const server = http.createServer((req,res)=>{
             sdata+=chunk
         })
         let nid = req.url.split('/').pop()
-        console.log(nid)
-        
+         
         req.on('end',()=>{
             if(CheckFileExist(req,res,'data.json')){
-              let odata=JSON.parse(sdata)
+                let odata;
+            try{
+               odata=JSON.parse(sdata)}
+              catch(err){
+                res.writeHead(404,{'Content-Type':'text/html'})
+                res.end('there was an error in parsing the data')
+                return
+              }
               if((odata.sName==undefined||odata.nQuantity==undefined||odata.nPrice==undefined)||Object.keys(odata).length!=3){
                 res.writeHead(404,{'Content-Type':'text/html'})
                 res.end('data not valid')
                 return
             }//checks the validation of the data recved
-            if(!(/^[a-zA-Z0-9]+/.test(odata.sName) && /^\d+/.test(odata.nQuantity) && /^\d+/.test(odata.nPrice))){
+            if(!(/^[a-zA-Z0-9]+/.test(odata.sName)&&!(/^\d+/.test(odata.sName)) && /^\d+/.test(odata.nQuantity) && /^\d+/.test(odata.nPrice))){
                 res.writeHead(404,{'Content-Type':'text/html'})
                 res.end('validation is wrong')
                 return
+            } 
+            if(!uuid.validate(nid)){
+                res.writeHead(404,{'Content-Type':'text/html'})
+                res.end('invalid id')
             }
             else{
                 updateFileById(req,res,nid,odata,'data.json')
             }
           }  
         })
+        req.on('error',(err)=>{
+            res.writeHead(404,{'Content-Type':'text/html'})
+            res.end('there was an error in reading the data')
+        })
     } 
-
-
-
-
-
 
     else if (req.url.startsWith('/api/data')&&req.method=="DELETE"){
         let nid = req.url.split('/').pop()
         if(CheckFileExist(req,res,'data.json')){
+            if(!uuid.validate(nid)){
+                res.writeHead(404,{'Content-Type':'text/html'})
+                res.end('invalid id')
+            }
+            else{
         deletItemById(req,res,nid,'data.json')
+        }}
+    }
+
+    else if(req.url.startsWith('/api/public')&&req.method=='GET')
+    {
+        filename=req.url.split('/').pop()
+        if(!filename){
+            res.writeHead(404,{'content-Type':'text/html'})
+            res.end('filename not found')
+            return
+        }
+        else{
+
+            displayStaticFile(req,res,filename)
+
         }
     }
     

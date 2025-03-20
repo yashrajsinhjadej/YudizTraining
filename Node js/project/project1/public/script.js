@@ -1,1 +1,1 @@
-const yash = rich ;
+const yash = hello;

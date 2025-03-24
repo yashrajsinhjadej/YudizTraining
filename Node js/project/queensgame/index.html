@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        background-color: beige;
+    }
+    .center{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container{
+        display:flex;
+    }
+    .timer{
+        display: flex;
+    }
+    #hint{
+        border-radius: 4px;
+        padding: 6px;
+        height: 30px;
+        width: 55px;
+        background-color: yellow;
+    }
+    #reset{
+        border-radius: 4px;
+        padding: 6px;
+        height: 30px;
+        width: 55px;
+    }
+    #solve{
+        border-radius: 4px;
+        padding: 6px;
+        height: 30px;
+        width: 55px;
+
+    }
+    .submit{
+        border-radius: 4px;
+        padding: 6px;
+        height: 30px;
+        width: 55px;
+        background-color: greenyellow;
+
+    }
+    .container{
+        margin-top: 20px;
+    }
+</style>
+    
+<body>
+    <div class="timer">
+    <label class="times">Timer:</label>
+    <div id="time">
+    <!-- <div>Timer : </div> -->
+    </div>
+</div>
+
+
+    <div class="center">
+        <div>
+        <form id="myform">
+        <input type="number" style="display: block; margin-bottom: 10px;" id="size">
+        <input type="submit" class="submit" style="display: block; margin-bottom: 10px;" />
+    </form>
+    <button id="hint">Hint</button>
+    <button id="reset">reset</button>
+    <button id="solve">solve</button>  
+        <div class="container" id="container1">
+        <!-- <div>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        </div> -->
+    </div>  
+    <div class="container" id="message"></div>
+    </div>
+    <script src="sudoku.js"></script>
+</body>
+</html>

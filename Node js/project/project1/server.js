@@ -98,6 +98,7 @@ function readFile(req,res,filename){
         if(err){
             res.writeHead(404,{'Content-Type':'text/html'})  
             res.end('there was an error on getting the data')
+            return (res,400)
         }
         else{
             res.writeHead(200,{'Content-Type':'text/html'})
@@ -433,7 +434,7 @@ const server = http.createServer((req,res)=>{
     
 })
 
-
+//console.log('hello')
 
 server.listen(3000,(err)=>
     {
@@ -444,3 +445,7 @@ server.listen(3000,(err)=>
             console.log('server is running on the port 3000')
         }
     }) 
+
+
+
+

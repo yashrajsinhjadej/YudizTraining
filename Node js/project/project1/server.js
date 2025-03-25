@@ -23,7 +23,7 @@ class Item{
         this.dupdatedAt=new Date()      
     }
 }
-function CheckFileExist(req,res,filename){
+function CheckFileExist(res,filename){
     try
     {
         fs.statSync(filename)
@@ -31,25 +31,18 @@ function CheckFileExist(req,res,filename){
             return true
         }
         else{
-            res.writeHead(404,{'Content-Type':'text/html'})
-            res.write('<h1>given filename is not a file</h1> ')
-            res.end()
-            return false
+            return responseHandler(res,404,'text/html','given filename is not a file')
+            
         }
-        // return true
     }
     catch(err)
-    {
-        res.writeHead(404,{'Content-Type':'text/html'})
-        res.write('<h1>File does not exist </h1> ')
-        res.end()
-        return false
+    {   return responseHandler(res,404,'text/html','file does not exist')
     }
 
 }
 
 
-function readFileById(req,res,nid,filename)
+function readFileById(res,nid,filename)
 {
     fs.readFile(filename,(err,data)=>{
         if(err){
@@ -93,25 +86,16 @@ function readFileById(req,res,nid,filename)
     })
 }
 
-function readFile(req,res,filename){
-    fs.readFile(filename,(err,data)=>{
-        if(err){
-            res.writeHead(404,{'Content-Type':'text/html'})  
-            res.end('there was an error on getting the data')
-            return (res,400)
-        }
-        else{
-            res.writeHead(200,{'Content-Type':'text/html'})
-            if(JSON.parse(data).length==0){
-                res.end('fetching succesful but no data in file')
-            }
-            else{
-            res.end(data)
-        }
-        }
-    })
+function readFile(res,filename){
+let data;
+    try{
+    data = fs.readFileSync(filename,'utf-8')
+}
+catch(err){
+    return responseHandler(res,404,'text/html','there was an error in reading the file')
 }
 
+return data}
 
 function writeInFile(req,res,obj,filename)
 {
@@ -298,18 +282,32 @@ function displayStaticFile(req,res,filename){
     // res.end('done')
 }
 
+
+function responseHandler(res,nStatusCode=200,sContentType='text/html',sMessage=''){
+    res.writeHead(nStatusCode,sContentType)
+    res.end(sMessage)
+    return 
+}
+
 //creating the server using http 
 const server = http.createServer((req,res)=>{
    
     if(req.url=='/api/data' && req.method=='GET'){ //fetching all the data of data.json
-        if(CheckFileExist(req,res,'data.json')){ // this functions checks if the given file exists or not 
-        readFile(req,res,'data.json')}  //reading and displaying all the contents of the file in the web
+        if(CheckFileExist(res,'data.json')){ // this functions checks if the given file exists or not 
+        let data = readFile(res,'data1.json')
+        if(!data){
+        return responseHandler(res,404,'application/json','there was error in reading the file') //reading and displaying all the contents of the file in the web
+        }
+        else{
+            return responseHandler(res,200,'application/json',data) //reading and displaying all the contents of the file in the web
+        }
+    }  //reading and displaying all the contents of the file in the web
     }
 
 
 
     else if(req.url.startsWith('/api/data') && req.method=='GET'){
-        if(CheckFileExist(req,res,'data.json'))
+        if(CheckFileExist(res,'data.json'))
             {
                 const nid = req.url.split('/').pop() //getting the id from the url
                 if(!uuid.validate(nid)){
@@ -433,6 +431,9 @@ const server = http.createServer((req,res)=>{
     }
     
 })
+
+
+
 
 //console.log('hello')
 

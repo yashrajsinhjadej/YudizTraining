@@ -141,7 +141,6 @@ function updateFileById(res,nid,oUpdatedata,filename)
                     odata[i].sName=oUpdatedata.sName
                     odata[i].nPrice=oUpdatedata.nPrice
                     odata[i].nQuantity=oUpdatedata.nQuantity
-                    // console.log(oUpdatedata.nQuantity)
                     console.log('hello')
                     if(oUpdatedata.nQuantity){
                         odata[i].bStatus=true

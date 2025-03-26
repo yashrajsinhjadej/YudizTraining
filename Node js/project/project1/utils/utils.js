@@ -1,5 +1,5 @@
 const fs = require('fs')    
-
+const uuidv4 = require('uuid').v4
 
 function responseHandler(res,nStatusCode=200,sContentType='text/html',sMessage=''){
     res.writeHead(nStatusCode,sContentType)
@@ -32,10 +32,11 @@ function writeItemToFile(res,awritedata,filename){
                 return responseHandler(res,404,'text/html','there was an error in writing the file')
             }
             else{
-                return responseHandler(res,200,'text/html','data added success')
+                return responseHandler(res,200,'text/html','done')
             }
         })
 }
+
 function CheckFileExist(res,filename){
     try
     {   
@@ -53,4 +54,20 @@ function CheckFileExist(res,filename){
     }
 
 }
-module.exports={responseHandler,readItemFromFile,writeItemToFile,CheckFileExist}
+class Item{
+    constructor(Name,Quantity,Price){
+        this.nid=uuidv4()
+        this.sName=Name
+        this.nQuantity=Quantity
+        this.nPrice=Price
+        if(this.nQuantity){
+            this.bStatus=true
+        }
+        else{
+            this.bStatus=false
+        }
+        this.dCreatedAt=new Date()
+        this.dupdatedAt=new Date()      
+    }
+}
+module.exports={responseHandler,readItemFromFile,writeItemToFile,CheckFileExist,Item}

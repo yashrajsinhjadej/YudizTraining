@@ -1,0 +1,42 @@
+const {responseHandler,readItemFromFile,CheckFileExist,writeItemToFile} = require('../utils/utils')
+const uuid = require('uuid')
+
+
+function deleteItemFromFile(req,res,filename){
+    let nid = req.url.split('/').pop()
+            if(CheckFileExist(res,filename)){
+                if(!uuid.validate(nid)){
+                   return responseHandler(res,404,'text/html','invalid id')
+                }
+                else{
+                deletItemById(res,nid,filename)
+            }}
+}
+
+
+
+function deletItemById(res,nid,filename)
+{
+    let sData = readItemFromFile(res,filename)
+    if(sData)
+        {
+            let adata;
+            try{
+                adata=JSON.parse(sData)}
+                catch(err){
+                    return responseHandler(res,404,'text/html','there was an error in parsing the data')
+                }
+                let aremovedeletea=adata.filter((obj)=>{
+                    return obj.nid!=nid
+                })
+                
+            if(adata.length==aremovedeletea.length){
+                return responseHandler(res,404,'text/html','no data found with that id')
+            }
+            let owritedata=JSON.stringify(aremovedeletea)
+            // console.log(owritedata )
+            return writeItemToFile(res,owritedata,filename)       
+        }
+}
+
+module.exports = {deleteItemFromFile}

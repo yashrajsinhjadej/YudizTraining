@@ -2,6 +2,9 @@ const utils = require('../utils/utils')
 const {displayAllData} =require('../controller/displayAllData')
 const {displayDataById} =require('../controller/displayDataById')
 const {addItemToFile} =require('../controller/addItemToFile')
+const {updateItemById} =require('../controller/updateItemById')
+const {deleteItemFromFile} =require('../controller/deleteItemFromFile')
+const {displayStaticFile} =require('../controller/displayStaticFile')
 const config = require('../config')
 
 exports.handleRoutes=(req,res)=>{
@@ -18,11 +21,10 @@ exports.handleRoutes=(req,res)=>{
     const route ={
         'GET/api/data':()=>{displayAllData(req,res,config.dataFilePath)},
         'POST/api/data':()=>{addItemToFile(req,res,config.dataFilePath)},
-        'PUT/api/data':()=>{res.end('done2')},
-        'DELETE/api/data':()=>{res.end('done3')},
         'GET/api/data/:id':()=>{displayDataById(req,res,config.dataFilePath)},
-        'PUT/api/data/:id':()=>{res.end('done5')},
-        'DELETE/api/data/:id':()=>{res.end('done6')},
+        'PUT/api/data/:id':()=>{updateItemById(req,res,config.dataFilePath)},
+        'DELETE/api/data/:id':()=>{deleteItemFromFile(req,res,config.dataFilePath)},
+        'GET/api/public/:id':()=>{displayStaticFile(req,res,config.dataFilePath)}
     }
     console.log(sCombo)
     if(route[sCombo]){

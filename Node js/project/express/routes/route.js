@@ -9,7 +9,7 @@ var { deleteItemById } = require('../controllers/deleteItemById.js');
 
 
 router.get('/',(req,res)=> {
-  console.log('hello')
+  // console.log('hello')
   showItemList(req, res);
 });
 

@@ -6,6 +6,7 @@ const {responseHandler} = require('../utils/response.js')
 
 function deleteItemById(req, res) {
     let pId = req.params.id 
+    // const {id}  = req.params 
     if (!checkId(pId)) {
         responseHandler(res, 400, 'ID is INVALID')
     }    

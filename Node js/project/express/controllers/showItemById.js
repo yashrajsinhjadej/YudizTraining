@@ -4,7 +4,7 @@ const {checkId}=require('../validations/newitem')
 const {responseHandler} = require('../utils/response.js')
 
 function showItemById(req,res){
-    pId = req.params.id
+    const pId = req.params.id
     if(!checkId(pId)){
         responseHandler(res,400,'ID is INVALID')
     }
@@ -21,8 +21,10 @@ function showItemById(req,res){
             }
             else{            
                 responseHandler(res,200,find)
+                // responseHandler(res,200,find)
         }
         }
+
     }
     
 }

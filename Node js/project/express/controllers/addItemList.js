@@ -6,7 +6,7 @@ const {responseHandler} = require('../utils/response.js')
 
 function addItemList(req, res) {
     let oData = req.body
-    console.log('hello')
+    // console.log('hello')
     if (!checkvalidation(oData)) {
         return responseHandler(res, 400, 'Bad request')
         

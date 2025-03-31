@@ -14,6 +14,7 @@ async function addItemList(req, res) {
         try{
             let sData = await ReadFromFile()
             let aData = JSON.parse(sData)
+            // console.log(oItem)
             let bflag=aData.some((obj)=>{return obj.sName==oItem.sName})
             console.log(bflag)
             if(bflag){

@@ -14,5 +14,11 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "uuid": "^11.1.0"
-  }
+  },
+  "description": "This is a Node.js project built using the Express framework. It includes routing, middleware, and error handling for a web application.",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

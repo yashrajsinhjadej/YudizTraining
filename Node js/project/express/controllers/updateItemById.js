@@ -19,7 +19,8 @@ async function updateItemById(req, res) {
             let bflag = aData.some((obj) => {
             return obj.sName == oData.sName && obj.pId !=pId;
             });
-            if (bflag) {
+            console.log(bflag)
+            if (!bflag) {
                     return responseHandler(res, {statusmsg: "BadRequest",sMsg: "Item already exists"}); //pass object as status and msg
             } 
             else {

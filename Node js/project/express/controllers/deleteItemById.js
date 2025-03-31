@@ -1,39 +1,35 @@
 const {ReadFromFile} = require('../utils/readfile.js')
 const {WriteToFile} = require('../utils/writeFile.js')
 const {Item} = require('../models/class.js')
-const {checkId, checkvalidation} = require('../validations/newitem')
+const {checkId} = require('../validations/newitem')
 const {responseHandler} = require('../utils/response.js')
 
-function deleteItemById(req, res) {
+async function deleteItemById(req, res) {
     let pId = req.params.id 
-    // const {id}  = req.params 
     if (!checkId(pId)) {
-        responseHandler(res, 400, 'ID is INVALID')
+        responseHandler(res, { statusmsg: "BadRequest", sMsg: "validation wrong" });
     }    
     else {
-        let sData = ReadFromFile()
-        if (!sData) {
-            responseHandler(res, 500, 'There was an error in reading the data')
-        }
-        else {
+        try{
+            let sData = await ReadFromFile()
             let aData = JSON.parse(sData)
             let aRemovedelete = aData.filter((obj) => {
                 return obj.pId != pId
             })
-
             if (aRemovedelete.length == aData.length) {
-                responseHandler(res, 404, 'Not found')
+                responseHandler(res,{statusmsg:"NotFound",sMsg:'Item not found'})
             } 
             else {
-                let bflag = WriteToFile(JSON.stringify(aRemovedelete))
-                if (!bflag) {
-                    responseHandler(res, 500, 'There was an error in writing the file')
-                }
-                else {
-                    responseHandler(res, 200, 'Deleted')  
-                }
+            await WriteToFile(JSON.stringify(aRemovedelete))
+            // console.log(aRemovedelete)
+            responseHandler(res,{statusmsg:"OK",sMsg:'ITEM deleted successfully'})     
             }
         }
+        catch(err){
+            responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in reading the file'})//pass object as status and msg
+        }
+            
+        
     }
 }
 

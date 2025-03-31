@@ -2,18 +2,15 @@ const {ReadFromFile} = require('../utils/readfile.js')
 const {responseHandler} = require('../utils/response.js')
 
 
-function showItemList(req, res) {
-    // console.log('ht')
-    const sData = ReadFromFile();
-  // jngruiun
-    if(!sData){
-      return responseHandler(res,500,'Internal Server Error')//pass object as status and msg
+async function showItemList(req, res) {
+    let sData;
+    try{
+    sData = await ReadFromFile();
     }
-    else{
-        let aData = JSON.parse(sData)
-        responseHandler(res,200,sData)   
+    catch(err){
+        responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in reading the file'})//pass object as status and msg
     }
+    responseHandler(res,{statusmsg:"OK",sMsg:'OK',sData})   
 }
-
 
 module.exports = {showItemList};

@@ -1,52 +1,51 @@
-const {ReadFromFile} = require('../utils/readfile.js')
-const {WriteToFile} = require('../utils/writeFile.js')
-const {Item} = require('../models/class.js')
-const {checkId,checkvalidation}=require('../validations/newitem')
-const {responseHandler} = require('../utils/response.js')
+const { ReadFromFile } = require("../utils/readfile.js");
+const { WriteToFile } = require("../utils/writeFile.js");
+const { Item } = require("../models/class.js");
+const { checkId, checkvalidation } = require("../validations/newitem");
+const { responseHandler } = require("../utils/response.js");
 
-function updateItemById(req,res){
-    let oData = req.body 
-    let pId=req.params.id
-    if(!checkId(pId)||!checkvalidation(oData)){
-        // res.send('validation wrong')
-        responseHandler(res,400,'validation wrong')
-    }
-    else{
-        let sData = ReadFromFile()
-        if(!sData){
-            // res.send('there was an error reading the data')
-            responseHandler(res,500,'there was an error reading the data')
-        }
-        else{
-            let aData=JSON.parse(sData)
-            let flag=false
-            aData.forEach(element => {
-                if(element.pId==pId){
-                    element.sName=oData.sName
-                    element.nQuantity=+oData.nQuantity
-                    element.nPrice=+oData.nPrice
-                    flag=true
-                }
+
+async function updateItemById(req, res) {
+  let oData = req.body;
+  let pId = req.params.id;
+  if (!checkId(pId) || !checkvalidation(oData)) {
+    responseHandler(res, { statusmsg: "BadRequest", sMsg: "validation wrong" });
+  } 
+  else
+   {
+        try {
+            let sData = await ReadFromFile();
+            let aData = JSON.parse(sData);
+            let bflag = aData.some((obj) => {
+            return obj.sName == oData.sName && obj.pId !=pId;
             });
-            if(!flag){
-                // res.send('no one found')
-                responseHandler(res,404,'no one found')
-            }
-            else{
-                sData=JSON.stringify(aData)
-                let bflag=WriteToFile(sData)
-                if(bflag){
-                    // res.send('Item updated')
-                    responseHandler(res,200,'Item updated')
+            if (bflag) {
+                    return responseHandler(res, {statusmsg: "BadRequest",sMsg: "Item already exists"}); //pass object as status and msg
+            } 
+            else {
+                let flag = false;
+                aData.forEach((element) => {
+                if (element.pId == pId) {
+                    element.sName = oData.sName;
+                    element.nQuantity = +oData.nQuantity;
+                    element.nPrice = +oData.nPrice;
+                    flag = true;
                 }
-                else{
-                    // res.send('there was an error')   
-                    responseHandler(res,500,'there was an error')
-                }    
-            }
-        }
+                });
+                if (!flag) {
+                responseHandler(res, {statusmsg: "NotFound",sMsg: "Item not found"}); //pass object as status and msg
+                }
+                sData = JSON.stringify(aData);
+                await WriteToFile(sData);
+                responseHandler(res, {statusmsg: "OK",sMsg: "Item updated successfully",sData: oData}); //pass object as status and msg
+      }
+    } catch (err) {
+      responseHandler(res, {
+        statusmsg: "InternalServerError",
+        sMsg: "there was error in the file",
+      }); //pass object as status and msg
     }
+  }
 }
 
-
-module.exports = {updateItemById}
+module.exports = { updateItemById };

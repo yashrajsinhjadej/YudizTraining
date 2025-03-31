@@ -1,16 +1,16 @@
-const fs = require('fs')
+const fs = require('fs').promises
+const { error } = require('console');
 const path = require('path')
 const process= require('process')
 require('dotenv').config();
 
 
-function WriteToFile(sData){
+async function WriteToFile(sData){
     try{
-        fs.writeFileSync(process.env.File_Name,sData)
-        return true
+        await fs.writeFile(process.env.File_Name,sData)
     }
     catch(err){
-        return false
+        throw new error('Error writing file: ' + err.message);
     }
 
 }

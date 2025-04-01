@@ -1,14 +1,14 @@
 const { ReadFromFile } = require("../utils/readfile.js");
 const { WriteToFile } = require("../utils/writeFile.js");
 const { Item } = require("../models/class.js");
-const { checkId, checkvalidation } = require("../validations/newitem");
+const { checkId} = require("../validations/newitem");
 const { responseHandler } = require("../utils/response.js");
 
 
 async function updateItemById(req, res) {
-  let oData = req.body;
-  let pId = req.params.id;
-  if (!checkId(pId) || !checkvalidation(oData)) {
+  let {sName,nQuantity,nPrice} = req.body;
+  let {pId} = req.params;
+  if (!checkId(pId)) {
     responseHandler(res, { statusmsg: "BadRequest", sMsg: "validation wrong" });
   } 
   else
@@ -17,19 +17,18 @@ async function updateItemById(req, res) {
             let sData = await ReadFromFile();
             let aData = JSON.parse(sData);
             let bflag = aData.some((obj) => {
-            return obj.sName == oData.sName && obj.pId !=pId;
+            return obj.sName == sName && obj.pId !=pId;
             });
-            console.log(bflag)
-            if (!bflag) {
+            if (bflag) {
                     return responseHandler(res, {statusmsg: "BadRequest",sMsg: "Item already exists"}); //pass object as status and msg
             } 
             else {
                 let flag = false;
                 aData.forEach((element) => {
                 if (element.pId == pId) {
-                    element.sName = oData.sName;
-                    element.nQuantity = +oData.nQuantity;
-                    element.nPrice = +oData.nPrice;
+                    element.sName = sName;
+                    element.nQuantity = +nQuantity;
+                    element.nPrice = +nPrice;
                     flag = true;
                 }
                 });
@@ -38,7 +37,7 @@ async function updateItemById(req, res) {
                 }
                 sData = JSON.stringify(aData);
                 await WriteToFile(sData);
-                responseHandler(res, {statusmsg: "OK",sMsg: "Item updated successfully",sData: oData}); //pass object as status and msg
+                responseHandler(res, {statusmsg: "OK",sMsg: "Item updated successfully",sData: {sName,nQuantity,nPrice}}); //pass object as status and msg
       }
     } catch (err) {
       responseHandler(res, {

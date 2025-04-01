@@ -1,16 +1,15 @@
 const uuid = require('uuid')
-
-function checkvalidation(oData){
-    if((oData.sName==undefined||oData.nQuantity==undefined||oData.nPrice==undefined)){
-        return false
-    }
-    else if(!(/^[a-zA-Z0-9]+/.test(oData.sName) && !(/^\d+/.test(oData.sName))&& /^\d+/.test(oData.nQuantity) && /^\d+/.test(oData.nPrice))){
-        return false
-    }
-    else{
-        return true 
-    }
-}
+// function checkvalidation(oData){
+//     if((oData.sName==undefined||oData.nQuantity==undefined||oData.nPrice==undefined)){
+//         return false
+//     }
+//     else if(!(/^[a-zA-Z0-9]+/.test(oData.sName) && !(/^\d+/.test(oData.sName))&& /^\d+/.test(oData.nQuantity) && /^\d+/.test(oData.nPrice))){
+//         return false
+//     }
+//     else{
+//         return true 
+//     }
+// }
 function checkId(pId){
     if(!uuid.validate(pId)){
         return false
@@ -20,4 +19,4 @@ function checkId(pId){
     }
 }
 
-module.exports ={checkvalidation,checkId}
+module.exports ={checkId}

@@ -4,9 +4,9 @@ const {checkId}=require('../validations/newitem')
 const {responseHandler} = require('../utils/response.js')
 
 async function showItemById(req,res){
-    const pId = req.params.id
+    const {pId} = req.params
     if(!checkId(pId)){
-       responseHandler(res,{statusmsg:"BadRequest",sMsg:'ID is INVALID'})//pass object as status and msg
+       responseHandler(res,{statusmsg:"BadRequest",sMsg:'ID is INVALID'})
     }
     else{
         try{
@@ -14,14 +14,14 @@ async function showItemById(req,res){
         let aData = JSON.parse(sData)
         let bfind = aData.find((obj)=>{return obj.pId==pId})
         if(!bfind){
-                responseHandler(res,{statusmsg:"NotFound",sMsg:'Item not found'})//pass object as status and msg
+                responseHandler(res,{statusmsg:"NotFound",sMsg:'Item not found'})
             }
             else{            
-                responseHandler(res,{statusmsg:"OK",sMsg:'Item found',sData:bfind})//pass object as status and msg
+                responseHandler(res,{statusmsg:"OK",sMsg:'Item found',sData:bfind})
         }
         }
     catch(err){
-        responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in readign the file'})//pass object as status and msg
+        responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in readign the file'})
     }
     }
 

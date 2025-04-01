@@ -1,11 +1,11 @@
 const {ReadFromFile} = require('../utils/readfile.js')
 const {WriteToFile} = require('../utils/writeFile.js')
-const {Item} = require('../models/class.js')
+// const {Item} = require('../models/class.js')
 const {checkId} = require('../validations/newitem')
 const {responseHandler} = require('../utils/response.js')
 
 async function deleteItemById(req, res) {
-    let pId = req.params.id 
+    let {pId} = req.params 
     if (!checkId(pId)) {
         responseHandler(res, { statusmsg: "BadRequest", sMsg: "validation wrong" });
     }    
@@ -26,7 +26,7 @@ async function deleteItemById(req, res) {
             }
         }
         catch(err){
-            responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in reading the file'})//pass object as status and msg
+            responseHandler(res,{statusmsg:"InternalServerError",sMsg:'there was error in reading the file'})
         }
             
         

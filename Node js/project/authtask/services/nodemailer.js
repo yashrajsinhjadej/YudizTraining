@@ -9,13 +9,13 @@ const trans = nm.createTransport({
     port:465,
     secure:true,
     auth:{
-        user:'jadejayashrajsinh725@gmail.com',
-        pass:'nlsc kmig xbbg ywvf'
+        user:process.env.GOOGLE_ACCOUNT,
+        pass:process.env.GOOGLE_ACCOUNT_PASS
     }
 })
 
 const mailOptions = {
-    from:'jadejayashrajsinh725@gmail.com',
+    from:process.env.GOOGLE_ACCOUNT,
     to:to,
     subject:subject,
     text:'for login',

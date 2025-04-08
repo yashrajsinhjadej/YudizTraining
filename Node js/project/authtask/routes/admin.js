@@ -14,7 +14,7 @@ router.post('/login',checkEmail,checkpassword,Result,login)
 
 router.post('/addcar',validatejwtadmin,checkcardetails,Result,addcar)
 
-router.post('/updatecar/:id',validatejwtadmin,checkcardetails,checkuuid,Result,updatecar)
+router.put('/updatecar/:id',validatejwtadmin,checkcardetails,checkuuid,Result,updatecar)
 
 
 router.delete('/deletecar/:id',validatejwtadmin,checkuuid,Result,deletecar)

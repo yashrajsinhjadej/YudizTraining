@@ -15,13 +15,13 @@ router.get('/',(req,res)=> {
 });
 
 router.post('/',[
-  check('sName').isString().notEmpty().withMessage('sName should be a string and not empty'),
+  check('sName').isString().notEmpty(),
   check('nQuantity').isInt({ gt: 0 }).withMessage('nQuantity should be a number'),
   check('nPrice').isFloat({ gt: 0 }).withMessage('nPrice should be a number')
-],(req,res)=>{
+],(req,res)=>{  
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    return res.status(400).json({ errors: errors });
   } 
   console.log('hello')
   addItemList(req,res)  

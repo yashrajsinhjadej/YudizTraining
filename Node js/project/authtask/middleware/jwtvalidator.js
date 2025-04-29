@@ -29,7 +29,7 @@ async function validatejwtadmin(req,res,next)
         console.log(err)
         responseHandler(res, { statusmsg: "Unauthorized", sMsg: 'token is not valid ' });
     }
-}
+}x` `
 
 
 

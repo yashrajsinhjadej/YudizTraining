@@ -18,7 +18,7 @@ async function login(req,res){
         if(check)
             {
                    const token = jwt.sign({Email},process.env.ADMIN_SECRET_KEY,{'expiresIn':'15d'})
-                   if(find.loggeddevice.length==2){
+                   if(find.loggeddevice.length==process.env.ADMIN_LOGIN_LIMIT){
                     find.loggeddevice.shift()
                    }
                    find.loggeddevice.push(token)

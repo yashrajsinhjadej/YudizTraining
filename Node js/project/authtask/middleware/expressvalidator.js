@@ -29,4 +29,7 @@ function Result(req, res, next) {
     next();
 }
 
+const yash = console.log(gh4);
+
+
 module.exports = {checkEmail,Result,checkpassword,checkcardetails,checkuuid};

@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/health', (req, res) => {
     res.status(200).send({statusmsg:"OK",sMsg:'Server is running'})
 })
+
+
 app.use('/',express.static('public'))
 
 app.use('/api/data',route); // using the route handler for /api/data

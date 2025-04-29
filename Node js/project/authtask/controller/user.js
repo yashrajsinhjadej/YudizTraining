@@ -54,7 +54,7 @@ async function userlogin(req, res) {
                     data.push(newUser)
                 }
                 else{
-                    if(find.loggeddevice.length>=5){
+                    if(find.loggeddevice.length>=process.env.USER_LOGIN_LIMIT){
                         find.loggeddevice.shift()
                     }
                     find.loggeddevice.push(token)

@@ -15,7 +15,6 @@ async function createUser(req,res){
 
         const {username,email,password}=req.body;
         const alreadyexist = await User.findOne({email})
-        console.log(alreadyexist)
     if(alreadyexist){
         responseHandler(res, { statusmsg: "OK", sMsg: 'user already exist', sData: {} });
     }
@@ -37,7 +36,13 @@ async function createUser(req,res){
         const newExpense = await Expense.create({
            userId: newUser._id,
            nAmount: 0,
-           aInventory: []
+           aInventory:[
+            {
+                iInventoryId: '6810a24c4f846e1f77d0ad96', // Replace with a valid Inventory ID if available
+                nQuantity: 10, // Example quantity
+                dpurchaseDate: new Date(), // Current date
+            },
+        ]
            
         }) 
     const token = generateToken(newUser)

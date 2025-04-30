@@ -59,7 +59,7 @@ async function createExpenes(req, res) {
         console.log(startOfWeek, 'startOfWeek');
         console.log(endOfWeek, 'endOfWeek');
 
-        // Filter aInventory for items purchased this week
+        // Filter aInventory purchased this week
         const filterByWeek = aInventory.filter((item) => {
             const purchaseDate = new Date(item.dpurchaseDate); 
             return purchaseDate >= startOfWeek && purchaseDate <= endOfWeek;
@@ -67,7 +67,7 @@ async function createExpenes(req, res) {
 
         console.log(filterByWeek, 'filterByWeek'); 
 
-        // Start and end of the month
+        // start and end of the month
         const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1, 0, 0, 0, 0); // Start of the month
         const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0, 23, 59, 59, 999); // End of the month
 
@@ -111,6 +111,8 @@ async function createExpenes(req, res) {
             return responseHandler(res, { statusmsg: "OK", sMsg: 'budget exceeded', sData: {} });
         }
         else{
+
+            
             const newInventoryItems = []
             for (let i = 0; i < aItems.length; i++) {
                 const newInventory = {
@@ -122,6 +124,18 @@ async function createExpenes(req, res) {
             }
          aInventory.push(...newInventoryItems);  
          const updatedExpense = await Expense.findOneAndUpdate({ userId },{ aInventory});
+
+        //updating the inventory 
+        for(let i=0;i<aItems.length; i++){
+            const item = await Inventory.findById(aItems[i].Item_id);
+            if (!item) {
+                return responseHandler(res, { statusmsg: "OK", sMsg: 'Item not found', sData: {} });
+            }
+            item.nQuantity -= aItems[i].nQuantity;
+        }
+        await item.save();
+
+
          return responseHandler(res, { statusmsg: "OK", sMsg: 'Expense created successfully', sData: { updatedExpense } });
         }
     } catch (err) {

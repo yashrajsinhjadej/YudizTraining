@@ -5,7 +5,20 @@ const {Inventory} = require('../models/inventoryModel');
 // const { Expense } = require("../models/expensModel");
 
 async function getExpenses(req,res){
-    responseHandler(res, { statusmsg: "OK", sMsg: 'Expenses fetched successfully', sData: {} });
+    try{
+        const userId = req.userId
+        const expenses = await Expense.find({userId})
+        if(expenses){
+            responseHandler(res, { statusmsg: "OK", sMsg: 'Expenses fetched successfully', sData: {expenses} });
+        }
+        else{
+            responseHandler(res, { statusmsg: "OK", sMsg: 'No expenses found', sData: {} });
+        }
+    }
+    catch(err){
+        console.log(err)
+        responseHandler(res,{ statusmsg: "OK", sMsg: 'Internal server error', sData: {} });
+    }
 
 }
 
@@ -132,8 +145,8 @@ async function createExpenes(req, res) {
                 return responseHandler(res, { statusmsg: "OK", sMsg: 'Item not found', sData: {} });
             }
             item.nQuantity -= aItems[i].nQuantity;
+            await item.save();
         }
-        await item.save();
 
 
          return responseHandler(res, { statusmsg: "OK", sMsg: 'Expense created successfully', sData: { updatedExpense } });

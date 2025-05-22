@@ -9,9 +9,9 @@ app.use('/health', (req, res) => {
     res.status(200).send({statusmsg:"OK",sMsg:'Server is running'})
 })
 
-// app.use('/transaction',route);
+app.use('/transaction',route);
 
-mongoose.connect("mongodb+srv://jadejayashrajsinh725:Yashraj2308@cluster0.45v3a2b.mongodb.net/")
+mongoose.connect("mongodb+srv://jadejayashrajsinh725:Yashraj2308@cluster0.45v3a2b.mongodb.net/bank")
     .then(() => {
         app.listen(3000, () => {
             console.log('Server is running on port', 3000);

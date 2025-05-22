@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const {transact} = require('../controllers/transact');
+const {transaction} = require('../controllers/transact');
 
 router.post('/',async (req,res)=>{
-    transact(req,res);
+    transaction(req,res);
 })
 
 

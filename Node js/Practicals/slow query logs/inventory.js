@@ -4,7 +4,7 @@ const inventorySchema = new mongoose.Schema({
     type: String,
     unitPrice: Number,
     nQuantity: Number,
-}, { strict: true }); // <-- Make sure strict is true or just omit this line
+}, { versionKey: '__v' }); 
 
 module.exports = mongoose.model('Inventory', inventorySchema, 'inventories');
 

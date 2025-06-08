@@ -1,0 +1,38 @@
+{
+  "total_companies": 3,
+  "successful": 3,
+  "failed": 0,
+  "companies_with_jobs": 3,
+  "total_jobs": 15,
+  "total_links_visited": 3,
+  "companies": [
+    {
+      "name": "Juego Studios (India)",
+      "status": "success",
+      "jobs_found": 6,
+      "career_url": "https://www.juegostudio.com/careers",
+      "links_visited": 1,
+      "file": "juego_studios__india_.json",
+      "homepage_url": "https://www.juegostudio.com"
+    },
+    {
+      "name": "Bandai Namco Entertainment America",
+      "status": "success",
+      "jobs_found": 4,
+      "career_url": "https://www.bandainamcoent.com/careers",
+      "links_visited": 1,
+      "file": "bandai_namco_entertainment_america.json",
+      "homepage_url": "https://www.bandainamcoent.com"
+    },
+    {
+      "name": "Gearbox Software",
+      "status": "success",
+      "jobs_found": 5,
+      "career_url": "https://www.gearboxsoftware.com/careers",
+      "links_visited": 1,
+      "file": "gearbox_software.json",
+      "homepage_url": "https://www.gearboxsoftware.com"
+    }
+  ],
+  "timestamp": 1749371419.0380316
+}

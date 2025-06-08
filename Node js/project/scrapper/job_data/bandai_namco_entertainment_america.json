@@ -1,0 +1,31 @@
+{
+  "company": "Bandai Namco Entertainment America",
+  "homepage_url": "https://www.bandainamcoent.com",
+  "career_url": "https://www.bandainamcoent.com/careers",
+  "total": 4,
+  "jobs": [
+    {
+      "title": "Associate 1P Marketing Manager",
+      "location": "Irvine, California",
+      "company": "Bandai Namco Entertainment America"
+    },
+    {
+      "title": "Controller",
+      "location": null,
+      "company": "Bandai Namco Entertainment America"
+    },
+    {
+      "title": "Merchandising Consultant (Contract)",
+      "location": null,
+      "company": "Bandai Namco Entertainment America"
+    },
+    {
+      "title": "Royalty Accountant (Contract)",
+      "location": null,
+      "company": "Bandai Namco Entertainment America"
+    }
+  ],
+  "links_visited": 1,
+  "status": "success",
+  "timestamp": 1749371418.9492974
+}

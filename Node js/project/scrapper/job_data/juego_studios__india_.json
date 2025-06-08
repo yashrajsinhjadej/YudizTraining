@@ -1,0 +1,53 @@
+{
+  "company": "Juego Studios (India)",
+  "homepage_url": "https://www.juegostudio.com",
+  "career_url": "https://www.juegostudio.com/careers",
+  "total": 6,
+  "jobs": [
+    {
+      "title": "2D Artist I",
+      "location": "Bangalore",
+      "department": "Concept Art",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    },
+    {
+      "title": "Digital Marketing Manager",
+      "location": "Bangalore",
+      "department": "Digital Marketing",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    },
+    {
+      "title": "Intern 3d Artist",
+      "location": "Bangalore",
+      "department": "Modelling",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    },
+    {
+      "title": "Senior 2D Artist",
+      "location": "Bangalore",
+      "department": "Concept Art",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    },
+    {
+      "title": "Senior UI-Designer",
+      "location": "Bangalore",
+      "department": "UI Design",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    },
+    {
+      "title": "Intern 2d Artist",
+      "location": "Bangalore",
+      "department": "Concept Art",
+      "description": "View Job Description",
+      "company": "Juego Studios (India)"
+    }
+  ],
+  "links_visited": 1,
+  "status": "success",
+  "timestamp": 1749371411.2675812
+}

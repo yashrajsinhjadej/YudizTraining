@@ -1,0 +1,46 @@
+{
+  "company": "Gearbox Software",
+  "homepage_url": "https://www.gearboxsoftware.com",
+  "career_url": "https://www.gearboxsoftware.com/careers",
+  "total": 5,
+  "jobs": [
+    {
+      "title": "Design Level Designer",
+      "location": "",
+      "department": "",
+      "description": "Join our team of talented designers to create engaging and immersive game worlds.",
+      "company": "Gearbox Software"
+    },
+    {
+      "title": "Senior Mission Designer",
+      "location": "",
+      "department": "",
+      "description": "Lead the design of complex missions in our AAA titles, bringing your expertise to the table.",
+      "company": "Gearbox Software"
+    },
+    {
+      "title": "Programming Senior",
+      "location": "",
+      "department": "",
+      "description": "Collaborate with our programming team to bring your vision to life in our games.",
+      "company": "Gearbox Software"
+    },
+    {
+      "title": "Animation Programmer",
+      "location": "",
+      "department": "",
+      "description": "Work on creating stunning animations for our characters and environments.",
+      "company": "Gearbox Software"
+    },
+    {
+      "title": "Senior Tools Programmer",
+      "location": "",
+      "department": "",
+      "description": "Develop and maintain the tools that power our game development pipeline.",
+      "company": "Gearbox Software"
+    }
+  ],
+  "links_visited": 1,
+  "status": "success",
+  "timestamp": 1749371415.9337983
+}

@@ -1,0 +1,1031 @@
+2025-06-06 14:46:35 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 14:46:35 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 14:46:35 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Career Page URL']
+2025-06-06 14:46:35 - INFO - Processing 20 companies with chunk size 5
+2025-06-06 14:46:36 - INFO - 
+Processing batch 1/4
+2025-06-06 14:46:36 - INFO - Companies in this batch: ['Juego Studios (India)', 'Mobzway Technologies LLP', 'Appinventiv', 'Games2win', 'Hyperlink Infosystem']
+2025-06-06 14:46:36 - INFO - Processing batch of 5 companies...
+2025-06-06 14:46:36 - INFO - [Juego Studios (India)] Attempt 1: Navigating to https://www.juegostudio.com
+2025-06-06 14:46:36 - INFO - [Mobzway Technologies LLP] Attempt 1: Navigating to https://www.mobzway.com
+2025-06-06 14:46:36 - INFO - [Appinventiv] Attempt 1: Navigating to https://www.appinventiv.com
+2025-06-06 14:46:36 - INFO - [Games2win] Attempt 1: Navigating to https://www.games2win.com
+2025-06-06 14:46:36 - INFO - [Hyperlink Infosystem] Attempt 1: Navigating to https://www.hyperlinkinfosystem.com
+2025-06-06 14:46:37 - INFO - [Juego Studios (India)] Page loaded successfully, extracting content...
+2025-06-06 14:46:38 - INFO - [Juego Studios (India)] Result: Found career URL: https://www.juegostudio.com/careers
+2025-06-06 14:46:41 - INFO - [Hyperlink Infosystem] Page loaded successfully, extracting content...
+2025-06-06 14:46:41 - INFO - [Mobzway Technologies LLP] Page loaded successfully, extracting content...
+2025-06-06 14:46:43 - INFO - [Games2win] Page loaded successfully, extracting content...
+2025-06-06 14:46:43 - INFO - [Mobzway Technologies LLP] Result: Found career URL: https://www.mobzway.com/careers
+2025-06-06 14:46:43 - INFO - [Games2win] Result: Found career URL: https://www.games2win.com/careers
+2025-06-06 14:46:43 - INFO - [Appinventiv] Page loaded successfully, extracting content...
+2025-06-06 14:46:45 - INFO - Sending prompt to LLaMA (length: 47568 chars)
+2025-06-06 14:46:46 - INFO - [Appinventiv] Result: Found career URL: https://www.appinventiv.com/careers
+2025-06-06 14:46:53 - INFO - LLaMA response received (length: 58281 chars)
+2025-06-06 14:46:53 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'The provided list contains various categories related to careers and industries such as AI Developers, UI/UX Designers, Software Developers, etc.'}
+2025-06-06 14:46:53 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in header: The provided list contains various categories related to careers and industries such as AI Developers, UI/UX Designers, Software Developers, etc.
+2025-06-06 14:46:53 - INFO - Sending prompt to LLaMA (length: 8915 chars)
+2025-06-06 14:46:55 - INFO - LLaMA response received (length: 11917 chars)
+2025-06-06 14:46:55 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content found in the provided JSON object.'}
+2025-06-06 14:46:55 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in footer: Career-related content found in the provided JSON object.
+2025-06-06 14:46:55 - INFO - Sending prompt to LLaMA (length: 89950 chars)
+2025-06-06 14:46:57 - INFO - LLaMA response received (length: 104676 chars)
+2025-06-06 14:46:57 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content was found in the provided list of URLs.'}
+2025-06-06 14:46:57 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in body: Career-related content was found in the provided list of URLs.
+2025-06-06 14:46:57 - INFO - [Hyperlink Infosystem] Result: Found career URL: https://www.hyperlinkinfosystem.com/career.html
+2025-06-06 14:49:36 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 14:49:36 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 14:49:36 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Career Page URL']
+2025-06-06 14:49:36 - INFO - Processing 20 companies with chunk size 5
+2025-06-06 14:49:37 - INFO - 
+Processing batch 1/4
+2025-06-06 14:49:37 - INFO - Companies in this batch: ['Juego Studios (India)', 'Mobzway Technologies LLP', 'Appinventiv', 'Games2win', 'Hyperlink Infosystem']
+2025-06-06 14:49:37 - INFO - Processing batch of 5 companies...
+2025-06-06 14:49:37 - INFO - [Juego Studios (India)] Attempt 1: Navigating to https://www.juegostudio.com
+2025-06-06 14:49:37 - INFO - [Mobzway Technologies LLP] Attempt 1: Navigating to https://www.mobzway.com
+2025-06-06 14:49:37 - INFO - [Appinventiv] Attempt 1: Navigating to https://www.appinventiv.com
+2025-06-06 14:49:37 - INFO - [Games2win] Attempt 1: Navigating to https://www.games2win.com
+2025-06-06 14:49:37 - INFO - [Hyperlink Infosystem] Attempt 1: Navigating to https://www.hyperlinkinfosystem.com
+2025-06-06 14:49:39 - INFO - [Juego Studios (India)] Page loaded successfully, extracting content...
+2025-06-06 14:49:39 - INFO - [Juego Studios (India)] Result: Found career URL: https://www.juegostudio.com/careers
+2025-06-06 14:49:41 - INFO - [Hyperlink Infosystem] Page loaded successfully, extracting content...
+2025-06-06 14:49:42 - INFO - [Mobzway Technologies LLP] Page loaded successfully, extracting content...
+2025-06-06 14:49:43 - INFO - [Games2win] Page loaded successfully, extracting content...
+2025-06-06 14:49:44 - INFO - [Games2win] Result: Found career URL: https://www.games2win.com/careers
+2025-06-06 14:49:44 - INFO - [Appinventiv] Page loaded successfully, extracting content...
+2025-06-06 14:49:45 - INFO - [Mobzway Technologies LLP] Result: Found career URL: https://www.mobzway.com/careers
+2025-06-06 14:49:48 - INFO - [Appinventiv] Result: Found career URL: https://www.appinventiv.com/careers
+2025-06-06 14:49:49 - INFO - Sending prompt to LLaMA (length: 47568 chars)
+2025-06-06 14:49:52 - INFO - LLaMA response received (length: 58261 chars)
+2025-06-06 14:49:52 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The provided list contains various categories and tags related to careers, such as 'Education', 'Logistics', 'Entertainment', etc."}
+2025-06-06 14:49:52 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in header: The provided list contains various categories and tags related to careers, such as 'Education', 'Logistics', 'Entertainment', etc.
+2025-06-06 14:49:52 - INFO - Sending prompt to LLaMA (length: 8915 chars)
+2025-06-06 14:49:54 - INFO - LLaMA response received (length: 11917 chars)
+2025-06-06 14:49:54 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content found in the provided JSON object.'}
+2025-06-06 14:49:54 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in footer: Career-related content found in the provided JSON object.
+2025-06-06 14:49:54 - INFO - Sending prompt to LLaMA (length: 89950 chars)
+2025-06-06 14:49:56 - INFO - LLaMA response received (length: 104668 chars)
+2025-06-06 14:49:56 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content found in the provided list of URLs.'}
+2025-06-06 14:49:56 - INFO - [Hyperlink Infosystem] LLaMA found career-related content in body: Career-related content found in the provided list of URLs.
+2025-06-06 14:49:56 - INFO - [Hyperlink Infosystem] Result: Found career URL: https://www.hyperlinkinfosystem.com/career.html
+2025-06-06 14:49:56 - INFO -    Companies processed: 5
+2025-06-06 14:49:56 - INFO -    Successful: 5
+2025-06-06 14:49:56 - INFO -    Failed: 0
+2025-06-06 14:49:56 - INFO -    Companies with career pages found: 5
+2025-06-06 14:49:56 - INFO - Batch 1 completed in 18.73s
+2025-06-06 14:49:57 - INFO - 
+Processing batch 2/4
+2025-06-06 14:49:57 - INFO - Companies in this batch: ['Octro', 'HashCube', 'Nazara Technologies', 'StudioKrew', 'Grepix Infotech']
+2025-06-06 14:49:57 - INFO - Processing batch of 5 companies...
+2025-06-06 14:49:57 - INFO - [Octro] Attempt 1: Navigating to https://www.octro.com
+2025-06-06 14:49:57 - INFO - [HashCube] Attempt 1: Navigating to https://www.hashcube.com
+2025-06-06 14:49:57 - INFO - [Nazara Technologies] Attempt 1: Navigating to https://www.nazara.com
+2025-06-06 14:49:57 - INFO - [StudioKrew] Attempt 1: Navigating to https://www.studiokrew.com
+2025-06-06 14:49:57 - INFO - [Grepix Infotech] Attempt 1: Navigating to https://www.grepixit.com
+2025-06-06 14:49:59 - INFO - [Grepix Infotech] Page loaded successfully, extracting content...
+2025-06-06 14:49:59 - INFO - [Nazara Technologies] Page loaded successfully, extracting content...
+2025-06-06 14:49:59 - INFO - [Nazara Technologies] Result: Found career URL: https://www.nazara.com/career
+2025-06-06 14:49:59 - INFO - [StudioKrew] Page loaded successfully, extracting content...
+2025-06-06 14:50:00 - INFO - [HashCube] Page loaded successfully, extracting content...
+2025-06-06 14:50:00 - INFO - Sending prompt to LLaMA (length: 9087 chars)
+2025-06-06 14:50:01 - INFO - [StudioKrew] Result: Found career URL: https://www.studiokrew.com/careers
+2025-06-06 14:50:02 - INFO - [Octro] Page loaded successfully, extracting content...
+2025-06-06 14:50:02 - INFO - Sending prompt to LLaMA (length: 903 chars)
+2025-06-06 14:50:03 - INFO - LLaMA response received (length: 13293 chars)
+2025-06-06 14:50:03 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'The provided list contains various career-related topics such as hiring developers, mobile app development, and job opportunities in the tech industry.'}
+2025-06-06 14:50:03 - INFO - [Grepix Infotech] LLaMA found career-related content in header: The provided list contains various career-related topics such as hiring developers, mobile app development, and job opportunities in the tech industry.
+2025-06-06 14:50:03 - INFO - Sending prompt to LLaMA (length: 2673 chars)
+2025-06-06 14:50:04 - INFO - LLaMA response received (length: 1810 chars)
+2025-06-06 14:50:04 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The webpage contains a 'Careers' link, which directly indicates that it is career-related content."}
+2025-06-06 14:50:04 - INFO - [HashCube] LLaMA found career-related content in header: The webpage contains a 'Careers' link, which directly indicates that it is career-related content.
+2025-06-06 14:50:04 - INFO - Sending prompt to LLaMA (length: 6337 chars)
+2025-06-06 14:50:05 - INFO - LLaMA response received (length: 4407 chars)
+2025-06-06 14:50:05 - INFO - Successfully parsed JSON: {'text': {'is_career_related': True, 'explanation': "The webpage contains a 'Career' link and mentions 'Career Ease Of Doing Business', indicating that it is related to career opportunities."}}
+2025-06-06 14:50:05 - INFO - Sending prompt to LLaMA (length: 17667 chars)
+2025-06-06 14:50:06 - INFO - [Octro] Result: Found career URL: https://www.octro.com/career
+2025-06-06 14:50:07 - INFO - LLaMA response received (length: 7532 chars)
+2025-06-06 14:50:07 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The webpage contains career-related information and links, including a 'Careers' section with job openings and company culture details."}
+2025-06-06 14:50:07 - INFO - [HashCube] LLaMA found career-related content in body: The webpage contains career-related information and links, including a 'Careers' section with job openings and company culture details.
+2025-06-06 14:50:07 - INFO - [HashCube] Result: Found career URL: https://www.hashcube.com/#careers
+2025-06-06 14:50:09 - INFO - LLaMA response received (length: 22856 chars)
+2025-06-06 14:50:09 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'The provided list contains various links and text that are related to careers in mobile app development, web development, digital marketing, IoT, cloud services, database management, and more.'}
+2025-06-06 14:50:09 - INFO - [Grepix Infotech] LLaMA found career-related content in body: The provided list contains various links and text that are related to careers in mobile app development, web development, digital marketing, IoT, cloud services, database management, and more.
+2025-06-06 14:50:09 - INFO - [Grepix Infotech] Result: Found career URL: https://www.grepixit.com/careers.html
+2025-06-06 14:50:09 - INFO -    Companies processed: 5
+2025-06-06 14:50:09 - INFO -    Successful: 5
+2025-06-06 14:50:09 - INFO -    Failed: 0
+2025-06-06 14:50:09 - INFO -    Companies with career pages found: 5
+2025-06-06 14:50:09 - INFO - Batch 2 completed in 11.91s
+2025-06-06 14:50:10 - INFO - 
+Processing batch 3/4
+2025-06-06 14:50:10 - INFO - Companies in this batch: ['Abhiwan Technology', 'Virtual Infocom', 'CreatioSoft', 'Ironcode Gaming', 'Moonfrog Labs']
+2025-06-06 14:50:10 - INFO - Processing batch of 5 companies...
+2025-06-06 14:50:10 - INFO - [Abhiwan Technology] Attempt 1: Navigating to https://www.abhiwan.com
+2025-06-06 14:50:10 - INFO - [Virtual Infocom] Attempt 1: Navigating to https://www.virtualinfocom.com
+2025-06-06 14:50:10 - INFO - [CreatioSoft] Attempt 1: Navigating to https://www.creatiosoft.com
+2025-06-06 14:50:10 - INFO - [Ironcode Gaming] Attempt 1: Navigating to https://www.ironcode.com
+2025-06-06 14:50:10 - INFO - [Moonfrog Labs] Attempt 1: Navigating to https://www.moonfroglabs.com
+2025-06-06 14:50:12 - INFO - [CreatioSoft] Page loaded successfully, extracting content...
+2025-06-06 14:50:12 - INFO - [Abhiwan Technology] Page loaded successfully, extracting content...
+2025-06-06 14:50:14 - INFO - [Abhiwan Technology] Result: Found career URL: https://www.abhiwan.com/career
+2025-06-06 14:50:15 - INFO - [Moonfrog Labs] Page loaded successfully, extracting content...
+2025-06-06 14:50:16 - INFO - [Moonfrog Labs] Result: Found career URL: https://www.moonfroglabs.com/careers
+2025-06-06 14:50:18 - INFO - [Ironcode Gaming] Page loaded successfully, extracting content...
+2025-06-06 14:50:20 - INFO - Sending prompt to LLaMA (length: 3661 chars)
+2025-06-06 14:50:23 - INFO - LLaMA response received (length: 5839 chars)
+2025-06-06 14:50:23 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The webpage contains various job-related terms such as 'QA & Software Testing Services', 'Game Testing Services', 'Card Game Testing Services', 'Poker Game Testing Services', 'Hire Poker Software Developer', and 'Poker Software Provider'. These terms suggest that the webpage is related to career opportunities or job openings in the field of software testing, game development, and poker-related services."}
+2025-06-06 14:50:23 - INFO - [CreatioSoft] LLaMA found career-related content in header: The webpage contains various job-related terms such as 'QA & Software Testing Services', 'Game Testing Services', 'Card Game Testing Services', 'Poker Game Testing Services', 'Hire Poker Software Developer', and 'Poker Software Provider'. These terms suggest that the webpage is related to career opportunities or job openings in the field of software testing, game development, and poker-related services.
+2025-06-06 14:50:23 - INFO - Sending prompt to LLaMA (length: 3191 chars)
+2025-06-06 14:50:24 - INFO - LLaMA response received (length: 4789 chars)
+2025-06-06 14:50:24 - INFO - Successfully parsed JSON: {'is_career_related': False, 'explanation': 'No career-related information or links were found in the webpage content.'}
+2025-06-06 14:50:24 - INFO - Sending prompt to LLaMA (length: 26667 chars)
+2025-06-06 14:50:25 - INFO - Sending prompt to LLaMA (length: 2184 chars)
+2025-06-06 14:50:26 - INFO - LLaMA response received (length: 36545 chars)
+2025-06-06 14:50:26 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "Career-related keywords such as 'hiring', 'sales', and 'job' were found in the provided content."}
+2025-06-06 14:50:26 - INFO - [CreatioSoft] LLaMA found career-related content in body: Career-related keywords such as 'hiring', 'sales', and 'job' were found in the provided content.
+2025-06-06 14:50:26 - INFO - [CreatioSoft] Result: Found career URL: https://www.creatiosoft.com/mailto:hiring@creatiosoft.com
+2025-06-06 14:50:27 - INFO - [Virtual Infocom] Page loaded successfully, extracting content...
+2025-06-06 14:50:28 - INFO - LLaMA response received (length: 3731 chars)
+2025-06-06 14:50:28 - INFO - Successfully parsed JSON: {'text': {'is_career_related': False, 'explanation': 'No career-related information or links were found in the webpage content.'}}
+2025-06-06 14:50:28 - INFO - Sending prompt to LLaMA (length: 6748 chars)
+2025-06-06 14:50:30 - INFO - LLaMA response received (length: 8996 chars)
+2025-06-06 14:50:30 - INFO - Successfully parsed JSON: {'text': {'is_career_related': False, 'explanation': 'No career-related information or links were found in the provided webpage content.'}}
+2025-06-06 14:50:30 - INFO - [Ironcode Gaming] Result: No career page found
+2025-06-06 14:51:00 - INFO - Sending prompt to LLaMA (length: 1958 chars)
+2025-06-06 14:51:02 - INFO - LLaMA response received (length: 3322 chars)
+2025-06-06 14:51:02 - INFO - Successfully parsed JSON: {'result': {'is_career_related': False, 'explanation': "No career-related keywords such as 'jobs', 'careers', 'opportunities', 'positions', or 'vacancies' were found in the webpage content."}}
+2025-06-06 14:51:02 - INFO - Sending prompt to LLaMA (length: 31456 chars)
+2025-06-06 14:51:04 - INFO - LLaMA response received (length: 39292 chars)
+2025-06-06 14:51:04 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The provided list contains a 'Careers' link, indicating that the website has career-related content."}
+2025-06-06 14:51:04 - INFO - [Virtual Infocom] LLaMA found career-related content in body: The provided list contains a 'Careers' link, indicating that the website has career-related content.
+2025-06-06 14:51:04 - INFO - [Virtual Infocom] Result: Found career URL: https://www.virtualinfocom.com/#
+2025-06-06 14:51:04 - INFO -    Companies processed: 5
+2025-06-06 14:51:04 - INFO -    Successful: 4
+2025-06-06 14:51:04 - INFO -    Failed: 0
+2025-06-06 14:51:04 - INFO -    Companies with career pages found: 4
+2025-06-06 14:51:04 - INFO - Batch 3 completed in 54.26s
+2025-06-06 14:51:05 - INFO - 
+Processing batch 4/4
+2025-06-06 14:51:05 - INFO - Companies in this batch: ['Supersike Games', 'HitBerry Games', 'Electronic Arts (EA)', 'Epic Games', 'Nintendo of America']
+2025-06-06 14:51:05 - INFO - Processing batch of 5 companies...
+2025-06-06 14:51:05 - INFO - [Supersike Games] Attempt 1: Navigating to https://www.supersikegames.com
+2025-06-06 14:51:05 - INFO - [HitBerry Games] Attempt 1: Navigating to https://www.hitberrygames.com
+2025-06-06 14:51:05 - INFO - [Electronic Arts (EA)] Attempt 1: Navigating to https://www.ea.com
+2025-06-06 14:51:05 - INFO - [Epic Games] Attempt 1: Navigating to https://store.epicgames.com/en-US
+2025-06-06 14:51:05 - INFO - [Nintendo of America] Attempt 1: Navigating to https://www.nintendo.com/us/
+2025-06-06 14:51:05 - ERROR - [Electronic Arts (EA)] Attempt 1 failed: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.ea.com/
+Call log:
+  - navigating to "https://www.ea.com/", waiting until "domcontentloaded"
+
+2025-06-06 14:51:06 - INFO - [Electronic Arts (EA)] Attempt 2: Navigating to https://www.ea.com
+2025-06-06 14:51:07 - ERROR - [Electronic Arts (EA)] Attempt 2 failed: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.ea.com/
+Call log:
+  - navigating to "https://www.ea.com/", waiting until "domcontentloaded"
+
+2025-06-06 14:51:07 - INFO - [HitBerry Games] Page loaded successfully, extracting content...
+2025-06-06 14:51:09 - INFO - [HitBerry Games] Result: Found career URL: https://www.hitberrygames.com/jobs
+2025-06-06 14:51:09 - INFO - [Electronic Arts (EA)] Attempt 3: Navigating to https://www.ea.com
+2025-06-06 14:51:09 - ERROR - [Electronic Arts (EA)] Attempt 3 failed: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.ea.com/
+Call log:
+  - navigating to "https://www.ea.com/", waiting until "domcontentloaded"
+
+2025-06-06 14:51:11 - INFO - [Nintendo of America] Page loaded successfully, extracting content...
+2025-06-06 14:51:11 - INFO - [Supersike Games] Page loaded successfully, extracting content...
+2025-06-06 14:51:15 - INFO - [Epic Games] Page loaded successfully, extracting content...
+2025-06-06 14:51:15 - INFO - Sending prompt to LLaMA (length: 684 chars)
+2025-06-06 14:51:16 - INFO - Sending prompt to LLaMA (length: 13611 chars)
+2025-06-06 14:51:17 - INFO - LLaMA response received (length: 1599 chars)
+2025-06-06 14:51:17 - INFO - Successfully parsed JSON: {'is_career_related': False, 'explanation': "No career-related keywords such as 'jobs', 'careers', 'opportunities', 'positions', or 'vacancies' were found in the webpage content."}
+2025-06-06 14:51:17 - INFO - Sending prompt to LLaMA (length: 473 chars)
+2025-06-06 14:51:19 - INFO - LLaMA response received (length: 21742 chars)
+2025-06-06 14:51:19 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content was found in the provided list of games.'}
+2025-06-06 14:51:19 - INFO - [Epic Games] LLaMA found career-related content in body: Career-related content was found in the provided list of games.
+2025-06-06 14:51:19 - INFO - [Epic Games] Result: No career page found
+2025-06-06 14:51:20 - INFO - LLaMA response received (length: 1311 chars)
+2025-06-06 14:51:20 - INFO - Successfully parsed JSON: {'is_career_related': False, 'explanation': "No career-related keywords such as 'jobs', 'careers', 'opportunities', 'positions', or 'vacancies' were found in the webpage content."}
+2025-06-06 14:51:20 - INFO - Sending prompt to LLaMA (length: 6294 chars)
+2025-06-06 14:51:21 - INFO - Sending prompt to LLaMA (length: 1432 chars)
+2025-06-06 14:51:22 - INFO - LLaMA response received (length: 7308 chars)
+2025-06-06 14:51:22 - INFO - Successfully parsed JSON: {'is_career_related': False, 'explanation': 'No career-related information or links were found in the provided webpage content.'}
+2025-06-06 14:51:22 - INFO - [Supersike Games] Result: No career page found
+2025-06-06 14:51:23 - INFO - LLaMA response received (length: 2443 chars)
+2025-06-06 14:51:23 - INFO - Successfully parsed JSON: {'is_career_related': False, 'explanation': 'No career-related information or links were found in the provided webpage content.'}
+2025-06-06 14:51:23 - INFO - Sending prompt to LLaMA (length: 4993 chars)
+2025-06-06 14:51:25 - INFO - LLaMA response received (length: 7029 chars)
+2025-06-06 14:51:25 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The webpage contains links to 'Careers' and 'Corporate Social Responsibility', indicating that it is related to job opportunities and career development."}
+2025-06-06 14:51:25 - INFO - [Nintendo of America] LLaMA found career-related content in footer: The webpage contains links to 'Careers' and 'Corporate Social Responsibility', indicating that it is related to job opportunities and career development.
+2025-06-06 14:51:25 - INFO - Sending prompt to LLaMA (length: 37375 chars)
+2025-06-06 14:51:27 - INFO - LLaMA response received (length: 52241 chars)
+2025-06-06 14:51:27 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The Nintendo website contains career-related information in the 'Support' section, specifically under the 'FAQ' and 'Repair' categories."}
+2025-06-06 14:51:27 - INFO - [Nintendo of America] LLaMA found career-related content in body: The Nintendo website contains career-related information in the 'Support' section, specifically under the 'FAQ' and 'Repair' categories.
+2025-06-06 14:51:27 - INFO - [Nintendo of America] Result: Found career URL: https://careers.nintendo.com/
+2025-06-06 14:51:27 - INFO -    Companies processed: 5
+2025-06-06 14:51:27 - INFO -    Successful: 2
+2025-06-06 14:51:27 - INFO -    Failed: 1
+2025-06-06 14:51:27 - INFO -    Companies with career pages found: 2
+2025-06-06 14:51:27 - INFO - Batch 4 completed in 21.91s
+2025-06-06 14:51:27 - INFO -    Companies processed: 20
+2025-06-06 14:51:27 - INFO -    Successful: 16
+2025-06-06 14:51:27 - INFO -    Failed: 1
+2025-06-06 14:51:27 - INFO -    Companies with career pages found: 16
+2025-06-06 14:51:27 - INFO -    Total execution time: 111.24 seconds
+2025-06-06 14:51:27 - INFO -    Average time per company: 5.56 seconds
+2025-06-06 14:51:27 - INFO -    Companies per minute: 10.8
+2025-06-06 15:04:29 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:04:29 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:04:30 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Unnamed: 2']
+2025-06-06 15:04:30 - INFO - Processing 11 companies with chunk size 5
+2025-06-06 15:04:30 - INFO - 
+Processing batch 1/3
+2025-06-06 15:04:30 - INFO - Companies in this batch: ['Yudiz', 'Bacancy', 'Simform', 'Capermint', 'Trootech']
+2025-06-06 15:04:30 - INFO - Processing batch of 5 companies...
+2025-06-06 15:04:30 - INFO - [Yudiz] Attempt 1: Navigating to https://www.yudiz.com
+2025-06-06 15:04:30 - INFO - [Bacancy] Attempt 1: Navigating to https://www.bacancytechnology.com
+2025-06-06 15:04:30 - INFO - [Simform] Attempt 1: Navigating to https://www.simform.com
+2025-06-06 15:04:30 - INFO - [Capermint] Attempt 1: Navigating to https://www.capermint.com
+2025-06-06 15:04:30 - INFO - [Trootech] Attempt 1: Navigating to https://www.trootech.com
+2025-06-06 15:04:32 - INFO - [Yudiz] Page loaded successfully, extracting content...
+2025-06-06 15:04:33 - INFO - [Bacancy] Page loaded successfully, extracting content...
+2025-06-06 15:04:35 - INFO - [Trootech] Page loaded successfully, extracting content...
+2025-06-06 15:04:35 - INFO - [Simform] Page loaded successfully, extracting content...
+2025-06-06 15:04:35 - INFO - [Bacancy] Result: Found career URL: https://www.bacancytechnology.com/careers
+2025-06-06 15:04:36 - INFO - [Trootech] Result: Found career URL: https://www.trootech.com/careers
+2025-06-06 15:04:37 - INFO - [Simform] Result: Found career URL: https://www.simform.com/careers
+2025-06-06 15:04:37 - INFO - [Yudiz] Result: Found career URL: https://www.yudiz.com/career
+2025-06-06 15:04:41 - INFO - [Capermint] Page loaded successfully, extracting content...
+2025-06-06 15:05:14 - INFO - Sending prompt to LLaMA (length: 17744 chars)
+2025-06-06 15:05:23 - INFO - LLaMA response received (length: 23350 chars)
+2025-06-06 15:05:23 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content such as job descriptions, salary ranges, and required skills were found in the provided list.'}
+2025-06-06 15:05:23 - INFO - [Capermint] LLaMA found career-related content in header: Career-related content such as job descriptions, salary ranges, and required skills were found in the provided list.
+2025-06-06 15:05:23 - INFO - Sending prompt to LLaMA (length: 8882 chars)
+2025-06-06 15:05:26 - INFO - LLaMA response received (length: 12962 chars)
+2025-06-06 15:05:26 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content such as job descriptions, salary ranges, and industry trends were found in the provided list.'}
+2025-06-06 15:05:26 - INFO - [Capermint] LLaMA found career-related content in footer: Career-related content such as job descriptions, salary ranges, and industry trends were found in the provided list.
+2025-06-06 15:05:26 - INFO - Sending prompt to LLaMA (length: 40415 chars)
+2025-06-06 15:05:28 - INFO - LLaMA response received (length: 50628 chars)
+2025-06-06 15:05:28 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content found in the provided list of URLs.'}
+2025-06-06 15:05:28 - INFO - [Capermint] LLaMA found career-related content in body: Career-related content found in the provided list of URLs.
+2025-06-06 15:05:28 - INFO - [Capermint] Result: Found career URL: https://www.capermint.com/blog/gamification-in-recruitment/
+2025-06-06 15:05:28 - INFO -    Companies processed: 5
+2025-06-06 15:05:28 - INFO -    Successful: 5
+2025-06-06 15:05:28 - INFO -    Failed: 0
+2025-06-06 15:05:28 - INFO -    Companies with career pages found: 5
+2025-06-06 15:05:28 - INFO - Batch 1 completed in 57.75s
+2025-06-06 15:05:29 - INFO - 
+Processing batch 2/3
+2025-06-06 15:05:29 - INFO - Companies in this batch: ['7Span', 'Tridhya', 'IT Path Solution', 'Moon Technolabs', 'Huptech']
+2025-06-06 15:05:29 - INFO - Processing batch of 5 companies...
+2025-06-06 15:05:29 - INFO - [7Span] Attempt 1: Navigating to https://7span.com
+2025-06-06 15:05:29 - INFO - [Tridhya] Attempt 1: Navigating to https://www.tridhyatech.com
+2025-06-06 15:05:29 - INFO - [IT Path Solution] Attempt 1: Navigating to https://itpathsolutions.com
+2025-06-06 15:05:29 - INFO - [Moon Technolabs] Attempt 1: Navigating to https://www.moontechnolabs.com
+2025-06-06 15:05:29 - INFO - [Huptech] Attempt 1: Navigating to https://www.huptechweb.com
+2025-06-06 15:05:31 - INFO - [7Span] Page loaded successfully, extracting content...
+2025-06-06 15:05:31 - INFO - [7Span] Result: Found career URL: https://7span.com/careers
+2025-06-06 15:05:32 - INFO - [Huptech] Page loaded successfully, extracting content...
+2025-06-06 15:05:32 - INFO - [Tridhya] Page loaded successfully, extracting content...
+2025-06-06 15:05:33 - INFO - [Moon Technolabs] Page loaded successfully, extracting content...
+2025-06-06 15:05:34 - INFO - [IT Path Solution] Page loaded successfully, extracting content...
+2025-06-06 15:05:35 - INFO - Sending prompt to LLaMA (length: 648 chars)
+2025-06-06 15:05:37 - INFO - [Tridhya] Result: Found career URL: https://www.tridhyatech.com/careers
+2025-06-06 15:05:38 - INFO - LLaMA response received (length: 1526 chars)
+2025-06-06 15:05:38 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': "The webpage contains links to a 'Career' page and a 'Privacy Policy' page, indicating that it is related to career opportunities."}
+2025-06-06 15:05:38 - INFO - [Huptech] LLaMA found career-related content in footer: The webpage contains links to a 'Career' page and a 'Privacy Policy' page, indicating that it is related to career opportunities.
+2025-06-06 15:05:38 - INFO - Sending prompt to LLaMA (length: 8997 chars)
+2025-06-06 15:05:42 - INFO - LLaMA response received (length: 12402 chars)
+2025-06-06 15:05:42 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content was found in the provided HTML structure.'}
+2025-06-06 15:05:42 - INFO - [Huptech] LLaMA found career-related content in body: Career-related content was found in the provided HTML structure.
+2025-06-06 15:05:42 - INFO - [Huptech] Result: Found career URL: https://forms.gle/NN3mRDD2heKJoxiPA
+2025-06-06 15:05:42 - INFO - [IT Path Solution] Result: Found career URL: https://itpathsolutions.com/careers
+2025-06-06 15:05:44 - INFO - Sending prompt to LLaMA (length: 18917 chars)
+2025-06-06 15:05:47 - INFO - LLaMA response received (length: 23764 chars)
+2025-06-06 15:05:47 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'The provided list contains a mix of career-related and non-career related content.'}
+2025-06-06 15:05:47 - INFO - [Moon Technolabs] LLaMA found career-related content in header: The provided list contains a mix of career-related and non-career related content.
+2025-06-06 15:05:47 - INFO - Sending prompt to LLaMA (length: 37632 chars)
+2025-06-06 15:05:50 - INFO - LLaMA response received (length: 44671 chars)
+2025-06-06 15:05:50 - INFO - Successfully parsed JSON: {'is_career_related': True, 'explanation': 'Career-related content found in the provided list of links.'}
+2025-06-06 15:05:50 - INFO - [Moon Technolabs] LLaMA found career-related content in body: Career-related content found in the provided list of links.
+2025-06-06 15:05:50 - INFO - [Moon Technolabs] Result: Found career URL: https://www.moontechnolabs.com/career-with-us
+2025-06-06 15:05:50 - INFO -    Companies processed: 5
+2025-06-06 15:05:50 - INFO -    Successful: 5
+2025-06-06 15:05:50 - INFO -    Failed: 0
+2025-06-06 15:05:50 - INFO -    Companies with career pages found: 5
+2025-06-06 15:05:50 - INFO - Batch 2 completed in 20.73s
+2025-06-06 15:05:51 - INFO - 
+Processing batch 3/3
+2025-06-06 15:05:51 - INFO - Companies in this batch: ['Crest Data System']
+2025-06-06 15:05:51 - INFO - Processing batch of 1 companies...
+2025-06-06 15:05:51 - INFO - [Crest Data System] Attempt 1: Navigating to https://www.crestdatasys.com
+2025-06-06 15:05:54 - INFO - [Crest Data System] Page loaded successfully, extracting content...
+2025-06-06 15:05:56 - INFO - [Crest Data System] Result: Found career URL: https://www.crestdatasys.com/careers
+2025-06-06 15:05:56 - INFO -    Companies processed: 1
+2025-06-06 15:05:56 - INFO -    Successful: 1
+2025-06-06 15:05:56 - INFO -    Failed: 0
+2025-06-06 15:05:56 - INFO -    Companies with career pages found: 1
+2025-06-06 15:05:56 - INFO - Batch 3 completed in 4.83s
+2025-06-06 15:05:56 - INFO -    Companies processed: 11
+2025-06-06 15:05:56 - INFO -    Successful: 11
+2025-06-06 15:05:56 - INFO -    Failed: 0
+2025-06-06 15:05:56 - INFO -    Companies with career pages found: 11
+2025-06-06 15:05:56 - INFO -    Total execution time: 86.36 seconds
+2025-06-06 15:05:56 - INFO -    Average time per company: 7.85 seconds
+2025-06-06 15:05:56 - INFO -    Companies per minute: 7.6
+2025-06-06 15:16:28 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:16:28 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:16:28 - ERROR - input/homepage_company_links.csv not found!
+2025-06-06 15:17:04 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:17:04 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:17:04 - ERROR - company_carrer_links.csv not found!
+2025-06-06 15:17:14 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:17:14 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:17:14 - ERROR - company_carrer_links.csv not found!
+2025-06-06 15:17:30 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:17:30 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:17:30 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Unnamed: 2']
+2025-06-06 15:20:18 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:20:18 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:20:19 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Unnamed: 2']
+2025-06-06 15:22:15 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:22:15 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:22:16 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Unnamed: 2']
+2025-06-06 15:22:33 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:22:33 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:22:33 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL', 'Unnamed: 2']
+2025-06-06 15:26:29 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:26:29 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:26:30 - ERROR - baki.csv not found!
+2025-06-06 15:27:25 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:27:25 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:27:25 - INFO - Loaded CSV with columns: ['Company Name\tHomepage URL']
+2025-06-06 15:28:05 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:28:05 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:28:05 - INFO - Loaded CSV with columns: ['Company Name\tHomepage URL']
+2025-06-06 15:28:05 - ERROR - Input CSV baki.csv missing required columns: ['Company Name', 'Homepage URL']
+2025-06-06 15:28:35 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:28:35 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:28:35 - INFO - Loaded CSV with columns: ['Company Name\tHomepage URL']
+2025-06-06 15:28:35 - ERROR - Input CSV baki.csv missing required columns: ['Company Name', 'Homepage URL']
+2025-06-06 15:29:21 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:29:21 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:29:21 - INFO - Loaded CSV with columns: ['Company Name\tHomepage URL']
+2025-06-06 15:29:21 - ERROR - Input CSV baki.csv missing required columns: ['Company Name', 'Homepage URL']
+2025-06-06 15:45:50 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 15:45:50 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 15:45:50 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL']
+2025-06-06 15:45:50 - INFO - Processing 11 companies with chunk size 5
+2025-06-06 15:45:51 - INFO - 
+Processing batch 1/3
+2025-06-06 15:45:51 - INFO - Companies in this batch: ['Yudiz', 'Bacancy', 'Simform', 'Capermint', 'Trootech']
+2025-06-06 15:45:51 - INFO - Processing batch of 5 companies...
+2025-06-06 15:45:51 - INFO - [Yudiz] Attempt 1: Navigating to https://www.yudiz.com
+2025-06-06 15:45:51 - INFO - [Bacancy] Attempt 1: Navigating to https://www.bacancytechnology.com
+2025-06-06 15:45:51 - INFO - [Simform] Attempt 1: Navigating to https://www.simform.com
+2025-06-06 15:45:51 - INFO - [Capermint] Attempt 1: Navigating to https://www.capermint.com
+2025-06-06 15:45:51 - INFO - [Trootech] Attempt 1: Navigating to https://www.trootech.com
+2025-06-06 15:45:53 - INFO - [Yudiz] Page loaded successfully, extracting content...
+2025-06-06 15:45:53 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/careers (method: pattern_match)
+2025-06-06 15:45:54 - INFO - [Bacancy] Page loaded successfully, extracting content...
+2025-06-06 15:45:54 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/careers (method: pattern_match)
+2025-06-06 15:45:55 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 15:45:55 - INFO - [Simform] Page loaded successfully, extracting content...
+2025-06-06 15:45:55 - INFO - [Simform] Checking potential career link: https://www.simform.com/careers (method: pattern_match)
+2025-06-06 15:45:56 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:45:56 - INFO - [Trootech] Page loaded successfully, extracting content...
+2025-06-06 15:45:57 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/careers (method: pattern_match)
+2025-06-06 15:46:04 - INFO - [Capermint] Page loaded successfully, extracting content...
+2025-06-06 15:46:05 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/careers (method: pattern_match)
+2025-06-06 15:46:10 - INFO - LLaMA response received (length: 7897 chars)
+2025-06-06 15:46:10 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with information about their services, products, and technology, but does not contain any job listings or career-related content.'}
+2025-06-06 15:46:10 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/jobs (method: pattern_match)
+2025-06-06 15:46:10 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:15 - INFO - LLaMA response received (length: 8104 chars)
+2025-06-06 15:46:15 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains numerous job titles, position descriptions, application buttons, and keywords like 'Job Openings', 'Career', 'Hiring', 'Staff Augmentation', and 'Software Developers' that indicate it is a career or job listings page."}
+2025-06-06 15:46:15 - INFO - [Bacancy] Confirmed career page: https://www.bacancytechnology.com/careers - The webpage contains numerous job titles, position descriptions, application buttons, and keywords like 'Job Openings', 'Career', 'Hiring', 'Staff Augmentation', and 'Software Developers' that indicate it is a career or job listings page.
+2025-06-06 15:46:15 - INFO - [Bacancy] Result: Found career URL: https://www.bacancytechnology.com/careers
+2025-06-06 15:46:15 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:19 - INFO - LLaMA response received (length: 8321 chars)
+2025-06-06 15:46:19 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Hiring process', 'Life at Simform', and 'Our Stories' which indicate that it is a career or job listings page."}
+2025-06-06 15:46:19 - INFO - [Simform] Confirmed career page: https://www.simform.com/careers - This webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Hiring process', 'Life at Simform', and 'Our Stories' which indicate that it is a career or job listings page.
+2025-06-06 15:46:19 - INFO - [Simform] Result: Found career URL: https://www.simform.com/careers
+2025-06-06 15:46:19 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:24 - INFO - LLaMA response received (length: 8978 chars)
+2025-06-06 15:46:24 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage appears to be a career page as it contains job listings and career-related content such as company descriptions, employee testimonials, and information about the company culture. The presence of phrases like 'Join our team', 'Apply Now', and 'Discover where you fit' also suggest that this is a career-focused website."}
+2025-06-06 15:46:24 - INFO - [Trootech] Confirmed career page: https://www.trootech.com/careers - This webpage appears to be a career page as it contains job listings and career-related content such as company descriptions, employee testimonials, and information about the company culture. The presence of phrases like 'Join our team', 'Apply Now', and 'Discover where you fit' also suggest that this is a career-focused website.
+2025-06-06 15:46:24 - INFO - [Trootech] Result: Found career URL: https://www.trootech.com/careers
+2025-06-06 15:46:24 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 15:46:28 - INFO - LLaMA response received (length: 9426 chars)
+2025-06-06 15:46:28 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website showcasing their services and products in game development, app development, and other related fields. While they do offer job listings and talent hiring services, the primary focus of the page is on promoting their business and services rather than providing a comprehensive career or job listings section.'}
+2025-06-06 15:46:28 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/jobs (method: pattern_match)
+2025-06-06 15:46:32 - INFO - LLaMA response received (length: 7999 chars)
+2025-06-06 15:46:32 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with information about their services, products, and technology, but does not contain any job listings or career-related content that would suggest it is a career or job listings page.'}
+2025-06-06 15:46:32 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/career (method: pattern_match)
+2025-06-06 15:46:33 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:34 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:37 - INFO - LLaMA response received (length: 9150 chars)
+2025-06-06 15:46:37 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website showcasing their services and products in the gamification and app development industry, but does not contain any job listings or career-related content.'}
+2025-06-06 15:46:37 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/career (method: pattern_match)
+2025-06-06 15:46:40 - INFO - LLaMA response received (length: 8520 chars)
+2025-06-06 15:46:40 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various sections related to careers and job openings, such as 'Hire Resources', 'Hire Dedicated Developers', 'Full Cycle Product Development', and 'IT Consulting Services', indicating that it is a career or job listings page."}
+2025-06-06 15:46:40 - INFO - [Yudiz] Confirmed career page: https://www.yudiz.com/career - The webpage contains various sections related to careers and job openings, such as 'Hire Resources', 'Hire Dedicated Developers', 'Full Cycle Product Development', and 'IT Consulting Services', indicating that it is a career or job listings page.
+2025-06-06 15:46:40 - INFO - [Yudiz] Result: Found career URL: https://www.yudiz.com/career
+2025-06-06 15:46:41 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:44 - INFO - LLaMA response received (length: 9158 chars)
+2025-06-06 15:46:44 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website that showcases their services and products in the gamification and app development industry, but does not contain any job listings or career-related content.'}
+2025-06-06 15:46:44 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/about/careers (method: pattern_match)
+2025-06-06 15:46:49 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:46:51 - INFO - LLaMA response received (length: 9180 chars)
+2025-06-06 15:46:51 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but does not contain any job listings or career-related content that would indicate it is a career or job listings page.'}
+2025-06-06 15:46:51 - INFO - [Capermint] Checking potential career link: https://careers.www.capermint.com (method: pattern_match)
+2025-06-06 15:46:51 - INFO - [Capermint] Result: No career page found
+2025-06-06 15:46:51 - INFO -    Companies processed: 5
+2025-06-06 15:46:51 - INFO -    Successful: 4
+2025-06-06 15:46:51 - INFO -    Failed: 0
+2025-06-06 15:46:51 - INFO -    Companies with career pages found: 4
+2025-06-06 15:46:51 - INFO - Batch 1 completed in 60.13s
+2025-06-06 15:46:52 - INFO - 
+Processing batch 2/3
+2025-06-06 15:46:52 - INFO - Companies in this batch: ['7Span', 'Tridhya', 'IT Path Solution', 'Moon Technolabs', 'Huptech']
+2025-06-06 15:46:52 - INFO - Processing batch of 5 companies...
+2025-06-06 15:46:52 - INFO - [7Span] Attempt 1: Navigating to https://7span.com
+2025-06-06 15:46:52 - INFO - [Tridhya] Attempt 1: Navigating to https://www.tridhyatech.com
+2025-06-06 15:46:52 - INFO - [IT Path Solution] Attempt 1: Navigating to https://itpathsolutions.com
+2025-06-06 15:46:52 - INFO - [Moon Technolabs] Attempt 1: Navigating to https://www.moontechnolabs.com
+2025-06-06 15:46:52 - INFO - [Huptech] Attempt 1: Navigating to https://www.huptechweb.com
+2025-06-06 15:46:54 - INFO - [7Span] Page loaded successfully, extracting content...
+2025-06-06 15:46:54 - INFO - [7Span] Checking potential career link: https://7span.com/careers (method: pattern_match)
+2025-06-06 15:46:54 - INFO - Sending prompt to LLaMA (length: 3097 chars)
+2025-06-06 15:46:54 - INFO - [Tridhya] Page loaded successfully, extracting content...
+2025-06-06 15:46:55 - INFO - [Tridhya] Checking potential career link: https://www.tridhyatech.com/careers (method: pattern_match)
+2025-06-06 15:46:55 - INFO - [Huptech] Page loaded successfully, extracting content...
+2025-06-06 15:46:55 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/careers (method: pattern_match)
+2025-06-06 15:46:56 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 15:46:57 - INFO - [Moon Technolabs] Page loaded successfully, extracting content...
+2025-06-06 15:46:57 - INFO - [Moon Technolabs] Checking potential career link: https://www.moontechnolabs.com/careers (method: pattern_match)
+2025-06-06 15:47:00 - INFO - LLaMA response received (length: 4164 chars)
+2025-06-06 15:47:00 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various indicators of a career or job listings page, including 'Current Openings', 'Apply Now', and 'Looking For Jobs' buttons, as well as keywords like 'careers', 'openings', and 'apply'. The page also provides information about company culture, values, and benefits, which is typical of career pages."}
+2025-06-06 15:47:00 - INFO - [7Span] Confirmed career page: https://7span.com/careers - The webpage contains various indicators of a career or job listings page, including 'Current Openings', 'Apply Now', and 'Looking For Jobs' buttons, as well as keywords like 'careers', 'openings', and 'apply'. The page also provides information about company culture, values, and benefits, which is typical of career pages.
+2025-06-06 15:47:00 - INFO - [7Span] Result: Found career URL: https://7span.com/careers
+2025-06-06 15:47:00 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:47:02 - INFO - [IT Path Solution] Page loaded successfully, extracting content...
+2025-06-06 15:47:02 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/careers (method: pattern_match)
+2025-06-06 15:47:04 - INFO - LLaMA response received (length: 2021 chars)
+2025-06-06 15:47:04 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a homepage for Huptech Web with a 'Career' section that links to other pages."}
+2025-06-06 15:47:04 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/jobs (method: pattern_match)
+2025-06-06 15:47:04 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:47:09 - INFO - LLaMA response received (length: 9225 chars)
+2025-06-06 15:47:09 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' with job listings and application buttons, indicating that it is a career or job listings page."}
+2025-06-06 15:47:09 - INFO - [Tridhya] Confirmed career page: https://www.tridhyatech.com/careers - The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' with job listings and application buttons, indicating that it is a career or job listings page.
+2025-06-06 15:47:09 - INFO - [Tridhya] Result: Found career URL: https://www.tridhyatech.com/careers
+2025-06-06 15:47:09 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 15:47:14 - INFO - LLaMA response received (length: 8342 chars)
+2025-06-06 15:47:14 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains numerous job titles, position descriptions, application buttons, and keywords like 'We're Hiring', 'Hire Gen AI Engineers Services', 'Become a Client', which indicate that it is a career or job listings page."}
+2025-06-06 15:47:14 - INFO - [Moon Technolabs] Confirmed career page: https://www.moontechnolabs.com/careers - The webpage contains numerous job titles, position descriptions, application buttons, and keywords like 'We're Hiring', 'Hire Gen AI Engineers Services', 'Become a Client', which indicate that it is a career or job listings page.
+2025-06-06 15:47:14 - INFO - [Moon Technolabs] Result: Found career URL: https://www.moontechnolabs.com/careers
+2025-06-06 15:47:14 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:47:16 - INFO - LLaMA response received (length: 2034 chars)
+2025-06-06 15:47:16 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content. It appears to be a generic '404 Not Found' error page with some links to explore the company's work and team."}
+2025-06-06 15:47:16 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/career (method: pattern_match)
+2025-06-06 15:47:17 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 15:47:22 - INFO - LLaMA response received (length: 8779 chars)
+2025-06-06 15:47:22 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage contains job listings and career-related content, including position descriptions, application buttons, and keywords like 'hiring', 'careers', and 'openings'. The page also includes sections for current openings, partner with us, contact us, and careers, which further indicates that it is a career or job listings page."}
+2025-06-06 15:47:22 - INFO - [IT Path Solution] Confirmed career page: https://itpathsolutions.com/careers - This webpage contains job listings and career-related content, including position descriptions, application buttons, and keywords like 'hiring', 'careers', and 'openings'. The page also includes sections for current openings, partner with us, contact us, and careers, which further indicates that it is a career or job listings page.
+2025-06-06 15:47:22 - INFO - [IT Path Solution] Result: Found career URL: https://itpathsolutions.com/careers
+2025-06-06 15:47:26 - INFO - LLaMA response received (length: 2226 chars)
+2025-06-06 15:47:26 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element. The page contains a privacy policy and contact information, suggesting it may be a company's main website."}
+2025-06-06 15:47:26 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/about/careers (method: pattern_match)
+2025-06-06 15:47:26 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 15:47:28 - INFO - LLaMA response received (length: 1972 chars)
+2025-06-06 15:47:28 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a privacy policy and contact information.'}
+2025-06-06 15:47:28 - INFO - [Huptech] Checking potential career link: https://careers.www.huptechweb.com (method: pattern_match)
+2025-06-06 15:47:29 - INFO - [Huptech] Result: No career page found
+2025-06-06 15:47:29 - INFO -    Companies processed: 5
+2025-06-06 15:47:29 - INFO -    Successful: 4
+2025-06-06 15:47:29 - INFO -    Failed: 0
+2025-06-06 15:47:29 - INFO -    Companies with career pages found: 4
+2025-06-06 15:47:29 - INFO - Batch 2 completed in 36.41s
+2025-06-06 15:47:30 - INFO - 
+Processing batch 3/3
+2025-06-06 15:47:30 - INFO - Companies in this batch: ['Crest Data System']
+2025-06-06 15:47:30 - INFO - Processing batch of 1 companies...
+2025-06-06 15:47:30 - INFO - [Crest Data System] Attempt 1: Navigating to https://www.crestdatasys.com
+2025-06-06 15:47:33 - INFO - [Crest Data System] Page loaded successfully, extracting content...
+2025-06-06 15:47:34 - INFO - [Crest Data System] Checking potential career link: https://www.crestdatasys.com/careers (method: pattern_match)
+2025-06-06 15:47:35 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 15:47:39 - INFO - LLaMA response received (length: 9328 chars)
+2025-06-06 15:47:39 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles, position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', 'vacancies', 'positions', 'apply', 'hiring' that indicate it is a career or job listings page."}
+2025-06-06 15:47:39 - INFO - [Crest Data System] Confirmed career page: https://www.crestdatasys.com/careers - The webpage contains various job titles, position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', 'vacancies', 'positions', 'apply', 'hiring' that indicate it is a career or job listings page.
+2025-06-06 15:47:39 - INFO - [Crest Data System] Result: Found career URL: https://www.crestdatasys.com/careers
+2025-06-06 15:47:39 - INFO -    Companies processed: 1
+2025-06-06 15:47:39 - INFO -    Successful: 1
+2025-06-06 15:47:39 - INFO -    Failed: 0
+2025-06-06 15:47:39 - INFO -    Companies with career pages found: 1
+2025-06-06 15:47:39 - INFO - Batch 3 completed in 8.85s
+2025-06-06 15:47:39 - INFO -    Companies processed: 11
+2025-06-06 15:47:39 - INFO -    Successful: 9
+2025-06-06 15:47:39 - INFO -    Failed: 0
+2025-06-06 15:47:39 - INFO -    Companies with career pages found: 9
+2025-06-06 15:47:39 - INFO -    Total execution time: 108.56 seconds
+2025-06-06 15:47:39 - INFO -    Average time per company: 9.87 seconds
+2025-06-06 15:47:39 - INFO -    Companies per minute: 6.1
+2025-06-06 18:45:27 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 18:45:27 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 18:45:27 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL']
+2025-06-06 18:45:27 - WARNING - Output CSV done.csv exists but has no 'Company Name' column. Treating as empty.
+2025-06-06 18:45:27 - INFO - Processing 11 companies with chunk size 5
+2025-06-06 18:45:28 - INFO - 
+Processing batch 1/3
+2025-06-06 18:45:28 - INFO - Companies in this batch: ['Yudiz', 'Bacancy', 'Simform', 'Capermint', 'Trootech']
+2025-06-06 18:45:28 - INFO - Processing batch of 5 companies...
+2025-06-06 18:45:28 - INFO - [Yudiz] Attempt 1: Navigating to https://www.yudiz.com
+2025-06-06 18:45:28 - INFO - [Bacancy] Attempt 1: Navigating to https://www.bacancytechnology.com
+2025-06-06 18:45:28 - INFO - [Simform] Attempt 1: Navigating to https://www.simform.com
+2025-06-06 18:45:28 - INFO - [Capermint] Attempt 1: Navigating to https://www.capermint.com
+2025-06-06 18:45:28 - INFO - [Trootech] Attempt 1: Navigating to https://www.trootech.com
+2025-06-06 18:45:29 - INFO - [Yudiz] Page loaded successfully, extracting content...
+2025-06-06 18:45:30 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/careers (method: pattern_match)
+2025-06-06 18:45:30 - INFO - [Bacancy] Page loaded successfully, extracting content...
+2025-06-06 18:45:30 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/careers (method: pattern_match)
+2025-06-06 18:45:31 - INFO - [Trootech] Page loaded successfully, extracting content...
+2025-06-06 18:45:31 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/careers (method: pattern_match)
+2025-06-06 18:45:31 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 18:45:32 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:45:32 - INFO - [Simform] Page loaded successfully, extracting content...
+2025-06-06 18:45:32 - INFO - [Simform] Checking potential career link: https://www.simform.com/careers (method: pattern_match)
+2025-06-06 18:45:44 - INFO - LLaMA response received (length: 8060 chars)
+2025-06-06 18:45:44 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles, position descriptions, application buttons, and keywords like 'Job Openings', 'Career', 'Hiring', and 'Staff Augmentation' that indicate it is a career or job listings page."}
+2025-06-06 18:45:44 - INFO - [Bacancy] Confirmed career page: https://www.bacancytechnology.com/careers - The webpage contains various job titles, position descriptions, application buttons, and keywords like 'Job Openings', 'Career', 'Hiring', and 'Staff Augmentation' that indicate it is a career or job listings page.
+2025-06-06 18:45:44 - INFO - [Bacancy] Result: Found career URL: https://www.bacancytechnology.com/careers
+2025-06-06 18:45:44 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:45:45 - INFO - [Capermint] Page loaded successfully, extracting content...
+2025-06-06 18:45:46 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/careers (method: pattern_match)
+2025-06-06 18:45:46 - INFO - LLaMA response received (length: 7896 chars)
+2025-06-06 18:45:46 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with information about their services, products, and solutions, but does not contain any job listings or career-related content.'}
+2025-06-06 18:45:46 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/jobs (method: pattern_match)
+2025-06-06 18:45:46 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:45:48 - INFO - LLaMA response received (length: 8935 chars)
+2025-06-06 18:45:48 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage appears to be a career page as it contains job listings and career-related content such as company culture, employee testimonials, and descriptions of the work environment. The presence of phrases like 'Join our team', 'Apply Now', and 'Discover where you fit' further supports this classification."}
+2025-06-06 18:45:48 - INFO - [Trootech] Confirmed career page: https://www.trootech.com/careers - This webpage appears to be a career page as it contains job listings and career-related content such as company culture, employee testimonials, and descriptions of the work environment. The presence of phrases like 'Join our team', 'Apply Now', and 'Discover where you fit' further supports this classification.
+2025-06-06 18:45:48 - INFO - [Trootech] Result: Found career URL: https://www.trootech.com/careers
+2025-06-06 18:45:48 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 18:45:51 - INFO - LLaMA response received (length: 8642 chars)
+2025-06-06 18:45:51 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Life at Simform', 'Hiring process', 'Our team values Ownership over authority', and 'Everyone matters'. Additionally, the page has a section titled 'Be a Part of the Story of Cutting-Edge Digital Products' which is a clear indication that it is a career or job listings page."}
+2025-06-06 18:45:51 - INFO - [Simform] Confirmed career page: https://www.simform.com/careers - The webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Life at Simform', 'Hiring process', 'Our team values Ownership over authority', and 'Everyone matters'. Additionally, the page has a section titled 'Be a Part of the Story of Cutting-Edge Digital Products' which is a clear indication that it is a career or job listings page.
+2025-06-06 18:45:51 - INFO - [Simform] Result: Found career URL: https://www.simform.com/careers
+2025-06-06 18:45:51 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:45:53 - INFO - LLaMA response received (length: 7893 chars)
+2025-06-06 18:45:53 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with information about their services, products, and technology, but does not contain any job listings or career-related content.'}
+2025-06-06 18:45:53 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/career (method: pattern_match)
+2025-06-06 18:45:55 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:45:55 - INFO - LLaMA response received (length: 9179 chars)
+2025-06-06 18:45:55 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but does not contain any job listings or career-related content that would suggest it is a career or job listings page.'}
+2025-06-06 18:45:55 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/jobs (method: pattern_match)
+2025-06-06 18:45:58 - INFO - LLaMA response received (length: 8804 chars)
+2025-06-06 18:45:58 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles and position descriptions, such as 'Hire Dedicated Developers', 'Hire Unity Developers', 'Hire Motion Graphics Designers', and 'Full Cycle Product Development'. It also has a clear career section with job listings and application buttons. The page is focused on providing career opportunities and resources for businesses to scale with innovative products and solutions."}
+2025-06-06 18:45:58 - INFO - [Yudiz] Confirmed career page: https://www.yudiz.com/career - The webpage contains various job titles and position descriptions, such as 'Hire Dedicated Developers', 'Hire Unity Developers', 'Hire Motion Graphics Designers', and 'Full Cycle Product Development'. It also has a clear career section with job listings and application buttons. The page is focused on providing career opportunities and resources for businesses to scale with innovative products and solutions.
+2025-06-06 18:45:58 - INFO - [Yudiz] Result: Found career URL: https://www.yudiz.com/career
+2025-06-06 18:45:59 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:02 - INFO - LLaMA response received (length: 9167 chars)
+2025-06-06 18:46:02 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various services and products listed, but there are no job listings or career-related content that would indicate it's a career or job listings page."}
+2025-06-06 18:46:02 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/career (method: pattern_match)
+2025-06-06 18:46:06 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:07 - INFO - LLaMA response received (length: 9238 chars)
+2025-06-06 18:46:07 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products offered by Capermint Technologies, but it does not contain any job listings or career-related content that would indicate it is a career or job listings page.'}
+2025-06-06 18:46:07 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/about/careers (method: pattern_match)
+2025-06-06 18:46:12 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:13 - INFO - LLaMA response received (length: 9187 chars)
+2025-06-06 18:46:13 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but it does not contain any job listings or career-related content that would indicate it is a career or job listings page.'}
+2025-06-06 18:46:13 - INFO - [Capermint] Checking potential career link: https://careers.www.capermint.com (method: pattern_match)
+2025-06-06 18:46:13 - INFO - [Capermint] Checking potential career link: https://jobs.www.capermint.com (method: pattern_match)
+2025-06-06 18:46:13 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/join-us (method: pattern_match)
+2025-06-06 18:46:18 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:19 - INFO - LLaMA response received (length: 9129 chars)
+2025-06-06 18:46:19 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products offered by Capermint Technologies, but it does not contain any job listings or career-related content.'}
+2025-06-06 18:46:19 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/work-with-us (method: pattern_match)
+2025-06-06 18:46:23 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:24 - INFO - LLaMA response received (length: 9070 chars)
+2025-06-06 18:46:24 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but does not contain any job listings or career-related content.'}
+2025-06-06 18:46:24 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/our-jobs (method: pattern_match)
+2025-06-06 18:46:28 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:30 - INFO - LLaMA response received (length: 9238 chars)
+2025-06-06 18:46:30 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products offered by Capermint Technologies, but it does not contain any job listings or career-related content that would indicate it is a career or job listings page.'}
+2025-06-06 18:46:30 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/team-openings (method: pattern_match)
+2025-06-06 18:46:34 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:35 - INFO - LLaMA response received (length: 9070 chars)
+2025-06-06 18:46:35 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but does not contain any job listings or career-related content.'}
+2025-06-06 18:46:35 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/work-at (method: pattern_match)
+2025-06-06 18:46:39 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:41 - INFO - LLaMA response received (length: 9139 chars)
+2025-06-06 18:46:41 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various sections for game development, app development, and design services, but does not contain any job listings or career-related content.'}
+2025-06-06 18:46:41 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/job-openings (method: pattern_match)
+2025-06-06 18:46:45 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:46 - INFO - LLaMA response received (length: 9166 chars)
+2025-06-06 18:46:46 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various services and products listed, but there are no job listings or career-related content that would indicate it's a career or job listings page."}
+2025-06-06 18:46:46 - INFO - [Capermint] Checking potential career link: https://www.capermint.com/blog/gamification-in-recruitment/ (method: body_link)
+2025-06-06 18:46:51 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:52 - INFO - LLaMA response received (length: 9070 chars)
+2025-06-06 18:46:52 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company website with various services and products listed, but does not contain any job listings or career-related content.'}
+2025-06-06 18:46:52 - INFO - [Capermint] Result: No career page found
+2025-06-06 18:46:52 - INFO -    Companies processed: 5
+2025-06-06 18:46:52 - INFO -    Successful: 4
+2025-06-06 18:46:52 - INFO -    Failed: 0
+2025-06-06 18:46:52 - INFO -    Companies with career pages found: 4
+2025-06-06 18:46:52 - INFO - Batch 1 completed in 84.47s
+2025-06-06 18:46:53 - INFO - 
+Processing batch 2/3
+2025-06-06 18:46:53 - INFO - Companies in this batch: ['7Span', 'Tridhya', 'IT Path Solution', 'Moon Technolabs', 'Huptech']
+2025-06-06 18:46:53 - INFO - Processing batch of 5 companies...
+2025-06-06 18:46:53 - INFO - [7Span] Attempt 1: Navigating to https://7span.com
+2025-06-06 18:46:53 - INFO - [Tridhya] Attempt 1: Navigating to https://www.tridhyatech.com
+2025-06-06 18:46:53 - INFO - [IT Path Solution] Attempt 1: Navigating to https://itpathsolutions.com
+2025-06-06 18:46:53 - INFO - [Moon Technolabs] Attempt 1: Navigating to https://www.moontechnolabs.com
+2025-06-06 18:46:53 - INFO - [Huptech] Attempt 1: Navigating to https://www.huptechweb.com
+2025-06-06 18:46:55 - INFO - [7Span] Page loaded successfully, extracting content...
+2025-06-06 18:46:55 - INFO - [7Span] Checking potential career link: https://7span.com/careers (method: pattern_match)
+2025-06-06 18:46:55 - INFO - Sending prompt to LLaMA (length: 3097 chars)
+2025-06-06 18:46:56 - INFO - [Moon Technolabs] Page loaded successfully, extracting content...
+2025-06-06 18:46:56 - INFO - [Moon Technolabs] Checking potential career link: https://www.moontechnolabs.com/careers (method: pattern_match)
+2025-06-06 18:46:56 - INFO - [Huptech] Page loaded successfully, extracting content...
+2025-06-06 18:46:56 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/careers (method: pattern_match)
+2025-06-06 18:46:56 - INFO - [Tridhya] Page loaded successfully, extracting content...
+2025-06-06 18:46:56 - INFO - [Tridhya] Checking potential career link: https://www.tridhyatech.com/careers (method: pattern_match)
+2025-06-06 18:46:56 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:46:58 - INFO - LLaMA response received (length: 4179 chars)
+2025-06-06 18:46:58 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage contains various indicators of a career or job listings page, including 'Current Openings', 'Apply Now', and 'Looking For Jobs' buttons, as well as keywords like 'careers', 'openings', and 'apply'. Additionally, the page provides information about company culture, values, and benefits, which is typical of career pages."}
+2025-06-06 18:46:58 - INFO - [7Span] Confirmed career page: https://7span.com/careers - This webpage contains various indicators of a career or job listings page, including 'Current Openings', 'Apply Now', and 'Looking For Jobs' buttons, as well as keywords like 'careers', 'openings', and 'apply'. Additionally, the page provides information about company culture, values, and benefits, which is typical of career pages.
+2025-06-06 18:46:58 - INFO - [7Span] Result: Found career URL: https://7span.com/careers
+2025-06-06 18:46:58 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:46:59 - INFO - LLaMA response received (length: 2261 chars)
+2025-06-06 18:46:59 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element, as indicated by the '404 You've Hit the Wrong Wire' message and the lack of application buttons or position descriptions."}
+2025-06-06 18:46:59 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/jobs (method: pattern_match)
+2025-06-06 18:46:59 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:47:02 - INFO - LLaMA response received (length: 8573 chars)
+2025-06-06 18:47:02 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "This webpage contains extensive information about various job roles and services offered by Moon Technolabs, including AI development, software development, consulting, and more. The presence of 'We're Hiring' and 'Hire' buttons, as well as a section titled 'Become a Client', suggests that the page is primarily focused on career opportunities and recruitment."}
+2025-06-06 18:47:02 - INFO - [Moon Technolabs] Confirmed career page: https://www.moontechnolabs.com/careers - This webpage contains extensive information about various job roles and services offered by Moon Technolabs, including AI development, software development, consulting, and more. The presence of 'We're Hiring' and 'Hire' buttons, as well as a section titled 'Become a Client', suggests that the page is primarily focused on career opportunities and recruitment.
+2025-06-06 18:47:02 - INFO - [Moon Technolabs] Result: Found career URL: https://www.moontechnolabs.com/careers
+2025-06-06 18:47:02 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 18:47:04 - INFO - LLaMA response received (length: 9190 chars)
+2025-06-06 18:47:04 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' which suggest that the page is focused on job listings and career opportunities."}
+2025-06-06 18:47:04 - INFO - [Tridhya] Confirmed career page: https://www.tridhyatech.com/careers - The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' which suggest that the page is focused on job listings and career opportunities.
+2025-06-06 18:47:04 - INFO - [Tridhya] Result: Found career URL: https://www.tridhyatech.com/careers
+2025-06-06 18:47:06 - INFO - LLaMA response received (length: 5862 chars)
+2025-06-06 18:47:06 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content. It appears to be a company website showcasing their services and case studies, with no indication of current job openings or recruitment processes.'}
+2025-06-06 18:47:06 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/career (method: pattern_match)
+2025-06-06 18:47:06 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 18:47:08 - INFO - LLaMA response received (length: 5879 chars)
+2025-06-06 18:47:08 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content. It appears to be a company website showcasing their services and case studies, with some sections related to partnerships, experience, and client testimonials.'}
+2025-06-06 18:47:08 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/about/careers (method: pattern_match)
+2025-06-06 18:47:08 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:10 - INFO - LLaMA response received (length: 2317 chars)
+2025-06-06 18:47:10 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a homepage for Huptech Web with a 'Career' section that links to a non-existent page. The presence of a 'Privacy Policy' and 'Contact' information suggests that the website is more focused on general company information than job listings."}
+2025-06-06 18:47:10 - INFO - [Huptech] Checking potential career link: https://careers.www.huptechweb.com (method: pattern_match)
+2025-06-06 18:47:10 - INFO - [Huptech] Checking potential career link: https://jobs.www.huptechweb.com (method: pattern_match)
+2025-06-06 18:47:10 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/join-us (method: pattern_match)
+2025-06-06 18:47:10 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:12 - INFO - LLaMA response received (length: 2261 chars)
+2025-06-06 18:47:12 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element, as indicated by the '404 You've Hit the Wrong Wire' message and the lack of application buttons or position descriptions."}
+2025-06-06 18:47:12 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/work-with-us (method: pattern_match)
+2025-06-06 18:47:12 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:13 - INFO - LLaMA response received (length: 1969 chars)
+2025-06-06 18:47:13 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a privacy policy and contact information.'}
+2025-06-06 18:47:13 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/our-jobs (method: pattern_match)
+2025-06-06 18:47:14 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:15 - INFO - LLaMA response received (length: 2026 chars)
+2025-06-06 18:47:15 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element."}
+2025-06-06 18:47:15 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/team-openings (method: pattern_match)
+2025-06-06 18:47:15 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:17 - INFO - LLaMA response received (length: 2076 chars)
+2025-06-06 18:47:17 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element than an actual job board."}
+2025-06-06 18:47:17 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/work-at (method: pattern_match)
+2025-06-06 18:47:17 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 18:47:18 - INFO - LLaMA response received (length: 2215 chars)
+2025-06-06 18:47:18 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element. The presence of a 404 error and the lack of application buttons or position descriptions suggest this."}
+2025-06-06 18:47:18 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/job-openings (method: pattern_match)
+2025-06-06 18:47:19 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 18:47:20 - INFO - [IT Path Solution] Page loaded successfully, extracting content...
+2025-06-06 18:47:20 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/careers (method: pattern_match)
+2025-06-06 18:47:21 - INFO - LLaMA response received (length: 5763 chars)
+2025-06-06 18:47:21 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a corporate website showcasing the company's services and projects."}
+2025-06-06 18:47:21 - INFO - [Huptech] Checking potential career link: https://forms.gle/NN3mRDD2heKJoxiPA (method: footer_link)
+2025-06-06 18:47:23 - INFO - Sending prompt to LLaMA (length: 2256 chars)
+2025-06-06 18:47:25 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:47:25 - INFO - LLaMA response received (length: 5978 chars)
+2025-06-06 18:47:25 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a language translation website with a list of languages and regions, but does not contain any job listings or career-related content.'}
+2025-06-06 18:47:25 - INFO - [Huptech] Result: No career page found
+2025-06-06 18:47:27 - INFO - LLaMA response received (length: 8712 chars)
+2025-06-06 18:47:27 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job openings and career-related information, including position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', and 'apply'. The page also includes a section for 'Careers' with contact information and a link to apply for positions."}
+2025-06-06 18:47:27 - INFO - [IT Path Solution] Confirmed career page: https://itpathsolutions.com/careers - The webpage contains various job openings and career-related information, including position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', and 'apply'. The page also includes a section for 'Careers' with contact information and a link to apply for positions.
+2025-06-06 18:47:27 - INFO - [IT Path Solution] Result: Found career URL: https://itpathsolutions.com/careers
+2025-06-06 18:47:27 - INFO -    Companies processed: 5
+2025-06-06 18:47:27 - INFO -    Successful: 4
+2025-06-06 18:47:27 - INFO -    Failed: 0
+2025-06-06 18:47:27 - INFO -    Companies with career pages found: 4
+2025-06-06 18:47:27 - INFO - Batch 2 completed in 34.07s
+2025-06-06 18:47:28 - INFO - 
+Processing batch 3/3
+2025-06-06 18:47:28 - INFO - Companies in this batch: ['Crest Data System']
+2025-06-06 18:47:28 - INFO - Processing batch of 1 companies...
+2025-06-06 18:47:28 - INFO - [Crest Data System] Attempt 1: Navigating to https://www.crestdatasys.com
+2025-06-06 18:47:32 - INFO - [Crest Data System] Page loaded successfully, extracting content...
+2025-06-06 18:47:32 - INFO - [Crest Data System] Checking potential career link: https://www.crestdatasys.com/careers (method: pattern_match)
+2025-06-06 18:47:34 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 18:47:36 - INFO - LLaMA response received (length: 9252 chars)
+2025-06-06 18:47:36 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles, position descriptions, application buttons, and keywords like 'Open Positions', 'Careers', and 'Job Listings' indicating that it is a career or job listings page."}
+2025-06-06 18:47:36 - INFO - [Crest Data System] Confirmed career page: https://www.crestdatasys.com/careers - The webpage contains various job titles, position descriptions, application buttons, and keywords like 'Open Positions', 'Careers', and 'Job Listings' indicating that it is a career or job listings page.
+2025-06-06 18:47:36 - INFO - [Crest Data System] Result: Found career URL: https://www.crestdatasys.com/careers
+2025-06-06 18:47:36 - INFO -    Companies processed: 1
+2025-06-06 18:47:36 - INFO -    Successful: 1
+2025-06-06 18:47:36 - INFO -    Failed: 0
+2025-06-06 18:47:36 - INFO -    Companies with career pages found: 1
+2025-06-06 18:47:36 - INFO - Batch 3 completed in 8.07s
+2025-06-06 18:47:36 - INFO -    Companies processed: 11
+2025-06-06 18:47:36 - INFO -    Successful: 9
+2025-06-06 18:47:36 - INFO -    Failed: 0
+2025-06-06 18:47:36 - INFO -    Companies with career pages found: 9
+2025-06-06 18:47:36 - INFO -    Total execution time: 129.78 seconds
+2025-06-06 18:47:36 - INFO -    Average time per company: 11.80 seconds
+2025-06-06 18:47:36 - INFO -    Companies per minute: 5.1
+2025-06-06 19:08:27 - INFO - Starting LLaMA-powered career page scraper...
+2025-06-06 19:08:27 - INFO - Configuration: CHUNK_SIZE=5, MAX_RETRIES=2
+2025-06-06 19:08:27 - INFO - Loaded CSV with columns: ['Company Name', 'Homepage URL']
+2025-06-06 19:08:27 - WARNING - Output CSV done.csv exists but has no 'Company Name' column. Treating as empty.
+2025-06-06 19:08:27 - INFO - Processing 11 companies with chunk size 5
+2025-06-06 19:08:28 - INFO - 
+Processing batch 1/3
+2025-06-06 19:08:28 - INFO - Companies in this batch: ['Yudiz', 'Bacancy', 'Simform', 'Capermint', 'Trootech']
+2025-06-06 19:08:28 - INFO - Processing batch of 5 companies...
+2025-06-06 19:08:28 - INFO - [Yudiz] Attempt 1: Navigating to https://www.yudiz.com
+2025-06-06 19:08:28 - INFO - [Bacancy] Attempt 1: Navigating to https://www.bacancytechnology.com
+2025-06-06 19:08:28 - INFO - [Simform] Attempt 1: Navigating to https://www.simform.com
+2025-06-06 19:08:28 - INFO - [Capermint] Attempt 1: Navigating to https://www.capermint.com
+2025-06-06 19:08:28 - INFO - [Trootech] Attempt 1: Navigating to https://www.trootech.com
+2025-06-06 19:08:30 - INFO - [Yudiz] Page loaded successfully, extracting content...
+2025-06-06 19:08:31 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/careers (method: pattern_match)
+2025-06-06 19:08:32 - INFO - [Bacancy] Page loaded successfully, extracting content...
+2025-06-06 19:08:32 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/careers (method: pattern_match)
+2025-06-06 19:08:32 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:08:33 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 19:08:33 - INFO - [Trootech] Page loaded successfully, extracting content...
+2025-06-06 19:08:34 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/careers (method: pattern_match)
+2025-06-06 19:08:35 - INFO - [Simform] Page loaded successfully, extracting content...
+2025-06-06 19:08:35 - INFO - [Simform] Checking potential career link: https://www.simform.com/careers (method: pattern_match)
+2025-06-06 19:08:45 - INFO - LLaMA response received (length: 7909 chars)
+2025-06-06 19:08:45 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage appears to be a company overview page with information about their services, products, and technology, but does not contain any job listings or career-related content.'}
+2025-06-06 19:08:45 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/jobs (method: pattern_match)
+2025-06-06 19:08:45 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:08:46 - INFO - LLaMA response received (length: 1321 chars)
+2025-06-06 19:08:46 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers.'}
+2025-06-06 19:08:46 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/jobs (method: pattern_match)
+2025-06-06 19:08:46 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:08:49 - INFO - LLaMA response received (length: 8643 chars)
+2025-06-06 19:08:49 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Life at Simform', 'Hiring process', 'Our team values Ownership over authority', and 'Everyone matters'. Additionally, the page has a section titled 'Be a Part of the Story of Cutting-Edge Digital Products' which is a clear indication that it is a career or job listings page."}
+2025-06-06 19:08:49 - INFO - [Simform] Confirmed career page: https://www.simform.com/careers - The webpage contains various career-related keywords and phrases such as 'Join an amazing team', 'Benefits/What we offer', 'Life at Simform', 'Hiring process', 'Our team values Ownership over authority', and 'Everyone matters'. Additionally, the page has a section titled 'Be a Part of the Story of Cutting-Edge Digital Products' which is a clear indication that it is a career or job listings page.
+2025-06-06 19:08:49 - INFO - [Simform] Result: Found career URL: https://www.simform.com/careers
+2025-06-06 19:08:49 - INFO - Sending prompt to LLaMA (length: 8179 chars)
+2025-06-06 19:08:49 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/jobs (method: pattern_match)
+2025-06-06 19:08:50 - INFO - LLaMA response received (length: 1318 chars)
+2025-06-06 19:08:50 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers.'}
+2025-06-06 19:08:50 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/career (method: pattern_match)
+2025-06-06 19:08:50 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:08:51 - INFO - LLaMA response received (length: 7881 chars)
+2025-06-06 19:08:51 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content, but rather appears to be a company website with information about their services and products.'}
+2025-06-06 19:08:51 - INFO - [Yudiz] Checking potential career link: https://www.yudiz.com/career (method: pattern_match)
+2025-06-06 19:08:51 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:08:52 - INFO - LLaMA response received (length: 1431 chars)
+2025-06-06 19:08:52 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers. The content appears to be unrelated to employment opportunities.'}
+2025-06-06 19:08:52 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/about/careers (method: pattern_match)
+2025-06-06 19:08:53 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:08:54 - INFO - LLaMA response received (length: 1628 chars)
+2025-06-06 19:08:54 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:08:54 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/career (method: pattern_match)
+2025-06-06 19:08:54 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:08:55 - INFO - LLaMA response received (length: 1430 chars)
+2025-06-06 19:08:55 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers. The content appears to be unrelated to employment opportunities.'}
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://careers.www.bacancytechnology.com (method: pattern_match)
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://jobs.www.bacancytechnology.com (method: pattern_match)
+2025-06-06 19:08:55 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/join-us (method: pattern_match)
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/work-with-us (method: pattern_match)
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/our-jobs (method: pattern_match)
+2025-06-06 19:08:55 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/team-openings (method: pattern_match)
+2025-06-06 19:08:57 - INFO - LLaMA response received (length: 8681 chars)
+2025-06-06 19:08:57 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles and position descriptions, such as 'Hire Dedicated Developers', 'Hire Unity Developers', 'Hire Motion Graphics Designers', and 'Full Cycle Product Development'. It also has a clear career section with job listings and application buttons, indicating that it is a career or job listings page."}
+2025-06-06 19:08:57 - INFO - [Yudiz] Confirmed career page: https://www.yudiz.com/career - The webpage contains various job titles and position descriptions, such as 'Hire Dedicated Developers', 'Hire Unity Developers', 'Hire Motion Graphics Designers', and 'Full Cycle Product Development'. It also has a clear career section with job listings and application buttons, indicating that it is a career or job listings page.
+2025-06-06 19:08:57 - INFO - [Yudiz] Result: Found career URL: https://www.yudiz.com/career
+2025-06-06 19:08:57 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:08:58 - ERROR - [Capermint] Attempt 1 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.capermint.com/", waiting until "domcontentloaded"
+
+2025-06-06 19:08:58 - INFO - LLaMA response received (length: 1627 chars)
+2025-06-06 19:08:58 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:08:58 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/about/careers (method: pattern_match)
+2025-06-06 19:08:59 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:08:59 - INFO - [Capermint] Attempt 2: Navigating to https://www.capermint.com
+2025-06-06 19:09:00 - INFO - LLaMA response received (length: 1544 chars)
+2025-06-06 19:09:00 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords like jobs, careers, openings, vacancies, positions, apply, hiring. It appears to be a general website with no clear indication of career-related content.'}
+2025-06-06 19:09:00 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/work-at (method: pattern_match)
+2025-06-06 19:09:00 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:09:01 - INFO - LLaMA response received (length: 1626 chars)
+2025-06-06 19:09:01 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:01 - INFO - [Trootech] Checking potential career link: https://careers.www.trootech.com (method: pattern_match)
+2025-06-06 19:09:01 - INFO - [Trootech] Checking potential career link: https://jobs.www.trootech.com (method: pattern_match)
+2025-06-06 19:09:01 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/join-us (method: pattern_match)
+2025-06-06 19:09:02 - INFO - LLaMA response received (length: 1431 chars)
+2025-06-06 19:09:02 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers. The content appears to be unrelated to employment opportunities.'}
+2025-06-06 19:09:02 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/job-openings (method: pattern_match)
+2025-06-06 19:09:02 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:02 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:09:03 - INFO - LLaMA response received (length: 1626 chars)
+2025-06-06 19:09:03 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:03 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/work-with-us (method: pattern_match)
+2025-06-06 19:09:04 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:05 - INFO - LLaMA response received (length: 1544 chars)
+2025-06-06 19:09:05 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords like jobs, careers, openings, vacancies, positions, apply, hiring. It appears to be a general website with no clear indication of career-related content.'}
+2025-06-06 19:09:05 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/jobs/ (method: header_link)
+2025-06-06 19:09:05 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:09:06 - INFO - LLaMA response received (length: 1627 chars)
+2025-06-06 19:09:06 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:06 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/our-jobs (method: pattern_match)
+2025-06-06 19:09:07 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:07 - INFO - LLaMA response received (length: 1431 chars)
+2025-06-06 19:09:07 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers. The content appears to be unrelated to employment opportunities.'}
+2025-06-06 19:09:07 - INFO - [Bacancy] Checking potential career link: https://www.bacancytechnology.com/hire-software-developers (method: header_link)
+2025-06-06 19:09:07 - INFO - Sending prompt to LLaMA (length: 545 chars)
+2025-06-06 19:09:08 - INFO - LLaMA response received (length: 1628 chars)
+2025-06-06 19:09:08 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:08 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/team-openings (method: pattern_match)
+2025-06-06 19:09:09 - INFO - LLaMA response received (length: 1431 chars)
+2025-06-06 19:09:09 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job titles, position descriptions, application buttons, or keywords related to job listings or careers. The content appears to be unrelated to employment opportunities.'}
+2025-06-06 19:09:09 - INFO - [Bacancy] Result: No career page found
+2025-06-06 19:09:10 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:11 - INFO - LLaMA response received (length: 1626 chars)
+2025-06-06 19:09:11 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:11 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/work-at (method: pattern_match)
+2025-06-06 19:09:12 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:13 - INFO - LLaMA response received (length: 1626 chars)
+2025-06-06 19:09:13 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:13 - INFO - [Trootech] Checking potential career link: https://www.trootech.com/job-openings (method: pattern_match)
+2025-06-06 19:09:14 - INFO - Sending prompt to LLaMA (length: 827 chars)
+2025-06-06 19:09:15 - INFO - LLaMA response received (length: 1626 chars)
+2025-06-06 19:09:15 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content, instead it appears to be an error page with a playful tone.'}
+2025-06-06 19:09:15 - INFO - [Trootech] Result: No career page found
+2025-06-06 19:09:29 - ERROR - [Capermint] Attempt 2 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.capermint.com/", waiting until "domcontentloaded"
+
+2025-06-06 19:09:31 - INFO - [Capermint] Attempt 3: Navigating to https://www.capermint.com
+2025-06-06 19:10:02 - ERROR - [Capermint] Attempt 3 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.capermint.com/", waiting until "domcontentloaded"
+
+2025-06-06 19:10:02 - INFO -    Companies processed: 5
+2025-06-06 19:10:02 - INFO -    Successful: 2
+2025-06-06 19:10:02 - INFO -    Failed: 1
+2025-06-06 19:10:02 - INFO -    Companies with career pages found: 2
+2025-06-06 19:10:02 - INFO - Batch 1 completed in 93.47s
+2025-06-06 19:10:03 - INFO - 
+Processing batch 2/3
+2025-06-06 19:10:03 - INFO - Companies in this batch: ['7Span', 'Tridhya', 'IT Path Solution', 'Moon Technolabs', 'Huptech']
+2025-06-06 19:10:03 - INFO - Processing batch of 5 companies...
+2025-06-06 19:10:03 - INFO - [7Span] Attempt 1: Navigating to https://7span.com
+2025-06-06 19:10:03 - INFO - [Tridhya] Attempt 1: Navigating to https://www.tridhyatech.com
+2025-06-06 19:10:03 - INFO - [IT Path Solution] Attempt 1: Navigating to https://itpathsolutions.com
+2025-06-06 19:10:03 - INFO - [Moon Technolabs] Attempt 1: Navigating to https://www.moontechnolabs.com
+2025-06-06 19:10:03 - INFO - [Huptech] Attempt 1: Navigating to https://www.huptechweb.com
+2025-06-06 19:10:04 - INFO - [7Span] Page loaded successfully, extracting content...
+2025-06-06 19:10:04 - INFO - [7Span] Checking potential career link: https://7span.com/careers (method: pattern_match)
+2025-06-06 19:10:05 - INFO - Sending prompt to LLaMA (length: 3097 chars)
+2025-06-06 19:10:05 - INFO - [Tridhya] Page loaded successfully, extracting content...
+2025-06-06 19:10:05 - INFO - [Tridhya] Checking potential career link: https://www.tridhyatech.com/careers (method: pattern_match)
+2025-06-06 19:10:05 - INFO - [Huptech] Page loaded successfully, extracting content...
+2025-06-06 19:10:06 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/careers (method: pattern_match)
+2025-06-06 19:10:06 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:07 - INFO - LLaMA response received (length: 4155 chars)
+2025-06-06 19:10:07 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various indicators of a career page, including 'Current Openings', 'Fostering a culture of excellence and happiness' repeated multiple times, 'Working at 7Span!', 'Apply Now', 'Looking For Jobs', and 'Be A Spartan'. These phrases suggest that the page is focused on job listings and recruitment."}
+2025-06-06 19:10:07 - INFO - [7Span] Confirmed career page: https://7span.com/careers - The webpage contains various indicators of a career page, including 'Current Openings', 'Fostering a culture of excellence and happiness' repeated multiple times, 'Working at 7Span!', 'Apply Now', 'Looking For Jobs', and 'Be A Spartan'. These phrases suggest that the page is focused on job listings and recruitment.
+2025-06-06 19:10:07 - INFO - [7Span] Result: Found career URL: https://7span.com/careers
+2025-06-06 19:10:07 - INFO - [IT Path Solution] Page loaded successfully, extracting content...
+2025-06-06 19:10:07 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/careers (method: pattern_match)
+2025-06-06 19:10:07 - INFO - [Moon Technolabs] Page loaded successfully, extracting content...
+2025-06-06 19:10:08 - INFO - [Moon Technolabs] Checking potential career link: https://www.moontechnolabs.com/careers (method: pattern_match)
+2025-06-06 19:10:08 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:10:08 - INFO - LLaMA response received (length: 1981 chars)
+2025-06-06 19:10:08 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a homepage with a 'Career' section that links to other pages."}
+2025-06-06 19:10:08 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/jobs (method: pattern_match)
+2025-06-06 19:10:09 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 19:10:11 - INFO - LLaMA response received (length: 9224 chars)
+2025-06-06 19:10:11 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' with job listings and application buttons, indicating that it is a career or job listings page."}
+2025-06-06 19:10:11 - INFO - [Tridhya] Confirmed career page: https://www.tridhyatech.com/careers - The webpage contains various career-related sections such as 'Career Growth', 'Internship Program', 'Our Benefits', and 'Open Roles' with job listings and application buttons, indicating that it is a career or job listings page.
+2025-06-06 19:10:11 - INFO - [Tridhya] Result: Found career URL: https://www.tridhyatech.com/careers
+2025-06-06 19:10:12 - INFO - LLaMA response received (length: 5836 chars)
+2025-06-06 19:10:12 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a corporate website showcasing the company's services and expertise in e-commerce, design, and marketing."}
+2025-06-06 19:10:12 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/career (method: pattern_match)
+2025-06-06 19:10:13 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 19:10:14 - INFO - LLaMA response received (length: 5861 chars)
+2025-06-06 19:10:14 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content. It appears to be a company website showcasing their services and case studies, with no indication of current job openings or recruitment processes.'}
+2025-06-06 19:10:14 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/about/careers (method: pattern_match)
+2025-06-06 19:10:14 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:15 - INFO - LLaMA response received (length: 1960 chars)
+2025-06-06 19:10:15 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content, instead it appears to be a homepage with a privacy policy and contact information.'}
+2025-06-06 19:10:15 - INFO - [Huptech] Checking potential career link: https://careers.www.huptechweb.com (method: pattern_match)
+2025-06-06 19:10:16 - INFO - [Huptech] Checking potential career link: https://jobs.www.huptechweb.com (method: pattern_match)
+2025-06-06 19:10:16 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/join-us (method: pattern_match)
+2025-06-06 19:10:17 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:18 - INFO - LLaMA response received (length: 2026 chars)
+2025-06-06 19:10:18 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element."}
+2025-06-06 19:10:18 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/work-with-us (method: pattern_match)
+2025-06-06 19:10:18 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:19 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:10:19 - INFO - LLaMA response received (length: 1971 chars)
+2025-06-06 19:10:19 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a privacy policy and contact information.'}
+2025-06-06 19:10:19 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/our-jobs (method: pattern_match)
+2025-06-06 19:10:19 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:22 - INFO - LLaMA response received (length: 8340 chars)
+2025-06-06 19:10:22 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles, position descriptions, application buttons, and keywords like 'We're Hiring', 'Hire Gen AI Engineers Services', 'Become a Client', which indicate that it is a career or job listings page."}
+2025-06-06 19:10:22 - INFO - [Moon Technolabs] Confirmed career page: https://www.moontechnolabs.com/careers - The webpage contains various job titles, position descriptions, application buttons, and keywords like 'We're Hiring', 'Hire Gen AI Engineers Services', 'Become a Client', which indicate that it is a career or job listings page.
+2025-06-06 19:10:22 - INFO - [Moon Technolabs] Result: Found career URL: https://www.moontechnolabs.com/careers
+2025-06-06 19:10:22 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/jobs (method: pattern_match)
+2025-06-06 19:10:23 - INFO - LLaMA response received (length: 2035 chars)
+2025-06-06 19:10:23 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a generic 'About Us' or 'Contact Us' page with a privacy policy and contact information."}
+2025-06-06 19:10:23 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/team-openings (method: pattern_match)
+2025-06-06 19:10:23 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:24 - INFO - LLaMA response received (length: 2089 chars)
+2025-06-06 19:10:24 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a general website with a 'Career' section that seems to be more of a branding element than an actual job listing page."}
+2025-06-06 19:10:24 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/work-at (method: pattern_match)
+2025-06-06 19:10:25 - INFO - Sending prompt to LLaMA (length: 1027 chars)
+2025-06-06 19:10:26 - INFO - LLaMA response received (length: 2098 chars)
+2025-06-06 19:10:26 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be a homepage for Huptech Web with a 'Career' section that seems to be a placeholder or a link to an actual career page."}
+2025-06-06 19:10:26 - INFO - [Huptech] Checking potential career link: https://www.huptechweb.com/job-openings (method: pattern_match)
+2025-06-06 19:10:27 - INFO - Sending prompt to LLaMA (length: 4478 chars)
+2025-06-06 19:10:29 - INFO - LLaMA response received (length: 6126 chars)
+2025-06-06 19:10:29 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content. It appears to be a company website showcasing their services and case studies, with some sections related to consulting and development, but it lacks the typical indicators of a career page such as application buttons, position descriptions, or keywords like 'jobs', 'careers', etc."}
+2025-06-06 19:10:29 - INFO - [Huptech] Checking potential career link: https://forms.gle/NN3mRDD2heKJoxiPA (method: footer_link)
+2025-06-06 19:10:31 - INFO - Sending prompt to LLaMA (length: 2256 chars)
+2025-06-06 19:10:33 - INFO - LLaMA response received (length: 5987 chars)
+2025-06-06 19:10:33 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': 'This webpage does not contain any job listings or career-related content. It appears to be a language translation website with a help section and login functionality.'}
+2025-06-06 19:10:33 - INFO - [Huptech] Result: No career page found
+2025-06-06 19:10:37 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/career (method: pattern_match)
+2025-06-06 19:10:52 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/about/careers (method: pattern_match)
+2025-06-06 19:11:07 - INFO - [IT Path Solution] Checking potential career link: https://careers.itpathsolutions.com (method: pattern_match)
+2025-06-06 19:11:07 - INFO - [IT Path Solution] Checking potential career link: https://jobs.itpathsolutions.com (method: pattern_match)
+2025-06-06 19:11:08 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/join-us (method: pattern_match)
+2025-06-06 19:11:23 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/work-with-us (method: pattern_match)
+2025-06-06 19:11:28 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:11:30 - INFO - LLaMA response received (length: 6803 chars)
+2025-06-06 19:11:30 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various sections for solutions, partners, case studies, portfolio, blog, and careers. However, the 'Careers' section contains contact information and email addresses instead of job listings or application buttons."}
+2025-06-06 19:11:30 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/our-jobs (method: pattern_match)
+2025-06-06 19:11:33 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:11:35 - INFO - LLaMA response received (length: 6799 chars)
+2025-06-06 19:11:35 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various sections for solutions, partners, case studies, portfolio, blog, and careers. However, the 'Careers' section contains only contact information and does not have any job listings or application buttons."}
+2025-06-06 19:11:35 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/team-openings (method: pattern_match)
+2025-06-06 19:11:36 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:11:38 - INFO - LLaMA response received (length: 6869 chars)
+2025-06-06 19:11:38 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various sections for solutions, partners, case studies, portfolio, blog, and careers. However, the 'Careers' section contains contact information for career-related inquiries, but it does not appear to have any job listings or application buttons."}
+2025-06-06 19:11:38 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/work-at (method: pattern_match)
+2025-06-06 19:11:41 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:11:42 - INFO - LLaMA response received (length: 6600 chars)
+2025-06-06 19:11:42 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage does not contain any job listings or career-related content, but rather appears to be an overview of the company's services and portfolio."}
+2025-06-06 19:11:42 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/job-openings (method: pattern_match)
+2025-06-06 19:11:45 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:11:46 - INFO - LLaMA response received (length: 6716 chars)
+2025-06-06 19:11:46 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various sections such as 'Solutions', 'Partners', 'Case Study', 'Portfolio', and 'Career' but does not contain any job listings or application buttons."}
+2025-06-06 19:11:46 - INFO - [IT Path Solution] Checking potential career link: https://www.itpathsolutions.com/#hiring-dev (method: header_link)
+2025-06-06 19:12:01 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/mailto:career@itpathsolutions.com (method: footer_link)
+2025-06-06 19:12:04 - INFO - Sending prompt to LLaMA (length: 5596 chars)
+2025-06-06 19:12:05 - INFO - LLaMA response received (length: 6884 chars)
+2025-06-06 19:12:05 - INFO - Successfully parsed JSON: {'is_career_page': False, 'explanation': "The webpage appears to be a company website with various sections for solutions, partners, case studies, portfolio, blog, and careers. However, the 'Careers' section contains contact information and email addresses related to career inquiries, but it does not have any job listings or application buttons."}
+2025-06-06 19:12:05 - INFO - [IT Path Solution] Checking potential career link: https://itpathsolutions.com/career/#workwithus (method: footer_link)
+2025-06-06 19:12:07 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:12:09 - INFO - LLaMA response received (length: 8667 chars)
+2025-06-06 19:12:09 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job listings and career-related content, including position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', and 'apply'. The homepage explicitly states that the company is hiring and lists several job openings."}
+2025-06-06 19:12:09 - INFO - [IT Path Solution] Confirmed career page: https://itpathsolutions.com/career/#workwithus - The webpage contains various job listings and career-related content, including position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', and 'apply'. The homepage explicitly states that the company is hiring and lists several job openings.
+2025-06-06 19:12:09 - INFO - [IT Path Solution] Result: Found career URL: https://itpathsolutions.com/career/#workwithus
+2025-06-06 19:12:09 - INFO -    Companies processed: 5
+2025-06-06 19:12:09 - INFO -    Successful: 4
+2025-06-06 19:12:09 - INFO -    Failed: 0
+2025-06-06 19:12:09 - INFO -    Companies with career pages found: 4
+2025-06-06 19:12:09 - INFO - Batch 2 completed in 126.61s
+2025-06-06 19:12:10 - INFO - 
+Processing batch 3/3
+2025-06-06 19:12:10 - INFO - Companies in this batch: ['Crest Data System']
+2025-06-06 19:12:10 - INFO - Processing batch of 1 companies...
+2025-06-06 19:12:10 - INFO - [Crest Data System] Attempt 1: Navigating to https://www.crestdatasys.com
+2025-06-06 19:12:21 - INFO - [Crest Data System] Page loaded successfully, extracting content...
+2025-06-06 19:12:21 - INFO - [Crest Data System] Checking potential career link: https://www.crestdatasys.com/careers (method: pattern_match)
+2025-06-06 19:12:27 - INFO - Sending prompt to LLaMA (length: 8504 chars)
+2025-06-06 19:12:29 - INFO - LLaMA response received (length: 9329 chars)
+2025-06-06 19:12:29 - INFO - Successfully parsed JSON: {'is_career_page': True, 'explanation': "The webpage contains various job titles, position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', 'vacancies', 'positions', 'apply', 'hiring' that indicate it is a career or job listings page."}
+2025-06-06 19:12:29 - INFO - [Crest Data System] Confirmed career page: https://www.crestdatasys.com/careers - The webpage contains various job titles, position descriptions, application buttons, and keywords like 'jobs', 'careers', 'openings', 'vacancies', 'positions', 'apply', 'hiring' that indicate it is a career or job listings page.
+2025-06-06 19:12:29 - INFO - [Crest Data System] Result: Found career URL: https://www.crestdatasys.com/careers
+2025-06-06 19:12:29 - INFO -    Companies processed: 1
+2025-06-06 19:12:29 - INFO -    Successful: 1
+2025-06-06 19:12:29 - INFO -    Failed: 0
+2025-06-06 19:12:29 - INFO -    Companies with career pages found: 1
+2025-06-06 19:12:29 - INFO - Batch 3 completed in 18.95s
+2025-06-06 19:12:29 - INFO -    Companies processed: 11
+2025-06-06 19:12:29 - INFO -    Successful: 7
+2025-06-06 19:12:29 - INFO -    Failed: 1
+2025-06-06 19:12:29 - INFO -    Companies with career pages found: 7
+2025-06-06 19:12:29 - INFO -    Total execution time: 242.40 seconds
+2025-06-06 19:12:29 - INFO -    Average time per company: 22.04 seconds
+2025-06-06 19:12:29 - INFO -    Companies per minute: 2.7

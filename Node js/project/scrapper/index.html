@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Scraper Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .status-healthy {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-unhealthy {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area:hover {
+            border-color: #5a67d8;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: #4c51bf;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .results-table th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-warning {
+            background: #fef5e7;
+            color: #744210;
+        }
+
+        .status-error {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .log-container {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .config-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .error-message {
+            background: #fed7d7;
+            color: #742a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .success-message {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #38a169;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .processing {
+            animation: pulse 2s infinite;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Job Scraper Dashboard</h1>
+            <p>Upload your CSV file and discover job opportunities from company websites</p>
+            <div class="status-indicator" id="systemStatus">
+                <span class="spinner"></span> Checking system status...
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="card">
+            <h2>📁 Upload Company CSV</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📊</div>
+                <h3>Drop your CSV file here or click to browse</h3>
+                <p>Expected columns: Company Name, Homepage URL</p>
+                <input type="file" id="fileInput" class="file-input" accept=".csv" />
+            </div>
+            <div id="uploadStatus"></div>
+            <div id="fileInfo" class="hidden" style="margin-top: 20px; padding: 15px; background: #f0fff4; border-radius: 8px; border-left: 4px solid #38a169;">
+                <p><strong>File uploaded:</strong> <span id="fileName"></span></p>
+                <p><strong>Companies found:</strong> <span id="companyCount"></span></p>
+                <p><strong>Job ID:</strong> <span id="jobId"></span></p>
+            </div>
+        </div>
+
+        <!-- Configuration Section -->
+        <div class="card">
+            <h2>⚙️ Configuration</h2>
+            <div class="config-section">
+                <div class="form-group">
+                    <label for="chunkSize">Chunk Size</label>
+                    <input type="number" id="chunkSize" value="3" min="1" max="10">
+                </div>
+                <div class="form-group">
+                    <label for="maxRetries">Max Retries</label>
+                    <input type="number" id="maxRetries" value="2" min="1" max="5">
+                </div>
+                <div class="form-group">
+                    <label for="maxLinks">Max Links per Company</label>
+                    <input type="number" id="maxLinks" value="10000" min="100" max="50000">
+                </div>
+                <div class="form-group">
+                    <label for="delayBetweenRequests">Delay Between Requests (seconds)</label>
+                    <input type="number" id="delayBetweenRequests" value="1.0" step="0.1" min="0.1" max="5">
+                </div>
+            </div>
+            <button class="btn" id="startScraping" disabled>🚀 Start Job Scraping</button>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="card hidden" id="progressSection">
+            <h2>📊 Scraping Progress</h2>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p style="margin-top: 10px; text-align: center;">
+                    <span id="currentCompany">Initializing...</span> 
+                    (<span id="progressText">0/0</span>)
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="processedCount">0</div>
+                    <div class="stat-label">Processed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="successCount">0</div>
+                    <div class="stat-label">Successful</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="jobsFound">0</div>
+                    <div class="stat-label">Jobs Found</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="companiesWithJobs">0</div>
+                    <div class="stat-label">Companies with Jobs</div>
+                </div>
+            </div>
+
+            <div class="log-container" id="logContainer">
+                Ready to start scraping...
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="card hidden" id="resultsSection">
+            <h2>📈 Results Summary</h2>
+            <table class="results-table" id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Jobs Found</th>
+                        <th>Career URL</th>
+                        <th>Processing Time</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTableBody">
+                </tbody>
+            </table>
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn" id="downloadResults">💾 Download All Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentJobId = null;
+        let statusCheckInterval = null;
+        const API_BASE = window.location.origin;
+
+        // DOM elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const startButton = document.getElementById('startScraping');
+        const progressSection = document.getElementById('progressSection');
+        const resultsSection = document.getElementById('resultsSection');
+        const logContainer = document.getElementById('logContainer');
+        const systemStatus = document.getElementById('systemStatus');
+        const uploadStatus = document.getElementById('uploadStatus');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSystemHealth();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', handleDragOver);
+            uploadArea.addEventListener('dragleave', handleDragLeave);
+            uploadArea.addEventListener('drop', handleDrop);
+            fileInput.addEventListener('change', handleFileSelect);
+            startButton.addEventListener('click', startScraping);
+            document.getElementById('downloadResults').addEventListener('click', downloadResults);
+        }
+
+        // System health check
+        async function checkSystemHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                
+                if (data.ollama_running) {
+                    systemStatus.innerHTML = '<span style="color: #22543d;">🟢 System Ready</span>';
+                    systemStatus.className = 'status-indicator status-healthy';
+                } else {
+                    systemStatus.innerHTML = '<span style="color: #742a2a;">🔴 Ollama Not Running</span>';
+                    systemStatus.className = 'status-indicator status-unhealthy';
+                }
+            } catch (error) {
+                systemStatus.innerHTML = '<span style="color: #742a2a;">🔴 Backend Not Connected</span>';
+                systemStatus.className = 'status-indicator status-unhealthy';
+            }
+        }
+
+        // File upload handling
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                uploadFile(files[0]);
+            }
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                uploadFile(file);
+            }
+        }
+
+        async function uploadFile(file) {
+            if (!file.name.endsWith('.csv')) {
+                showMessage('Please select a CSV file', 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                showMessage('Uploading file...', 'info');
+                
+                const response = await fetch(`${API_BASE}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    currentJobId = data.job_id;
+                    document.getElementById('fileName').textContent = data.filename;
+                    document.getElementById('companyCount').textContent = data.company_count;
+                    document.getElementById('jobId').textContent = data.job_id;
+                    fileInfo.classList.remove('hidden');
+                    startButton.disabled = false;
+                    showMessage(`File uploaded successfully! Found ${data.company_count} companies.`, 'success');
+                } else {
+                    showMessage(data.error || 'Upload failed', 'error');
+                }
+            } catch (error) {
+                showMessage('Failed to upload file. Please check if the server is running.', 'error');
+                console.error('Upload error:', error);
+            }
+        }
+
+        // Start scraping
+        async function startScraping() {
+            if (!currentJobId) {
+                showMessage('Please upload a CSV file first', 'error');
+                return;
+            }
+
+            const config = {
+                chunkSize: parseInt(document.getElementById('chunkSize').value) || 3,
+                maxRetries: parseInt(document.getElementById('maxRetries').value) || 2,
+                maxLinks: parseInt(document.getElementById('maxLinks').value) || 10000,
+                delay: parseFloat(document.getElementById('delayBetweenRequests').value) || 1.0
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/start_scraping`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        job_id: currentJobId,
+                        config: config
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    startButton.disabled = true;
+                    progressSection.classList.remove('hidden');
+                    logMessage('🚀 Scraping started successfully!');
+                    logMessage(`📊 Configuration: ${JSON.stringify(config)}`);
+                    
+                    // Start status checking
+                    startStatusChecking();
+                } else {
+                    showMessage(data.error || 'Failed to start scraping', 'error');
+                }
+            } catch (error) {
+                showMessage('Failed to start scraping. Please check if the server is running.', 'error');
+                console.error('Scraping start error:', error);
+            }
+        }
+
+        // Status checking
+        function startStatusChecking() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+            }
+
+            statusCheckInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`${API_BASE}/status/${currentJobId}`);
+                    const status = await response.json();
+
+                    if (response.ok) {
+                        updateProgress(status);
+                        
+                        if (status.status === 'completed') {
+                            clearInterval(statusCheckInterval);
+                            loadResults();
+                            showMessage('✅ Scraping completed successfully!', 'success');
+                            startButton.disabled = false;
+                        } else if (status.status === 'error') {
+                            clearInterval(statusCheckInterval);
+                            showMessage(`❌ Scraping failed: ${status.error}`, 'error');
+                            startButton.disabled = false;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Status check error:', error);
+                }
+            }, 3000); // Check every 3 seconds
+        }
+
+        function updateProgress(status) {
+            // Update progress bar
+            const progress = status.progress || 0;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `${status.processed || 0}/${status.company_count || 0}`;
+            document.getElementById('currentCompany').textContent = status.current_company || 'Processing...';
+
+            // Update stats
+            document.getElementById('processedCount').textContent = status.processed || 0;
+            document.getElementById('successCount').textContent = status.successful || 0;
+            document.getElementById('jobsFound').textContent = status.jobs_found || 0;
+            document.getElementById('companiesWithJobs').textContent = status.companies_with_jobs || 0;
+
+            // Add log messages if available
+            if (status.logs && status.logs.length > 0) {
+                status.logs.forEach(log => logMessage(log));
+            }
+        }
+
+        // Load and display results
+        async function loadResults() {
+            try {
+                const response = await fetch(`${API_BASE}/results/${currentJobId}`);
+                const results = await response.json();
+
+                if (response.ok) {
+                    displayResults(results);
+                    resultsSection.classList.remove('hidden');
+                } else {
+                    showMessage('Failed to load results', 'error');
+                }
+            } catch (error) {
+                showMessage('Failed to load results', 'error');
+                console.error('Results loading error:', error);
+            }
+        }
+
+        function displayResults(results) {
+            const tbody = document.getElementById('resultsTableBody');
+            tbody.innerHTML = '';
+
+            if (results.companies) {
+                results.companies.forEach(company => {
+                    const row = document.createElement('tr');
+                    
+                    let statusClass = 'status-error';
+                    let statusText = 'Failed';
+                    
+                    if (company.status === 'success') {
+                        if (company.jobs_found > 0) {
+                            statusClass = 'status-success';
+                            statusText = 'Jobs Found';
+                        } else {
+                            statusClass = 'status-warning';
+                            statusText = 'No Jobs';
+                        }
+                    }
+
+                    row.innerHTML = `
+                        <td><strong>${company.name}</strong></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${company.jobs_found || 0}</td>
+                        <td>${company.career_url ? `<a href="${company.career_url}" target="_blank">View</a>` : '-'}</td>
+                        <td>${company.processing_time || '-'}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        // Download results
+        async function downloadResults() {
+            if (!currentJobId) {
+                showMessage('No results to download', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/download/${currentJobId}`);
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `job_scraping_results_${currentJobId}.zip`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+
+                    showMessage('Results downloaded successfully!', 'success');
+                } else {
+                    showMessage('Failed to download results', 'error');
+                }
+            } catch (error) {
+                showMessage('Failed to download results', 'error');
+                console.error('Download error:', error);
+            }
+        }
+
+        // Utility functions
+        function showMessage(message, type) {
+            uploadStatus.innerHTML = `
+                <div class="${type === 'error' ? 'error-message' : type === 'success' ? 'success-message' : 'info-message'}">
+                    ${message}
+                </div>
+            `;
+            
+            // Auto-hide after 5 seconds for success/info messages
+            if (type !== 'error') {
+                setTimeout(() => {
+                    uploadStatus.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        function logMessage(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            logContainer.textContent += `[${timestamp}] ${message}\n`;
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+            }
+        });
+    </script>
+</body>
+</html>

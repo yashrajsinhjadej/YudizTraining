@@ -98,10 +98,13 @@ Please return a JSON object with:
    - description (brief summary if available)
 
 Important: 
-- Only include actual job listings, not general company information
-- If a field is not available, omit it from the JSON
-- Return valid JSON format only
+- ONLY include jobs that are **explicitly and visibly listed** in the provided HTML content.
+- DO NOT make up, assume, or hallucinate jobs. If no jobs are present in the HTML, return an empty list.
+- If a field is not available, omit it from the JSON.
+- Return valid JSON format only.
 - If no job listings are found, return {{"has_job_listings": false, "job_listings": []}}
+
+Are you sure? Only return jobs that are clearly present in the HTML above.
 
 JSON Response:
 """
@@ -262,43 +265,37 @@ async def process_company(browser: Browser, company: str, homepage_url: str,
                          browser_semaphore: asyncio.Semaphore, 
                          api_semaphore: asyncio.Semaphore) -> Dict:
     """
-    Main function to process a single company:
-    1. Visit homepage and find potential career links
-    2. Visit each career link and check for jobs
-    3. Return when jobs found or max links reached
+    Optimized: Early exit on jobs found, prioritize high-confidence links.
     """
     async with browser_semaphore:
         links_visited = 0
         jobs_found = []
         career_url_found = None
-        
+
         for attempt in range(MAX_RETRIES + 1):
             page = None
             try:
                 logger.info(f"[{company}] Processing homepage: {homepage_url}")
-                
+
                 page = await browser.new_page()
                 await page.set_extra_http_headers({
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
                 })
-                
-                # Step 1: Visit homepage and extract potential career links
+
                 await page.goto(homepage_url, wait_until='domcontentloaded', timeout=TIMEOUT_SECONDS * 1000)
                 await asyncio.sleep(DELAY_BETWEEN_REQUESTS)
-                
+
                 html = await page.content()
                 base_url = homepage_url.rstrip('/')
                 sections = extract_visible_sections(html, base_url)
-                
-                # Collect potential career links
+
+                # Collect potential career links (prioritize high-confidence)
                 potential_links = []
-                
-                # Strategy 1: Check URL patterns
                 try:
                     host = base_url.split('://')[1].split('/')[0]
                 except Exception:
                     host = base_url
-                
+
                 patterns = [
                     f"{base_url}/careers", f"{base_url}/jobs", f"{base_url}/career",
                     f"{base_url}/about/careers", f"https://careers.{host}",
@@ -307,93 +304,101 @@ async def process_company(browser: Browser, company: str, homepage_url: str,
                     f"{base_url}/our-jobs", f"{base_url}/team-openings",
                     f"{base_url}/work-at", f"{base_url}/job-openings"
                 ]
-                
+
                 for pattern in patterns:
                     if JOB_KEYWORD_PATTERN.search(pattern):
                         potential_links.append({
                             'url': pattern,
-                            'confidence': 0.9,
+                            'confidence': 1.0,  # Highest confidence
                             'method': 'pattern_match'
                         })
-                
-                # Strategy 2: Extract links from page sections
+
                 for section_name, section_content in sections.items():
                     for link in section_content['links']:
                         if JOB_KEYWORD_PATTERN.search(link['href']) or JOB_KEYWORD_PATTERN.search(link['text']):
-                            confidence = 0.7 if section_name in ['header', 'footer'] else 0.5
+                            confidence = 0.8 if section_name in ['header', 'footer'] else 0.6
                             potential_links.append({
                                 'url': link['href'],
                                 'confidence': confidence,
                                 'method': f"{section_name}_link"
                             })
-                
-                # Remove duplicates and limit links
+
+                # Remove duplicates and sort by confidence
                 seen_urls = set()
                 unique_links = []
-                for link in potential_links:
+                for link in sorted(potential_links, key=lambda x: x['confidence'], reverse=True):
                     if link['url'] not in seen_urls and len(unique_links) < MAX_CAREER_LINKS_PER_COMPANY:
                         unique_links.append(link)
                         seen_urls.add(link['url'])
-                
-                # Sort by confidence
-                unique_links.sort(key=lambda x: x['confidence'], reverse=True)
-                
+
                 logger.info(f"[{company}] Found {len(unique_links)} potential career links")
-                
-                # Step 2: Visit each potential career link and check for jobs
+
+                # Visit each link, stop at first jobs found
                 for link in unique_links:
                     if links_visited >= MAX_LINKS_TO_VISIT:
                         logger.info(f"[{company}] Reached maximum links limit ({MAX_LINKS_TO_VISIT})")
                         break
-                    
+
                     try:
                         logger.info(f"[{company}] Checking link {links_visited + 1}: {link['url']} (method: {link['method']})")
                         await page.goto(link['url'], wait_until='domcontentloaded', timeout=15000)
                         links_visited += 1
-                        
+
                         link_html = await page.content()
-                        
-                        # First check if this is a career page
                         sections = extract_visible_sections(link_html, link['url'])
                         full_content = ' '.join(
                             section['text'] for section in sections.values() if section['text']
-                        )[:6000]  # Limit content for career page check
-                        
+                        )[:6000]
+
                         career_prompt = PROMPT_CAREER_PAGE_CHECK.format(content=full_content)
                         career_result = await ask_llama_async(career_prompt, api_semaphore)
-                        
+
                         if not career_result.get("is_career_page"):
-                            logger.debug(f"[{company}] Not a career page: {link['url']} - {career_result.get('explanation')}")
                             continue
-                        
-                        logger.info(f"[{company}] Confirmed career page: {link['url']} - {career_result.get('explanation')}")
-                        
-                        # Extract job sections for job discovery
+
                         job_sections = extract_job_sections(link_html)
-                        job_content = " ".join(job_sections)[:8000]  # Limit for job discovery
-                        
+                        job_content = " ".join(job_sections)[:8000]
                         job_prompt = PROMPT_JOB_DISCOVERY.format(content=job_content)
                         job_result = await ask_llama_async(job_prompt, api_semaphore)
-                        
+
                         if job_result.get("has_job_listings") and job_result.get("job_listings"):
                             jobs_found = job_result["job_listings"]
                             career_url_found = link['url']
-                            
-                            # Ensure each job has the company name
                             for job in jobs_found:
                                 if 'company' not in job:
                                     job['company'] = company
-                            
                             logger.info(f"[{company}] JOBS FOUND! {len(jobs_found)} jobs at {career_url_found}")
-                            break
-                        else:
-                            logger.debug(f"[{company}] No jobs found on career page: {link['url']}")
-                            
-                    except Exception as e:
-                        logger.debug(f"[{company}] Failed to check link {link['url']}: {e}")
+                            break  # EARLY EXIT: jobs found
+
+                        # Try clicking "Get Info" or similar buttons
+                        buttons = await page.query_selector_all("button, a")
+                        for btn in buttons:
+                            btn_text = (await btn.inner_text()).strip().lower()
+                            if any(keyword in btn_text for keyword in ["get info", "show jobs", "view jobs", "see jobs", "open positions", "see openings"]):
+                                try:
+                                    await btn.click()
+                                    await asyncio.sleep(1)
+                                    clicked_html = await page.content()
+                                    job_sections2 = extract_job_sections(clicked_html)
+                                    job_content2 = " ".join(job_sections2)[:8000]
+                                    job_prompt2 = PROMPT_JOB_DISCOVERY.format(content=job_content2)
+                                    job_result2 = await ask_llama_async(job_prompt2, api_semaphore)
+                                    if job_result2.get("has_job_listings") and job_result2.get("job_listings"):
+                                        jobs_found = job_result2["job_listings"]
+                                        career_url_found = link['url']
+                                        for job in jobs_found:
+                                            if 'company' not in job:
+                                                job['company'] = company
+                                        logger.info(f"[{company}] JOBS FOUND after clicking! {len(jobs_found)} jobs at {career_url_found}")
+                                        break
+                                except Exception:
+                                    continue
+                        if jobs_found:
+                            break  # EARLY EXIT: jobs found
+
+                    except Exception:
                         continue
-                
-                # Prepare final result
+
                 result = {
                     "company": company,
                     "homepage_url": homepage_url,
@@ -404,13 +409,9 @@ async def process_company(browser: Browser, company: str, homepage_url: str,
                     "status": "success",
                     "timestamp": time.time()
                 }
-                
-                status_msg = f"Found {len(jobs_found)} jobs" if jobs_found else f"No jobs found after checking {links_visited} links"
-                logger.info(f"[{company}] Processing complete: {status_msg}")
                 return result
-                
+
             except Exception as e:
-                logger.error(f"[{company}] Attempt {attempt + 1} failed: {str(e)}")
                 if attempt < MAX_RETRIES:
                     await asyncio.sleep(2 ** attempt)
                     continue
@@ -558,14 +559,16 @@ async def main():
         logger.error(f"Error reading CSV: {e}")
         return
     
-    # Prepare company list
+    # Prepare company list (deduplicate by name and homepage)
+    seen = set()
     companies = []
     for idx, row in df.iterrows():
         company_name = str(row['Company Name']).strip()
-        
-        # Use Homepage URL (we'll find career pages from there)
         homepage_url = row['Homepage URL']
-        
+        key = (company_name.lower(), str(homepage_url).strip().lower())
+        if key in seen:
+            continue
+        seen.add(key)
         if pd.notna(homepage_url) and homepage_url.strip():
             url = normalize_url(str(homepage_url).strip())
             if not url:

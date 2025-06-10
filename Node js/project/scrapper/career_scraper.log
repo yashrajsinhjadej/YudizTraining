@@ -1,0 +1,4 @@
+2025-06-09 18:54:42 - ERROR - Start scraping error: cannot import name 'CHUNK_SIZE' from 'merge' (C:\YudizTraining\Node js\project\scrapper\merge.py)
+2025-06-09 18:54:49 - ERROR - Start scraping error: cannot import name 'CHUNK_SIZE' from 'merge' (C:\YudizTraining\Node js\project\scrapper\merge.py)
+2025-06-09 21:43:44 - ERROR - Start scraping error: cannot import name 'CHUNK_SIZE' from 'merge' (C:\YudizTraining\Node js\project\scrapper\merge.py)
+2025-06-09 21:46:22 - ERROR - Start scraping error: cannot import name 'CHUNK_SIZE' from 'merge' (C:\YudizTraining\Node js\project\scrapper\merge.py)

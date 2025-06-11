@@ -19,15 +19,19 @@ import logging
 from werkzeug.utils import secure_filename
 import uuid
 import google.generativeai as genai
+import dotenv
+
+# Load environment variables from .env file
+dotenv.load_dotenv()
 
 # =========================
 # API CONFIGURATION SECTION
 # =========================
-GEMINI_API_KEY = "AIzaSyDrx1bak78RAWnHOOW8Oi4FeVjInuRTmPg"  # <-- INSERT YOUR GEMINI API KEY HERE
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")  # <-- INSERT YOUR GEMINI API KEY HERE
 GEMINI_MODEL = "gemini-2.0-flash"                                 # <-- Gemini model name
 EMBEDDING_MODEL = 'all-MiniLM-L6-v2'
 UPLOAD_FOLDER = tempfile.gettempdir()
-SECRET_KEY = "your_secret_key"  # Change this for production
+SECRET_KEY = os.environ.get("SECRET_KEY")  # Change this for production
 # =========================
 
 # Configure logging

@@ -1,0 +1,6 @@
+Flask
+sentence-transformers
+scikit-learn
+PyPDF2
+requests
+google-generativeai

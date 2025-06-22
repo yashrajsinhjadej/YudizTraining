@@ -1,0 +1,255 @@
+[
+  {
+    "name": "Uplift AI",
+    "description": "Foundational Voice AI focused on languages spoken in Pakistan",
+    "location": "Lahore, Punjab, Pakistan",
+    "tags": [
+      "Summer 2025B2B",
+      "Summer 2025",
+      "B2B"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/uplift-ai",
+    "index": 1,
+    "website": "https://upliftai.org/",
+    "founders": [
+      {
+        "founderName": "Hammad Malik",
+        "linkedinUrl": "https://www.linkedin.com/in/hammad2"
+      },
+      {
+        "founderName": "Zaid Qureshi",
+        "linkedinUrl": "https://linkedin.com/in/zaidqureshi"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Vulcan Technologies",
+    "description": "AI legal cartography",
+    "location": "",
+    "tags": [
+      "Summer 2025B2BLegal",
+      "Summer 2025",
+      "B2B",
+      "Legal"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/vulcan-technologies",
+    "index": 2,
+    "website": "https://www.vulcan-tech.com/",
+    "founders": [
+      {
+        "founderName": "Tanner Jones",
+        "linkedinUrl": "https://www.linkedin.com/in/tanner-jones-817192167/"
+      },
+      {
+        "founderName": "Aleksander Mekhanik",
+        "linkedinUrl": "https://www.linkedin.com/in/alek-mekhanik-41547b272/"
+      },
+      {
+        "founderName": "Chris Minge",
+        "linkedinUrl": "https://www.linkedin.com/in/chrisminge"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Magnetic",
+    "description": "AI tax preparation for CPAs",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025B2BProductivity",
+      "Summer 2025",
+      "B2B",
+      "Productivity"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/magnetic",
+    "index": 3,
+    "website": "https://www.magnetictax.com",
+    "founders": [
+      {
+        "founderName": "Patrick Fay",
+        "linkedinUrl": "https://linkedin.com/in/patrick-fay-5418a822"
+      },
+      {
+        "founderName": "Thomas Shelley",
+        "linkedinUrl": "https://linkedin.com/in/thomasjshelley"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Reacher",
+    "description": "AI platform to scale brand x creator partnerships 10x faster",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025B2B",
+      "Summer 2025",
+      "B2B"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/reacher",
+    "index": 4,
+    "website": "https://reacherapp.com/",
+    "founders": [
+      {
+        "founderName": "Bora Mutluoglu",
+        "linkedinUrl": "https://linkedin.com/in/bora-mutluoglu"
+      },
+      {
+        "founderName": "Jerry Qian",
+        "linkedinUrl": "https://linkedin.com/in/j-qian"
+      }
+    ],
+    "jobs": [
+      {
+        "title": "Frontend Engineer",
+        "job_link": "/companies/reacher/jobs/uktNKUk-frontend-engineer",
+        "location": "Remote (US)",
+        "experience": "$80K - $150K",
+        "apply_link": "https://account.ycombinator.com/authenticate?continue=https%3A%2F%2Fwww.workatastartup.com%2Fapplication%3Fsignup_job_id%3D77519&defaults%5BsignUpActive%5D=true&defaults%5Bwaas_company%5D=30761"
+      },
+      {
+        "title": "Product Designer",
+        "job_link": "/companies/reacher/jobs/8xS3lar-product-designer",
+        "location": "Remote (US)",
+        "experience": "$115K - $175K",
+        "apply_link": "https://account.ycombinator.com/authenticate?continue=https%3A%2F%2Fwww.workatastartup.com%2Fapplication%3Fsignup_job_id%3D77651&defaults%5BsignUpActive%5D=true&defaults%5Bwaas_company%5D=30761"
+      }
+    ]
+  },
+  {
+    "name": "Pally",
+    "description": "Pally is an AI Relationship Management Platform",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025B2BProductivity",
+      "Summer 2025",
+      "B2B",
+      "Productivity"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/pally",
+    "index": 5,
+    "website": "https://pally.com",
+    "founders": [
+      {
+        "founderName": "Haz Hubble",
+        "linkedinUrl": "https://linkedin.com/in/hazhubble"
+      },
+      {
+        "founderName": "Wyatt Lansford",
+        "linkedinUrl": "https://www.linkedin.com/in/wyattlansford"
+      }
+    ],
+    "jobs": [
+      {
+        "title": "Founding Engineer (Backend)",
+        "job_link": "/companies/pally/jobs/FfzehWK-founding-engineer-backend",
+        "location": "San Francisco, CA, US",
+        "experience": "$120K - $240K",
+        "apply_link": "https://account.ycombinator.com/authenticate?continue=https%3A%2F%2Fwww.workatastartup.com%2Fapplication%3Fsignup_job_id%3D77211&defaults%5BsignUpActive%5D=true&defaults%5Bwaas_company%5D=30755"
+      }
+    ]
+  },
+  {
+    "name": "Idler",
+    "description": "AI employees that handle the work, so people can do the magic.",
+    "location": "",
+    "tags": [
+      "Summer 2025B2BOperations",
+      "Summer 2025",
+      "B2B",
+      "Operations"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/idler",
+    "index": 6,
+    "website": "https://idler.ai/",
+    "founders": [
+      {
+        "founderName": "Ivan Chub",
+        "linkedinUrl": "https://www.linkedin.com/in/ivanchub/"
+      },
+      {
+        "founderName": "Nalu Concepcion",
+        "linkedinUrl": "https://linkedin.com/in/nalu-concepcion/"
+      },
+      {
+        "founderName": "Tony Goss",
+        "linkedinUrl": "https://www.linkedin.com/in/tony-goss-a53732132"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Perseus Defense",
+    "description": "Autonomous micro-missiles for Counter UxS.",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025IndustrialsDrones",
+      "Summer 2025",
+      "Industrials",
+      "Drones"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/perseus-defense",
+    "index": 7,
+    "website": "https://perseusdefense.ai",
+    "founders": [
+      {
+        "founderName": "Jason Cornelius",
+        "linkedinUrl": "https://www.linkedin.com/in/jason-k-cornelius/"
+      },
+      {
+        "founderName": "Steve Messinger",
+        "linkedinUrl": "https://www.linkedin.com/in/steve-messinger-a32680155/"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Cyberdesk",
+    "description": "Self hostable fleet of virtual desktops to build computer use agents",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025B2BInfrastructure",
+      "Summer 2025",
+      "B2B",
+      "Infrastructure"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/cyberdesk",
+    "index": 8,
+    "website": "https://www.cyberdesk.io",
+    "founders": [
+      {
+        "founderName": "Mahmoud Al-Madi",
+        "linkedinUrl": "https://www.linkedin.com/in/mahmoudalmadi/"
+      },
+      {
+        "founderName": "Alan Duong",
+        "linkedinUrl": "https://linkedin.com/in/alanduong07"
+      }
+    ],
+    "jobs": []
+  },
+  {
+    "name": "Halluminate",
+    "description": "Data and environments to train computer use AI",
+    "location": "San Francisco, CA, USA",
+    "tags": [
+      "Summer 2025B2B",
+      "Summer 2025",
+      "B2B"
+    ],
+    "profileUrl": "https://www.ycombinator.com/companies/halluminate",
+    "index": 9,
+    "website": "https://halluminate.ai/",
+    "founders": [
+      {
+        "founderName": "Wyatt Marshall",
+        "linkedinUrl": "https://linkedin.com/in/wyatt-marshall-a40797198"
+      },
+      {
+        "founderName": "Jerry Wu",
+        "linkedinUrl": "https://www.linkedin.com/in/jerry-wu-7814b0100/details/experience/"
+      }
+    ],
+    "jobs": []
+  }
+]
